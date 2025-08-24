@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript練習 - Lesson5 イベント処理</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><span class="material-icons">menu_book</span> JavaScript Lesson5</h1>
+        <p>ユーザー操作に反応するインタラクティブな機能を作ろう！</p>
+      </div>
+
+      <div class="content">
+        <!-- Step1: 基本的なクリック処理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">mouse</span> Step1: 基本的なクリック処理
+            <span class="use-case">実際の使用場面: ボタン操作、メニュー開閉、画面切り替え</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step1">
+              <div class="step-label">L5-S1-1: 基本クリック</div>
+              <button id="clickBtn" class="demo-btn">クリックしてください</button>
+              <div id="message" class="step-content">message要素（初期値）</div>
+            </div>
+            <div class="step-item step1">
+              <div class="step-label">L5-S1-2: 色変更</div>
+              <button id="colorBtn" class="demo-btn">色を変更</button>
+              <div id="colorBox" class="color-box">colorBox要素</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step2: いいねボタン機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">thumb_up</span> Step2: いいねボタン機能
+            <span class="use-case">実際の使用場面: SNSのいいね、YouTube高評価、記事評価</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step2">
+              <div class="step-label">L5-S2-1: いいねカウンター</div>
+              <button id="likeBtn" class="demo-btn like-btn"><span class="material-icons">thumb_up</span> いいね</button>
+              <div id="likeDisplay" class="step-content">likeDisplay要素（初期値）</div>
+            </div>
+            <div class="step-item step2">
+              <div class="step-label">L5-S2-2: ハートボタン</div>
+              <button id="heartBtn" class="demo-btn heart-btn"><span class="material-icons">favorite</span> ハート</button>
+              <div id="heartStatus" class="step-content">heartStatus要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step3: カウンター機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">pin</span> Step3: カウンター機能
+            <span class="use-case">実際の使用場面: 数量選択、ページビューカウント、訪問者数</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step3">
+              <div class="step-label">L5-S3-1: プラス・マイナスカウンター</div>
+              <div class="button-group">
+                <button id="plusBtn" class="demo-btn counter-btn">+</button>
+                <button id="minusBtn" class="demo-btn counter-btn">-</button>
+              </div>
+              <div id="counterDisplay" class="step-content">counterDisplay要素（初期値）</div>
+            </div>
+            <div class="step-item step3">
+              <div class="step-label">L5-S3-2: 数量選択</div>
+              <div class="button-group">
+                <button id="increaseBtn" class="demo-btn counter-btn">増加</button>
+                <button id="decreaseBtn" class="demo-btn counter-btn">減少</button>
+              </div>
+              <div id="quantityShow" class="step-content">quantityShow要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step4: 表示・非表示の切り替え -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">visibility</span> Step4: 表示・非表示の切り替え
+            <span class="use-case">実際の使用場面: メニューの開閉、詳細情報の表示、FAQ展開</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step4">
+              <div class="step-label">L5-S4-1: トグル切り替え</div>
+              <button id="toggleBtn" class="demo-btn">表示切り替え</button>
+              <div id="content" class="toggle-content">この内容が表示・非表示されます</div>
+            </div>
+            <div class="step-item step4">
+              <div class="step-label">L5-S4-2: 詳細表示・非表示</div>
+              <button id="showHideBtn" class="demo-btn">表示</button>
+              <div id="infoBox" class="info-box hidden">詳細情報がここに表示されます</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step5: 入力フィールドの処理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">keyboard</span> Step5: 入力フィールドの処理
+            <span class="use-case">実際の使用場面: 検索ボックス、チャット入力、コメント投稿</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step5">
+              <div class="step-label">L5-S5-1: リアルタイム入力表示</div>
+              <input type="text" id="textInput" class="demo-input" placeholder="ここに入力してください" />
+              <div id="inputDisplay" class="step-content">inputDisplay要素（初期値）</div>
+            </div>
+            <div class="step-item step5">
+              <div class="step-label">L5-S5-2: 文字数カウンター</div>
+              <input type="text" id="searchInput" class="demo-input" placeholder="検索語を入力" />
+              <div id="charCount" class="step-content">charCount要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step6: 色変更機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">palette</span> Step6: 色変更機能
+            <span class="use-case">実際の使用場面: テーマ切り替え、カラーピッカー、カスタマイズ</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step6">
+              <div class="step-label">L5-S6-1: カラーボタン</div>
+              <div class="button-group">
+                <button id="redBtn" class="demo-btn color-btn red">赤</button>
+                <button id="blueBtn" class="demo-btn color-btn blue">青</button>
+                <button id="greenBtn" class="demo-btn color-btn green">緑</button>
+              </div>
+              <div id="colorArea" class="color-area">色が変わります</div>
+            </div>
+            <div class="step-item step6">
+              <div class="step-label">L5-S6-2: 色状態表示</div>
+              <div id="colorStatus" class="step-content">colorStatus要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step7: リスト追加機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">edit_note</span> Step7: リスト追加機能
+            <span class="use-case">実際の使用場面: ToDoリスト、ショッピングカート、プレイリスト</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step7">
+              <div class="step-label">L5-S7-1: ToDoリスト</div>
+              <div class="input-group">
+                <input type="text" id="todoInput" class="demo-input" placeholder="タスクを入力" />
+                <button id="addBtn" class="demo-btn">追加</button>
+              </div>
+              <div id="todoDisplay" class="step-content">todoDisplay要素（初期値）</div>
+            </div>
+            <div class="step-item step7">
+              <div class="step-label">L5-S7-2: ショッピングカート</div>
+              <button id="addToCart" class="demo-btn">カートに追加</button>
+              <div id="cartList" class="step-content">cartList要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step8: 選択機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">track_changes</span> Step8: 選択機能
+            <span class="use-case">実際の使用場面: タブ切り替え、メニュー選択、フィルター</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step8">
+              <div class="step-label">L5-S8-1: タブ切り替え</div>
+              <div class="tab-group">
+                <button id="tab1" class="demo-btn tab-btn">タブ1</button>
+                <button id="tab2" class="demo-btn tab-btn">タブ2</button>
+                <button id="tab3" class="demo-btn tab-btn">タブ3</button>
+              </div>
+            </div>
+            <div class="step-item step8">
+              <div class="step-label">L5-S8-2: オプション選択</div>
+              <div class="option-group">
+                <button id="option1" class="demo-btn option-btn">オプション1</button>
+                <button id="option2" class="demo-btn option-btn">オプション2</button>
+                <button id="option3" class="demo-btn option-btn">オプション3</button>
+              </div>
+              <div id="selectionStatus" class="step-content">selectionStatus要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step9: フォーム送信処理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">email</span> Step9: フォーム送信処理
+            <span class="use-case">実際の使用場面: お問い合わせフォーム、ログインフォーム、アンケート</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step9">
+              <div class="step-label">L5-S9-1: 基本フォーム</div>
+              <div class="form-group">
+                <input type="text" id="nameInput" class="demo-input" placeholder="お名前" />
+                <input type="email" id="emailInput" class="demo-input" placeholder="メールアドレス" />
+                <button id="submitBtn" class="demo-btn submit-btn">送信</button>
+              </div>
+              <div id="formResult" class="step-content">formResult要素（初期値）</div>
+            </div>
+            <div class="step-item step9">
+              <div class="step-label">L5-S9-2: ログインフォーム</div>
+              <div class="form-group">
+                <input type="text" id="usernameInput" class="demo-input" placeholder="ユーザー名" />
+                <button id="loginBtn" class="demo-btn login-btn">ログイン</button>
+              </div>
+              <div id="loginStatus" class="step-content">loginStatus要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step10: 複合的なインタラクション -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">emoji_events</span> Step10: 複合的なインタラクション
+            <span class="use-case">実際の使用場面: ゲーム機能、複雑なUI操作、リアルタイム更新</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step10">
+              <div class="step-label">L5-S10-1: ゲーム機能</div>
+              <button id="gameBtn" class="demo-btn game-btn"><span class="material-icons">stadia_controller</span> ゲームボタン</button>
+              <div id="gameStatus" class="step-content">gameStatus要素（初期値）</div>
+            </div>
+            <div class="step-item step10">
+              <div class="step-label">L5-S10-2: タスク管理</div>
+              <div class="task-group">
+                <input type="text" id="taskInput" class="demo-input" placeholder="新しいタスク" />
+                <button id="addTaskBtn" class="demo-btn">追加</button>
+                <button id="completeBtn" class="demo-btn complete-btn">完了</button>
+              </div>
+              <div id="taskSummary" class="step-content">taskSummary要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンソール出力表示エリア -->
+        <div class="console-output">
+          <h3><span class="material-icons">laptop_mac</span> コンソール出力確認エリア</h3>
+          <div id="console-display">ブラウザの開発者ツールで、コンソールにエラーや不要な出力がないか確認してください</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p><span class="material-icons">school</span> JavaScript初学者向け練習教材 - Lesson5: イベント処理をマスターしよう！</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson2: DOM操作 - JavaScript学習</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><span class="material-icons">web</span> Lesson2: DOM操作</h1>
+            <p>Webページの要素を動的に操作してインタラクティブなページを作ろう</p>
+        </header>
+
+        <main class="content">
+            <!-- Step1: 要素の取得 -->
+            <section class="section" id="step1">
+                <h2 class="section-title">
+                    <span class="material-icons">search</span> Step1: 要素の取得
+                    <span class="use-case">実際の使用場面: ボタンクリック処理、フォーム要素の取得、動的コンテンツ更新</span>
+                </h2>
+                
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="1" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="1" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="1" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="1" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const element = document.getElementById("title");<br>console.log(element.tagName);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q1-1" value="title">title</label>
+                                    <label><input type="radio" name="q1-1" value="DIV">DIV</label>
+                                    <label><input type="radio" name="q1-1" value="element">element</label>
+                                    <label><input type="radio" name="q1-1" value="undefined">undefined</label>
+                                </div>
+                                <div id="result1-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const buttons = document.querySelectorAll(".btn");<br>console.log(buttons.length);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q1-2" value="1">1</label>
+                                    <label><input type="radio" name="q1-2" value="3">3</label>
+                                    <label><input type="radio" name="q1-2" value="undefined">undefined</label>
+                                    <label><input type="radio" name="q1-2" value="NodeList">NodeList</label>
+                                </div>
+                                <div id="result1-2" class="result"></div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="checkQuiz('q1-1', 'DIV', 'result1-1'); checkQuiz('q1-2', '3', 'result1-2')" class="step-complete-btn">答えを確認</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="1" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：要素取得のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// ID「title」の要素を取得</p>
+                            <p>const titleElement = document.<input type="text" id="fill1-1" placeholder="メソッド名">("<input type="text" id="fill1-2" placeholder="ID名">");</p>
+                            <br>
+                            <p>// クラス「item」の最初の要素を取得</p>
+                            <p>const itemElement = document.<input type="text" id="fill1-3" placeholder="メソッド名">("<input type="text" id="fill1-4" placeholder="セレクタ">");</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill1-1', 'fill1-2', 'fill1-3', 'fill1-4'], ['getElementById', 'title', 'querySelector', '.item'], 'fillResult1')">答え合わせ</button>
+                        <div id="fillResult1" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="1" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S1-1: 要素取得の基本</div>
+                            <div class="task">L2-S1-2: セレクタ使用</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step2: テキスト内容の操作 -->
+            <section class="section" id="step2">
+                <h2 class="section-title">
+                    <span class="material-icons">text_fields</span> Step2: テキスト内容の操作
+                    <span class="use-case">実際の使用場面: ニュース記事の更新、商品情報表示、エラーメッセージ表示</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="2" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="2" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="2" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="2" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const heading = document.getElementById("title");<br>heading.textContent = "新しいタイトル";<br>console.log(heading.textContent);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q2-1" value="title">title</label>
+                                    <label><input type="radio" name="q2-1" value="新しいタイトル">新しいタイトル</label>
+                                    <label><input type="radio" name="q2-1" value="undefined">undefined</label>
+                                    <label><input type="radio" name="q2-1" value="null">null</label>
+                                </div>
+                                <div id="result2-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const content = document.getElementById("box");<br>content.innerHTML = "&lt;strong&gt;重要&lt;/strong&gt;";<br>console.log(content.innerHTML);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q2-2" value="重要">&lt;strong&gt;重要&lt;/strong&gt;</label>
+                                    <label><input type="radio" name="q2-2" value="strong">重要</label>
+                                    <label><input type="radio" name="q2-2" value="innerHTML">innerHTML</label>
+                                    <label><input type="radio" name="q2-2" value="undefined">undefined</label>
+                                </div>
+                                <div id="result2-2" class="result"></div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="checkQuiz('q2-1', '新しいタイトル', 'result2-1'); checkQuiz('q2-2', '重要', 'result2-2')" class="step-complete-btn">答えを確認</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="2" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：テキスト変更のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 要素のテキストを「Hello」に変更</p>
+                            <p>element.<input type="text" id="fill2-1" placeholder="プロパティ名"> = "<input type="text" id="fill2-2" placeholder="テキスト">";</p>
+                            <br>
+                            <p>// 要素のHTML内容を変更</p>
+                            <p>element.<input type="text" id="fill2-3" placeholder="プロパティ名"> = "<span>&lt;strong&gt;</span><input type="text" id="fill2-4" placeholder="テキスト"><span>&lt;/strong&gt;</span>";</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill2-1', 'fill2-2', 'fill2-3', 'fill2-4'], ['textContent', 'Hello', 'innerHTML', 'Bold Text'], 'fillResult2')">答え合わせ</button>
+                        <div id="fillResult2" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="2" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S2-1: テキスト内容変更</div>
+                            <div class="task">L2-S2-2: HTML内容変更</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step3: 属性の操作 -->
+            <section class="section" id="step3">
+                <h2 class="section-title">
+                    <span class="material-icons">settings</span> Step3: 属性の操作
+                    <span class="use-case">実際の使用場面: リンク先の変更、画像の切り替え、フォームの無効化</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="3" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="3" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="3" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="3" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const link = document.getElementById("myLink");<br>link.setAttribute("href", "https://example.com");<br>console.log(link.getAttribute("href"));</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q3-1" value="myLink">myLink</label>
+                                    <label><input type="radio" name="q3-1" value="https://example.com">https://example.com</label>
+                                    <label><input type="radio" name="q3-1" value="href">href</label>
+                                    <label><input type="radio" name="q3-1" value="null">null</label>
+                                </div>
+                                <div id="result3-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const img = document.getElementById("photo");<br>console.log(img.hasAttribute("alt"));</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q3-2" value="true">true</label>
+                                    <label><input type="radio" name="q3-2" value="false">false</label>
+                                    <label><input type="radio" name="q3-2" value="alt">alt</label>
+                                    <label><input type="radio" name="q3-2" value="undefined">undefined</label>
+                                </div>
+                                <div id="result3-2" class="result"></div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="checkQuiz('q3-1', 'https://example.com', 'result3-1'); checkQuiz('q3-2', 'true', 'result3-2')" class="step-complete-btn">答えを確認</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="3" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：属性操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// src属性を取得</p>
+                            <p>const src = img.<input type="text" id="fill3-1" placeholder="メソッド名">("<input type="text" id="fill3-2" placeholder="属性名">");</p>
+                            <br>
+                            <p>// class属性を設定</p>
+                            <p>div.<input type="text" id="fill3-3" placeholder="メソッド名">("<input type="text" id="fill3-4" placeholder="属性名">", "active");</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill3-1', 'fill3-2', 'fill3-3', 'fill3-4'], ['getAttribute', 'src', 'setAttribute', 'class'], 'fillResult3')">答え合わせ</button>
+                        <div id="fillResult3" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="3" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S3-1: 画像のsrc属性変更</div>
+                            <div class="task">L2-S3-2: 要素のclass属性操作</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step4: スタイルの操作 -->
+            <section class="section" id="step4">
+                <h2 class="section-title">
+                    <span class="material-icons">palette</span> Step4: スタイルの操作
+                    <span class="use-case">実際の使用場面: ボタンの状態変化、テーマの切り替え、ホバー効果</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="4" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="4" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="4" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="4" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const box = document.getElementById("myBox");<br>box.style.backgroundColor = "blue";<br>console.log(box.style.backgroundColor);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q4-1" value="myBox">myBox</label>
+                                    <label><input type="radio" name="q4-1" value="blue">blue</label>
+                                    <label><input type="radio" name="q4-1" value="backgroundColor">backgroundColor</label>
+                                    <label><input type="radio" name="q4-1" value="red">red</label>
+                                </div>
+                                <div id="result4-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const card = document.getElementById("card");<br>card.classList.add("active");<br>console.log(card.classList.contains("active"));</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q4-2" value="true">true</label>
+                                    <label><input type="radio" name="q4-2" value="false">false</label>
+                                    <label><input type="radio" name="q4-2" value="active">active</label>
+                                    <label><input type="radio" name="q4-2" value="undefined">undefined</label>
+                                </div>
+                                <div id="result4-2" class="result"></div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="checkQuiz('q4-1', 'blue', 'result4-1'); checkQuiz('q4-2', 'true', 'result4-2')" class="step-complete-btn">答えを確認</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="4" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：スタイル操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 文字色を青に変更</p>
+                            <p>element.style.<input type="text" id="fill4-1" placeholder="プロパティ名"> = "<input type="text" id="fill4-2" placeholder="色">";</p>
+                            <br>
+                            <p>// activeクラスを追加</p>
+                            <p>element.<input type="text" id="fill4-3" placeholder="プロパティ名">.<input type="text" id="fill4-4" placeholder="メソッド名">("active");</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill4-1', 'fill4-2', 'fill4-3', 'fill4-4'], ['color', 'blue', 'classList', 'add'], 'fillResult4')">答え合わせ</button>
+                        <div id="fillResult4" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="4" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S4-1: 直接スタイル変更</div>
+                            <div class="task">L2-S4-2: クラス操作</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step5: イベント処理 -->
+            <section class="section" id="step5">
+                <h2 class="section-title">
+                    <span class="material-icons">touch_app</span> Step5: イベント処理
+                    <span class="use-case">実際の使用場面: ボタンクリック、フォーム送信、メニュー開閉</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="5" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="5" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="5" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="5" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const btn = document.getElementById("myBtn");<br>btn.addEventListener("click", function() {<br>&nbsp;&nbsp;console.log("クリックされました");<br>});</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q5-1" value="クリックされました">クリックされました（ボタンをクリックした時）</label>
+                                    <label><input type="radio" name="q5-1" value="myBtn">myBtn</label>
+                                    <label><input type="radio" name="q5-1" value="何も表示されない">何も表示されない</label>
+                                    <label><input type="radio" name="q5-1" value="エラー">エラー</label>
+                                </div>
+                                <div id="result5-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const input = document.getElementById("textInput");<br>input.addEventListener("change", function() {<br>&nbsp;&nbsp;console.log("値が変更されました");<br>});</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q5-2" value="値が変更されました">値が変更されました（入力値を変更した時）</label>
+                                    <label><input type="radio" name="q5-2" value="textInput">textInput</label>
+                                    <label><input type="radio" name="q5-2" value="change">change</label>
+                                    <label><input type="radio" name="q5-2" value="エラー">エラー</label>
+                                </div>
+                                <div id="result5-2" class="result"></div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="checkQuiz('q5-1', 'クリックされました', 'result5-1'); checkQuiz('q5-2', '値が変更されました', 'result5-2')" class="step-complete-btn">答えを確認</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="5" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：イベント処理のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// ボタンクリック時の処理</p>
+                            <p>button.<input type="text" id="fill5-1" placeholder="メソッド名">("<input type="text" id="fill5-2" placeholder="イベント名">", function() {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;console.log("クリック!");</p>
+                            <p>});</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill5-1', 'fill5-2'], ['addEventListener', 'click'], 'fillResult5')">答え合わせ</button>
+                        <div id="fillResult5" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="5" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S5-1: ボタンクリック処理</div>
+                            <div class="task">L2-S5-2: 入力値変更処理</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step6: 要素の作成と削除 -->
+            <section class="section" id="step6">
+                <h2 class="section-title">
+                    <span class="material-icons">add_circle</span> Step6: 要素の作成と削除
+                    <span class="use-case">実際の使用場面: コメント追加、タグ作成、動的リスト生成</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="6" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="6" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="6" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="6" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const newDiv = document.createElement("div");<br>newDiv.textContent = "新しい要素";<br>console.log(newDiv.tagName);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q6-1" value="DIV">DIV</label>
+                                    <label><input type="radio" name="q6-1" value="div">div</label>
+                                    <label><input type="radio" name="q6-1" value="新しい要素">新しい要素</label>
+                                    <label><input type="radio" name="q6-1" value="newDiv">newDiv</label>
+                                </div>
+                                <div id="result6-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <div class="quiz-code">const parent = document.getElementById("container");<br>const child = document.createElement("p");<br>parent.appendChild(child);<br>console.log(parent.children.length);</div>
+                                <div class="choices">
+                                    <label><input type="radio" name="q6-2" value="0">0</label>
+                                    <label><input type="radio" name="q6-2" value="1">1</label>
+                                    <label><input type="radio" name="q6-2" value="container">container</label>
+                                    <label><input type="radio" name="q6-2" value="undefined">undefined</label>
+                                </div>
+                                <div id="result6-2" class="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="6" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：要素作成のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 新しいdiv要素を作成</p>
+                            <p>const newDiv = document.<input type="text" id="fill6-1" placeholder="メソッド名">("<input type="text" id="fill6-2" placeholder="要素名">");</p>
+                            <br>
+                            <p>// 親要素に追加</p>
+                            <p>parent.<input type="text" id="fill6-3" placeholder="メソッド名">(newDiv);</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill6-1', 'fill6-2', 'fill6-3'], ['createElement', 'div', 'appendChild'], 'fillResult6')">答え合わせ</button>
+                        <div id="fillResult6" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="6" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S6-1: 新しい要素作成と追加</div>
+                            <div class="task">L2-S6-2: 要素の削除</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step7: フォーム操作 -->
+            <section class="section" id="step7">
+                <h2 class="section-title">
+                    <span class="material-icons">input</span> Step7: フォーム操作
+                    <span class="use-case">value, checked, disabled</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="7" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="7" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="7" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="7" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 入力フィールドの値を取得するプロパティは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q7-1" value="value">value</label>
+                                    <label><input type="radio" name="q7-1" value="text">text</label>
+                                    <label><input type="radio" name="q7-1" value="content">content</label>
+                                    <label><input type="radio" name="q7-1" value="input">input</label>
+                                </div>
+                                <button onclick="checkQuiz('q7-1', 'value', 'result7-1')">答え合わせ</button>
+                                <div id="result7-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: チェックボックスの選択状態を調べるプロパティは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q7-2" value="checked">checked</label>
+                                    <label><input type="radio" name="q7-2" value="selected">selected</label>
+                                    <label><input type="radio" name="q7-2" value="active">active</label>
+                                    <label><input type="radio" name="q7-2" value="value">value</label>
+                                </div>
+                                <button onclick="checkQuiz('q7-2', 'checked', 'result7-2')">答え合わせ</button>
+                                <div id="result7-2" class="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="7" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：フォーム操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 入力フィールドの値を取得</p>
+                            <p>const inputValue = input.<input type="text" id="fill7-1" placeholder="プロパティ名">;</p>
+                            <br>
+                            <p>// チェックボックスをチェック状態にする</p>
+                            <p>checkbox.<input type="text" id="fill7-2" placeholder="プロパティ名"> = <input type="text" id="fill7-3" placeholder="値">;</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill7-1', 'fill7-2', 'fill7-3'], ['value', 'checked', 'true'], 'fillResult7')">答え合わせ</button>
+                        <div id="fillResult7" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="7" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S7-1: 入力値の取得と設定</div>
+                            <div class="task">L2-S7-2: チェックボックス操作</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step8: 条件付きDOM操作 -->
+            <section class="section" id="step8">
+                <h2 class="section-title">
+                    <span class="material-icons">visibility</span> Step8: 条件付きDOM操作
+                    <span class="use-case">表示・非表示、条件による処理分岐</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="8" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="8" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="8" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="8" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 要素を非表示にするスタイルは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q8-1" value="none">display = "none"</label>
+                                    <label><input type="radio" name="q8-1" value="hidden">display = "hidden"</label>
+                                    <label><input type="radio" name="q8-1" value="invisible">display = "invisible"</label>
+                                    <label><input type="radio" name="q8-1" value="hide">display = "hide"</label>
+                                </div>
+                                <button onclick="checkQuiz('q8-1', 'none', 'result8-1')">答え合わせ</button>
+                                <div id="result8-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 要素を表示するスタイルは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q8-2" value="block">display = "block"</label>
+                                    <label><input type="radio" name="q8-2" value="show">display = "show"</label>
+                                    <label><input type="radio" name="q8-2" value="visible">display = "visible"</label>
+                                    <label><input type="radio" name="q8-2" value="on">display = "on"</label>
+                                </div>
+                                <button onclick="checkQuiz('q8-2', 'block', 'result8-2')">答え合わせ</button>
+                                <div id="result8-2" class="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="8" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：条件付きDOM操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 条件によって要素を表示・非表示</p>
+                            <p>if (condition) {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;element.style.<input type="text" id="fill8-1" placeholder="プロパティ名"> = "<input type="text" id="fill8-2" placeholder="表示値">";</p>
+                            <p>} else {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;element.style.<input type="text" id="fill8-3" placeholder="プロパティ名"> = "<input type="text" id="fill8-4" placeholder="非表示値">";</p>
+                            <p>}</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill8-1', 'fill8-2', 'fill8-3', 'fill8-4'], ['display', 'block', 'display', 'none'], 'fillResult8')">答え合わせ</button>
+                        <div id="fillResult8" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="8" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S8-1: 条件による表示切り替え</div>
+                            <div class="task">L2-S8-2: 入力値による条件分岐</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step9: ループとDOM操作 -->
+            <section class="section" id="step9">
+                <h2 class="section-title">
+                    <span class="material-icons">repeat</span> Step9: ループとDOM操作
+                    <span class="use-case">配列データの表示、動的リスト作成</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="9" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="9" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="9" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="9" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 配列の各要素を処理するループは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q9-1" value="forEach">forEach()</label>
+                                    <label><input type="radio" name="q9-1" value="forLoop">forLoop()</label>
+                                    <label><input type="radio" name="q9-1" value="each">each()</label>
+                                    <label><input type="radio" name="q9-1" value="loop">loop()</label>
+                                </div>
+                                <button onclick="checkQuiz('q9-1', 'forEach', 'result9-1')">答え合わせ</button>
+                                <div id="result9-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: 複数の要素を一度に処理するメソッドは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q9-2" value="querySelectorAll">querySelectorAll()</label>
+                                    <label><input type="radio" name="q9-2" value="querySelector">querySelector()</label>
+                                    <label><input type="radio" name="q9-2" value="getAllElements">getAllElements()</label>
+                                    <label><input type="radio" name="q9-2" value="selectAll">selectAll()</label>
+                                </div>
+                                <button onclick="checkQuiz('q9-2', 'querySelectorAll', 'result9-2')">答え合わせ</button>
+                                <div id="result9-2" class="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="9" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：ループとDOM操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 配列データをリストに表示</p>
+                            <p>items.<input type="text" id="fill9-1" placeholder="メソッド名">(function(item) {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;const li = document.<input type="text" id="fill9-2" placeholder="メソッド名">("li");</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;li.textContent = item;</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;list.appendChild(li);</p>
+                            <p>});</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill9-1', 'fill9-2'], ['forEach', 'createElement'], 'fillResult9')">答え合わせ</button>
+                        <div id="fillResult9" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="9" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S9-1: 配列データのリスト表示</div>
+                            <div class="task">L2-S9-2: 動的テーブル作成</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step10: 実践的なDOM操作 -->
+            <section class="section" id="step10">
+                <h2 class="section-title">
+                    <span class="material-icons">build</span> Step10: 実践的なDOM操作
+                    <span class="use-case">Todoアプリ、モーダル、タブ機能</span>
+                </h2>
+
+                <div class="step-tabs">
+                    <button class="tab-btn active" data-step="10" data-tab="quiz">
+                        <span class="material-icons">quiz</span>クイズ
+                    </button>
+                    <button class="tab-btn" data-step="10" data-tab="fillblank">
+                        <span class="material-icons">edit</span>穴埋め
+                    </button>
+                    <button class="tab-btn" data-step="10" data-tab="drill">
+                        <span class="material-icons">assignment</span>提出課題
+                    </button>
+                </div>
+
+                <div class="tab-content active" data-step="10" data-tab="quiz">
+                    <div class="quiz-container">
+                        <div class="quiz-grid">
+                            <div class="question">
+                                <h4>Q1: 要素が存在するかチェックする方法は？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q10-1" value="null">element !== null</label>
+                                    <label><input type="radio" name="q10-1" value="exists">element.exists()</label>
+                                    <label><input type="radio" name="q10-1" value="isExist">element.isExist()</label>
+                                    <label><input type="radio" name="q10-1" value="hasElement">hasElement()</label>
+                                </div>
+                                <button onclick="checkQuiz('q10-1', 'null', 'result10-1')">答え合わせ</button>
+                                <div id="result10-1" class="result"></div>
+                            </div>
+
+                            <div class="question">
+                                <h4>Q2: イベントの伝播を停止するメソッドは？</h4>
+                                <div class="choices">
+                                    <label><input type="radio" name="q10-2" value="stopPropagation">stopPropagation()</label>
+                                    <label><input type="radio" name="q10-2" value="stopEvent">stopEvent()</label>
+                                    <label><input type="radio" name="q10-2" value="preventDefault">preventDefault()</label>
+                                    <label><input type="radio" name="q10-2" value="cancelEvent">cancelEvent()</label>
+                                </div>
+                                <button onclick="checkQuiz('q10-2', 'stopPropagation', 'result10-2')">答え合わせ</button>
+                                <div id="result10-2" class="result"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="10" data-tab="fillblank">
+                    <div class="fillblank-container">
+                        <h4>穴埋め問題：実践的なDOM操作のコードを完成させよう</h4>
+                        
+                        <div class="code-block">
+                            <p>// 要素の存在確認</p>
+                            <p>const element = document.getElementById("target");</p>
+                            <p>if (element <input type="text" id="fill10-1" placeholder="演算子"> <input type="text" id="fill10-2" placeholder="値">) {</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;element.style.display = "block";</p>
+                            <p>}</p>
+                        </div>
+                        
+                        <button onclick="checkFillBlank(['fill10-1', 'fill10-2'], ['!==', 'null'], 'fillResult10')">答え合わせ</button>
+                        <div id="fillResult10" class="result"></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-step="10" data-tab="drill">
+                    <div class="drill-container">
+                        <p class="drill-description">
+                            以下の課題をcurriculum.jsファイルに記述してください：
+                        </p>
+                        <div class="drill-tasks">
+                            <div class="task">L2-S10-1: 簡単なTodoアプリ</div>
+                            <div class="task">L2-S10-2: モーダル表示機能</div>
+                            <div class="task">L2-S10-3: タブ切り替え機能</div>
+                            <div class="task">L2-S10-4: フォームバリデーション</div>
+                            <div class="task">L2-S10-5: 画像ギャラリー</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- トップへ戻るボタン -->
+        <button id="scrollToTop" class="scroll-to-top">
+            <span class="material-icons">keyboard_arrow_up</span>
+        </button>
+
+        <!-- 進捗表示 -->
+        <div class="progress-container">
+            <div class="progress-title">学習進捗</div>
+            <div class="progress-steps">
+                <div class="progress-step" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-title">要素取得</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-title">テキスト操作</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-title">属性操作</span>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <span class="step-number">4</span>
+                    <span class="step-title">スタイル操作</span>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <span class="step-number">5</span>
+                    <span class="step-title">イベント処理</span>
+                </div>
+                <div class="progress-step" data-step="6">
+                    <span class="step-number">6</span>
+                    <span class="step-title">要素作成削除</span>
+                </div>
+                <div class="progress-step" data-step="7">
+                    <span class="step-number">7</span>
+                    <span class="step-title">フォーム操作</span>
+                </div>
+                <div class="progress-step" data-step="8">
+                    <span class="step-number">8</span>
+                    <span class="step-title">条件付き操作</span>
+                </div>
+                <div class="progress-step" data-step="9">
+                    <span class="step-number">9</span>
+                    <span class="step-title">ループ操作</span>
+                </div>
+                <div class="progress-step" data-step="10">
+                    <span class="step-number">10</span>
+                    <span class="step-title">実践応用</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

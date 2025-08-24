@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript練習 - Lesson4 配列操作</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><span class="material-icons">menu_book</span> JavaScript Lesson4</h1>
+        <p>配列とfor文を組み合わせて動的なデータ処理をマスターしよう！</p>
+      </div>
+
+      <div class="content">
+        <!-- Step1: 配列の基本操作 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">list_alt</span> Step1: 配列の基本操作
+            <span class="use-case">実際の使用場面: 商品リスト、ユーザー名簿、メニュー項目</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step1">
+              <div class="step-label">L4-S1-1: 果物配列の操作</div>
+              <div id="firstFruit" class="step-content">firstFruit要素（初期値）</div>
+            </div>
+            <div class="step-item step1">
+              <div class="step-label">L4-S1-2: 色配列の長さ確認</div>
+              <div id="colorCount" class="step-content">colorCount要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step2: 配列の全要素表示 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">edit_note</span> Step2: 配列の全要素表示
+            <span class="use-case">実際の使用場面: 商品一覧、カテゴリ一覧、参加者リスト</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step2">
+              <div class="step-label">L4-S2-1: 商品一覧表示</div>
+              <div id="productList" class="step-content">productList要素（初期値）</div>
+            </div>
+            <div class="step-item step2">
+              <div class="step-label">L4-S2-2: 都市リスト表示</div>
+              <div id="cityList" class="step-content">cityList要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step3: 配列要素の個別処理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">paid</span> Step3: 配列要素の個別処理
+            <span class="use-case">実際の使用場面: 価格表示、ユーザーステータス、在庫情報</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step3">
+              <div class="step-label">L4-S3-1: 価格表示</div>
+              <div id="priceList" class="step-content">priceList要素（初期値）</div>
+            </div>
+            <div class="step-item step3">
+              <div class="step-label">L4-S3-2: スコア評価</div>
+              <div id="scoreDisplay" class="step-content">scoreDisplay要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step4: 配列での条件抽出 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">search</span> Step4: 配列での条件抽出
+            <span class="use-case">実際の使用場面: 検索結果、フィルタリング、条件に合う商品表示</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step4">
+              <div class="step-label">L4-S4-1: 成人年齢抽出</div>
+              <div id="adultAges" class="step-content">adultAges要素（初期値）</div>
+            </div>
+            <div class="step-item step4">
+              <div class="step-label">L4-S4-2: 高温日カウント</div>
+              <div id="hotDays" class="step-content">hotDays要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step5: 配列への要素追加 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">add</span> Step5: 配列への要素追加
+            <span class="use-case">実際の使用場面: ショッピングカート、お気に入りリスト、タスク追加</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step5">
+              <div class="step-label">L4-S5-1: カート商品追加</div>
+              <div id="cartItems" class="step-content">cartItems要素（初期値）</div>
+            </div>
+            <div class="step-item step5">
+              <div class="step-label">L4-S5-2: プレイリスト追加</div>
+              <div id="musicList" class="step-content">musicList要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step6: 配列からの要素削除 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">remove</span> Step6: 配列からの要素削除
+            <span class="use-case">実際の使用場面: カートから商品削除、完了タスクの削除</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step6">
+              <div class="step-label">L4-S6-1: タスク削除</div>
+              <div id="remainingTasks" class="step-content">remainingTasks要素（初期値）</div>
+            </div>
+            <div class="step-item step6">
+              <div class="step-label">L4-S6-2: 通知削除</div>
+              <div id="activeNotifications" class="step-content">activeNotifications要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step7: 配列の検索機能 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">search</span> Step7: 配列の検索機能
+            <span class="use-case">実際の使用場面: ユーザー検索、商品検索、データ存在チェック</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step7">
+              <div class="step-label">L4-S7-1: ユーザー検索</div>
+              <div id="searchResult" class="step-content">searchResult要素（初期値）</div>
+            </div>
+            <div class="step-item step7">
+              <div class="step-label">L4-S7-2: 商品在庫検索</div>
+              <div id="itemStatus" class="step-content">itemStatus要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step8: 複数配列の連携処理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">link</span> Step8: 複数配列の連携処理
+            <span class="use-case">実際の使用場面: 商品名と価格、ユーザー名とステータスの組み合わせ</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step8">
+              <div class="step-label">L4-S8-1: 商品と価格の組み合わせ</div>
+              <div id="itemList" class="step-content">itemList要素（初期値）</div>
+            </div>
+            <div class="step-item step8">
+              <div class="step-label">L4-S8-2: 上位プレイヤー表示</div>
+              <div id="topPlayers" class="step-content">topPlayers要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step9: 動的リスト管理 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">comment</span> Step9: 動的リスト管理
+            <span class="use-case">実際の使用場面: コメント一覧、投稿リスト、メッセージ履歴</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step9">
+              <div class="step-label">L4-S9-1: コメント管理</div>
+              <div id="commentSection" class="step-content">commentSection要素（初期値）</div>
+            </div>
+            <div class="step-item step9">
+              <div class="step-label">L4-S9-2: チャット履歴</div>
+              <div id="chatHistory" class="step-content">chatHistory要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step10: 総合的な配列操作 -->
+        <div class="section">
+          <div class="section-title">
+            <span class="material-icons">emoji_events</span> Step10: 総合的な配列操作
+            <span class="use-case">実際の使用場面: ダッシュボード、在庫管理、ユーザー管理システム</span>
+          </div>
+          <div class="step-grid">
+            <div class="step-item step10">
+              <div class="step-label">L4-S10-1: 在庫レポート</div>
+              <div id="stockReport" class="step-content">stockReport要素（初期値）</div>
+            </div>
+            <div class="step-item step10">
+              <div class="step-label">L4-S10-2: 合格者管理</div>
+              <div id="passedStudents" class="step-content">passedStudents要素（初期値）</div>
+              <div id="passCount" class="step-content step-sub">passCount要素（初期値）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- コンソール出力表示エリア -->
+        <div class="console-output">
+          <h3><span class="material-icons">laptop_mac</span> コンソール出力確認エリア</h3>
+          <div id="console-display">ブラウザの開発者ツールで、コンソールにエラーや不要な出力がないか確認してください</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p><span class="material-icons">school</span> JavaScript初学者向け練習教材 - Lesson4: 配列操作をマスターしよう！</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
