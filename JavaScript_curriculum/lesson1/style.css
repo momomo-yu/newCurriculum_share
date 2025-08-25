@@ -97,7 +97,7 @@
   display: block;
 }
 
-/* クイズスタイル */
+/* 出力予想スタイル */
 .quiz-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -105,7 +105,7 @@
   margin-bottom: 15px;
 }
 
-/* 穴あき問題スタイル */
+/* コード補完スタイル */
 .fillblank-grid {
   gap: 30px;
 }
@@ -128,7 +128,7 @@
   font-size: 16px;
 }
 
-/* 穴あき問題のタイトル+コードブロックのセット */
+/* コード補完のタイトル+コードブロックのセット */
 .fillblank-grid .question h4 + .code-block {
   margin-bottom: 15px;
 }
@@ -152,7 +152,7 @@
   font-size: 16px;
 }
 
-/* クイズ内のコードスタイル */
+/* 出力予想内のコードスタイル */
 .quiz-code {
   font-family: 'Courier New', monospace;
   background: #1f2937;
@@ -232,7 +232,7 @@
   color: var(--text-color);
 }
 
-/* 穴あき問題スタイル */
+/* コード補完スタイル */
 .code-block {
   font-family: 'Courier New', monospace;
   background: #1f2937;

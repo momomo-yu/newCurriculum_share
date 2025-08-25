@@ -95,10 +95,10 @@ function scrollToStep(stepNumber) {
 }
 
 // ===================================
-// クイズ機能 - DOM操作用
+// 出力予想機能 - DOM操作用
 // ===================================
 
-// クイズの答え合わせ（DOM操作用）
+// 出力予想の答え合わせ（DOM操作用）
 function checkQuiz(questionName, correctAnswer, resultId) {
   const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
   const resultDiv = document.getElementById(resultId);
@@ -114,61 +114,61 @@ function checkQuiz(questionName, correctAnswer, resultId) {
     // エラーメッセージは各問題に応じてカスタマイズ
     let errorMessage = '';
     
-    // Step1のクイズ
+    // Step1の出力予想
     if (questionName === 'q1-1') {
       errorMessage = '不正解。正解は「document.getElementById("message")」です。IDで要素を取得する基本的なメソッドです。';
     } else if (questionName === 'q1-2') {
       errorMessage = '不正解。正解は「document.querySelector(".button")」です。クラス名で要素を取得する際は先頭にドット(.)が必要です。';
     }
-    // Step2のクイズ
+    // Step2の出力予想
     else if (questionName === 'q2-1') {
       errorMessage = '不正解。正解は「textContent」です。要素のテキスト内容を安全に変更するプロパティです。';
     } else if (questionName === 'q2-2') {
       errorMessage = '不正解。正解は「innerHTML」です。HTMLタグを含む内容を設定する際に使用します。';
     }
-    // Step3のクイズ
+    // Step3の出力予想
     else if (questionName === 'q3-1') {
       errorMessage = '不正解。正解は「getAttribute()」です。要素の属性値を取得するメソッドです。';
     } else if (questionName === 'q3-2') {
       errorMessage = '不正解。正解は「setAttribute()」です。要素の属性を設定するメソッドです。';
     }
-    // Step4のクイズ
+    // Step4の出力予想
     else if (questionName === 'q4-1') {
       errorMessage = '不正解。正解は「element.style.backgroundColor = "red"」です。CSS背景色プロパティはbackgroundColorです。';
     } else if (questionName === 'q4-2') {
       errorMessage = '不正解。正解は「classList.add()」です。CSSクラスを追加するメソッドです。';
     }
-    // Step5のクイズ
+    // Step5の出力予想
     else if (questionName === 'q5-1') {
       errorMessage = '不正解。正解は「addEventListener()」です。イベントリスナーを追加する標準的なメソッドです。';
     } else if (questionName === 'q5-2') {
       errorMessage = '不正解。正解は「element.addEventListener("click", function)」です。イベント名は"click"（小文字）です。';
     }
-    // Step6のクイズ
+    // Step6の出力予想
     else if (questionName === 'q6-1') {
       errorMessage = '不正解。正解は「createElement()」です。新しいDOM要素を作成するメソッドです。';
     } else if (questionName === 'q6-2') {
       errorMessage = '不正解。正解は「appendChild()」です。子要素を親要素に追加するメソッドです。';
     }
-    // Step7のクイズ
+    // Step7の出力予想
     else if (questionName === 'q7-1') {
       errorMessage = '不正解。正解は「value」です。入力フィールドの値を取得・設定するプロパティです。';
     } else if (questionName === 'q7-2') {
       errorMessage = '不正解。正解は「checked」です。チェックボックスの選択状態を調べるプロパティです。';
     }
-    // Step8のクイズ
+    // Step8の出力予想
     else if (questionName === 'q8-1') {
       errorMessage = '不正解。正解は「display = "none"」です。要素を非表示にするCSSプロパティです。';
     } else if (questionName === 'q8-2') {
       errorMessage = '不正解。正解は「display = "block"」です。要素を表示するCSSプロパティです。';
     }
-    // Step9のクイズ
+    // Step9の出力予想
     else if (questionName === 'q9-1') {
       errorMessage = '不正解。正解は「forEach()」です。配列の各要素に対して処理を実行するメソッドです。';
     } else if (questionName === 'q9-2') {
       errorMessage = '不正解。正解は「querySelectorAll()」です。複数の要素を一度に取得するメソッドです。';
     }
-    // Step10のクイズ
+    // Step10の出力予想
     else if (questionName === 'q10-1') {
       errorMessage = '不正解。正解は「element !== null」です。要素が存在するかをnullと比較してチェックします。';
     } else if (questionName === 'q10-2') {
@@ -180,10 +180,10 @@ function checkQuiz(questionName, correctAnswer, resultId) {
 }
 
 // ===================================
-// 穴埋め問題機能 - DOM操作用
+// コード補完問題機能 - DOM操作用
 // ===================================
 
-// 穴埋め問題の答え合わせ（DOM操作用）
+// コード補完問題の答え合わせ（DOM操作用）
 function checkFillBlank(inputIds, correctAnswers, resultId) {
   const resultDiv = document.getElementById(resultId);
   let allCorrect = true;

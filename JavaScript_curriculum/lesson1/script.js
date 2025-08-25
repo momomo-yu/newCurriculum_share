@@ -96,7 +96,7 @@ function scrollToStep(stepNumber) {
   }
 }
 
-// クイズの答え合わせ（全問まとめて）
+// 出力予想の答え合わせ（全問まとめて）
 function checkAllQuizAnswers() {
   const q1Selected = document.querySelector('input[name="q1"]:checked');
   const q2Selected = document.querySelector('input[name="q2"]:checked');
@@ -134,7 +134,7 @@ function checkAllQuizAnswers() {
   
 }
 
-// 穴あき問題の答え合わせ（Q1）
+// コード補完の答え合わせ（Q1）
 function checkFillBlank1() {
   const blank1 = document.getElementById('blank1').value.trim();
   const blank2 = document.getElementById('blank2').value.trim();
@@ -170,7 +170,7 @@ function checkFillBlank1() {
   
 }
 
-// 穴あき問題の答え合わせ（Q2）- Step1
+// コード補完の答え合わせ（Q2）- Step1
 function checkFillBlank2() {
   const blank4 = document.getElementById('blank4').value.trim();
   const blank5 = document.getElementById('blank5').value.trim();
@@ -206,7 +206,7 @@ function checkFillBlank2() {
   
 }
 
-// Step2のクイズの答え合わせ
+// Step2の出力予想の答え合わせ
 function checkQuiz2() {
   const q1Selected = document.querySelector('input[name="q2_1"]:checked');
   const q2Selected = document.querySelector('input[name="q2_2"]:checked');
@@ -233,7 +233,7 @@ function checkQuiz2() {
   
 }
 
-// Step2穴あき問題の答え合わせ（Q1）
+// Step2コード補完の答え合わせ（Q1）
 function checkFillBlank2_1() {
   const blank1 = document.getElementById('blank2_1').value.trim();
   const blank2 = document.getElementById('blank2_2').value.trim();
@@ -254,7 +254,7 @@ function checkFillBlank2_1() {
   
 }
 
-// Step2穴あき問題の答え合わせ（Q2）
+// Step2コード補完の答え合わせ（Q2）
 function checkFillBlank2_2() {
   const blank3 = document.getElementById('blank2_3').value.trim();
   const blank4 = document.getElementById('blank2_4').value.trim();
@@ -275,7 +275,7 @@ function checkFillBlank2_2() {
   
 }
 
-// Step3のクイズの答え合わせ
+// Step3の出力予想の答え合わせ
 function checkQuiz3() {
   const q1Selected = document.querySelector('input[name="q3_1"]:checked');
   const q2Selected = document.querySelector('input[name="q3_2"]:checked');
@@ -302,7 +302,7 @@ function checkQuiz3() {
   
 }
 
-// Step3穴あき問題の答え合わせ（Q1）
+// Step3コード補完の答え合わせ（Q1）
 function checkFillBlank3_1() {
   const blank1 = document.getElementById('blank3_1').value.trim();
   const result1Div = document.getElementById('fillblank3-result1');
@@ -317,7 +317,7 @@ function checkFillBlank3_1() {
   
 }
 
-// Step3穴あき問題の答え合わせ（Q2）
+// Step3コード補完の答え合わせ（Q2）
 function checkFillBlank3_2() {
   const blank2 = document.getElementById('blank3_2').value.trim();
   const result2Div = document.getElementById('fillblank3-result2');
@@ -332,7 +332,7 @@ function checkFillBlank3_2() {
   
 }
 
-// Step4のクイズの答え合わせ
+// Step4の出力予想の答え合わせ
 function checkQuiz4() {
   const q1Selected = document.querySelector('input[name="q4_1"]:checked');
   const q2Selected = document.querySelector('input[name="q4_2"]:checked');
@@ -358,7 +358,7 @@ function checkQuiz4() {
   }
 }
 
-// Step4穴あき問題の答え合わせ（Q1）
+// Step4コード補完の答え合わせ（Q1）
 function checkFillBlank4_1() {
   const blank1 = document.getElementById('blank4_1').value.trim();
   const blank2 = document.getElementById('blank4_2').value.trim();
@@ -378,7 +378,7 @@ function checkFillBlank4_1() {
   }
 }
 
-// Step4穴あき問題の答え合わせ（Q2）
+// Step4コード補完の答え合わせ（Q2）
 function checkFillBlank4_2() {
   const blank3 = document.getElementById('blank4_3').value.trim();
   const blank4 = document.getElementById('blank4_4').value.trim();
@@ -398,7 +398,7 @@ function checkFillBlank4_2() {
   }
 }
 
-// Step5のクイズの答え合わせ
+// Step5の出力予想の答え合わせ
 function checkQuiz5() {
   const q1Selected = document.querySelector('input[name="q5_1"]:checked');
   const q2Selected = document.querySelector('input[name="q5_2"]:checked');
@@ -411,7 +411,7 @@ function checkQuiz5() {
   } else if (q1Selected.value === 'b') {
     result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
-    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「180」です。先に30 * 2 = 60、次に120 + 60 = 180です。</span>';
+    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「13」です。a = 10、b = 3 なので 10 + 3 = 13です。</span>';
   }
   
   // Q2の答え合わせ
@@ -420,11 +420,11 @@ function checkQuiz5() {
   } else if (q2Selected.value === 'b') {
     result2Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
-    result2Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「2」です。console.log(17 % 5)の出力結果は2です。</span>';
+    result2Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「1」です。x = 7、y = 2 なので 7 % 2 = 1です。</span>';
   }
 }
 
-// Step5穴あき問題の答え合わせ（Q1）
+// Step5コード補完の答え合わせ（Q1）
 function checkFillBlank5_1() {
   const blank1 = document.getElementById('blank5_1').value.trim();
   const blank2 = document.getElementById('blank5_2').value.trim();
@@ -444,7 +444,7 @@ function checkFillBlank5_1() {
   }
 }
 
-// Step5穴あき問題の答え合わせ（Q2）
+// Step5コード補完の答え合わせ（Q2）
 function checkFillBlank5_2() {
   const blank3 = document.getElementById('blank5_3').value.trim();
   const blank4 = document.getElementById('blank5_4').value.trim();
@@ -464,7 +464,7 @@ function checkFillBlank5_2() {
   }
 }
 
-// Step6のクイズの答え合わせ
+// Step6の出力予想の答え合わせ
 function checkQuiz6() {
   const q1Selected = document.querySelector('input[name="q6_1"]:checked');
   const q2Selected = document.querySelector('input[name="q6_2"]:checked');
@@ -490,7 +490,7 @@ function checkQuiz6() {
   }
 }
 
-// Step6穴あき問題の答え合わせ（Q1）
+// Step6コード補完の答え合わせ（Q1）
 function checkFillBlank6_1() {
   const blank1 = document.getElementById('blank6_1').value.trim();
   const blank2 = document.getElementById('blank6_2').value.trim();
@@ -510,7 +510,7 @@ function checkFillBlank6_1() {
   }
 }
 
-// Step6穴あき問題の答え合わせ（Q2）
+// Step6コード補完の答え合わせ（Q2）
 function checkFillBlank6_2() {
   const blank3 = document.getElementById('blank6_3').value.trim();
   const blank4 = document.getElementById('blank6_4').value.trim();
@@ -530,7 +530,7 @@ function checkFillBlank6_2() {
   }
 }
 
-// Step7のクイズの答え合わせ
+// Step7の出力予想の答え合わせ
 function checkQuiz7() {
   const q1Selected = document.querySelector('input[name="q7_1"]:checked');
   const q2Selected = document.querySelector('input[name="q7_2"]:checked');
@@ -540,76 +540,10 @@ function checkQuiz7() {
   // Q1の答え合わせ
   if (!q1Selected) {
     result1Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
-  } else if (q1Selected.value === 'b') {
-    result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
-  } else {
-    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「false」です。===は型も含めて厳密比較するため、文字列"5"と数値5は異なります。</span>';
-  }
-  
-  // Q2の答え合わせ
-  if (!q2Selected) {
-    result2Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
-  } else if (q2Selected.value === 'a') {
-    result2Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
-  } else {
-    result2Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「true」です。20は18以上なので>=の結果はtrueです。</span>';
-  }
-}
-
-// Step7穴あき問題の答え合わせ（Q1）
-function checkFillBlank7_1() {
-  const blank1 = document.getElementById('blank7_1').value.trim();
-  const blank2 = document.getElementById('blank7_2').value.trim();
-  const result1Div = document.getElementById('fillblank7-result1');
-  
-  const correct1 = blank1 === 'const';
-  const correct2 = blank2 === '===';
-  
-  if (correct1 && correct2) {
-    result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
-  } else {
-    let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
-    if (!correct1) feedback += '1つ目は「const」 ';
-    if (!correct2) feedback += '2つ目は「===」 ';
-    feedback += 'です。</span>';
-    result1Div.innerHTML = feedback;
-  }
-}
-
-// Step7穴あき問題の答え合わせ（Q2）
-function checkFillBlank7_2() {
-  const blank3 = document.getElementById('blank7_3').value.trim();
-  const blank4 = document.getElementById('blank7_4').value.trim();
-  const result2Div = document.getElementById('fillblank7-result2');
-  
-  const correct3 = blank3 === 'let';
-  const correct4 = blank4 === '>=';
-  
-  if (correct3 && correct4) {
-    result2Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
-  } else {
-    let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
-    if (!correct3) feedback += '1つ目は「let」 ';
-    if (!correct4) feedback += '2つ目は「>=」 ';
-    feedback += 'です。</span>';
-    result2Div.innerHTML = feedback;
-  }
-}
-
-// Step8のクイズの答え合わせ
-function checkQuiz8() {
-  const q1Selected = document.querySelector('input[name="q8_1"]:checked');
-  const q2Selected = document.querySelector('input[name="q8_2"]:checked');
-  const result1Div = document.getElementById('quiz8-result1');
-  const result2Div = document.getElementById('quiz8-result2');
-  
-  // Q1の答え合わせ
-  if (!q1Selected) {
-    result1Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
   } else if (q1Selected.value === 'a') {
     result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
-    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「Hello World」です。文字列結合の結果は文字列になります。</span>';
+    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「Hello World」です。文字列結合の結果が出力されます。</span>';
   }
   
   // Q2の答え合わせ
@@ -622,31 +556,31 @@ function checkQuiz8() {
   }
 }
 
-// Step8穴あき問題の答え合わせ（Q1）
-function checkFillBlank8_1() {
-  const blank1 = document.getElementById('blank8_1').value.trim();
-  const blank2 = document.getElementById('blank8_2').value.trim();
-  const result1Div = document.getElementById('fillblank8-result1');
+// Step7コード補完の答え合わせ（Q1）
+function checkFillBlank7_1() {
+  const blank1 = document.getElementById('blank7_1').value.trim();
+  const blank2 = document.getElementById('blank7_2').value.trim();
+  const result1Div = document.getElementById('fillblank7-result1');
   
-  const correct1 = blank1 === 'const';
+  const correct1 = blank1 === 'let';
   const correct2 = blank2 === '+';
   
   if (correct1 && correct2) {
     result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
     let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
-    if (!correct1) feedback += '1つ目は「const」 ';
+    if (!correct1) feedback += '1つ目は「let」 ';
     if (!correct2) feedback += '2つ目は「+」 ';
     feedback += 'です。</span>';
     result1Div.innerHTML = feedback;
   }
 }
 
-// Step8穴あき問題の答え合わせ（Q2）
-function checkFillBlank8_2() {
-  const blank3 = document.getElementById('blank8_3').value.trim();
-  const blank4 = document.getElementById('blank8_4').value.trim();
-  const result2Div = document.getElementById('fillblank8-result2');
+// Step7コード補完の答え合わせ（Q2）
+function checkFillBlank7_2() {
+  const blank3 = document.getElementById('blank7_3').value.trim();
+  const blank4 = document.getElementById('blank7_4').value.trim();
+  const result2Div = document.getElementById('fillblank7-result2');
   
   const correct3 = blank3 === 'let';
   const correct4 = blank4 === '+';
@@ -662,7 +596,73 @@ function checkFillBlank8_2() {
   }
 }
 
-// Step9のクイズの答え合わせ
+// Step8の出力予想の答え合わせ
+function checkQuiz8() {
+  const q1Selected = document.querySelector('input[name="q8_1"]:checked');
+  const q2Selected = document.querySelector('input[name="q8_2"]:checked');
+  const result1Div = document.getElementById('quiz8-result1');
+  const result2Div = document.getElementById('quiz8-result2');
+  
+  // Q1の答え合わせ
+  if (!q1Selected) {
+    result1Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
+  } else if (q1Selected.value === 'c') {
+    result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
+  } else {
+    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「エラー」です。constで宣言した変数には再代入できません。</span>';
+  }
+  
+  // Q2の答え合わせ
+  if (!q2Selected) {
+    result2Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
+  } else if (q2Selected.value === 'b') {
+    result2Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
+  } else {
+    result2Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「価格: 500円」です。数値と文字列を+で結合すると文字列になります。</span>';
+  }
+}
+
+// Step8コード補完の答え合わせ（Q1）
+function checkFillBlank8_1() {
+  const blank1 = document.getElementById('blank8_1').value.trim();
+  const blank2 = document.getElementById('blank8_2').value.trim();
+  const result1Div = document.getElementById('fillblank8-result1');
+  
+  const correct1 = blank1 === 'let';
+  const correct2 = blank2 === '100';
+  
+  if (correct1 && correct2) {
+    result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
+  } else {
+    let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
+    if (!correct1) feedback += '1つ目は「let」 ';
+    if (!correct2) feedback += '2つ目は数値（例：100） ';
+    feedback += 'です。</span>';
+    result1Div.innerHTML = feedback;
+  }
+}
+
+// Step8コード補完の答え合わせ（Q2）
+function checkFillBlank8_2() {
+  const blank3 = document.getElementById('blank8_3').value.trim();
+  const blank4 = document.getElementById('blank8_4').value.trim();
+  const result2Div = document.getElementById('fillblank8-result2');
+  
+  const correct3 = blank3 === 'const';
+  const correct4 = blank4 === '3.14';
+  
+  if (correct3 && correct4) {
+    result2Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
+  } else {
+    let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
+    if (!correct3) feedback += '1つ目は「const」 ';
+    if (!correct4) feedback += '2つ目は数値（例：3.14） ';
+    feedback += 'です。</span>';
+    result2Div.innerHTML = feedback;
+  }
+}
+
+// Step9の出力予想の答え合わせ
 function checkQuiz9() {
   const q1Selected = document.querySelector('input[name="q9_1"]:checked');
   const q2Selected = document.querySelector('input[name="q9_2"]:checked');
@@ -688,7 +688,7 @@ function checkQuiz9() {
   }
 }
 
-// Step9穴あき問題の答え合わせ（Q1）
+// Step9コード補完の答え合わせ（Q1）
 function checkFillBlank9_1() {
   const blank1 = document.getElementById('blank9_1').value.trim();
   const blank2 = document.getElementById('blank9_2').value.trim();
@@ -717,7 +717,7 @@ function checkFillBlank9_1() {
   }
 }
 
-// Step9穴あき問題の答え合わせ（Q2）
+// Step9コード補完の答え合わせ（Q2）
 function checkFillBlank9_2() {
   const blank6 = document.getElementById('blank9_6').value.trim();
   const blank7 = document.getElementById('blank9_7').value.trim();

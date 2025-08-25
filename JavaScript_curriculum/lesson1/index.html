@@ -24,12 +24,12 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz">
             <div class="quiz-container">
               <div class="quiz-grid">
@@ -62,7 +62,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -122,12 +122,12 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz2"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank2"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz2"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank2"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill2"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz2">
             <div class="quiz-container">
               <div class="quiz-grid">
@@ -160,7 +160,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank2">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -220,18 +220,18 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz3"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank3"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz3"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank3"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill3"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz3">
             <div class="quiz-container">
               <div class="quiz-grid">
                 <div class="question">
                   <h4>Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">typeof "Hello"</div>
+                  <div class="quiz-code">console.log(typeof "Hello");</div>
                   <div class="choices">
                     <label><input type="radio" name="q3_1" value="a"> "Hello"</label>
                     <label><input type="radio" name="q3_1" value="b"> "string"</label>
@@ -258,7 +258,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank3">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -291,11 +291,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S3-1</span>
-                    様々な値の型をtypeof演算子で確認し、コンソールに表示（文字列、数値、真偽値など）
+                    変数名 `message` に文字列で自由な文章を保存し、データ型と値をコンソールに表示
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S3-2</span>
-                    数値と文字列を組み合わせた時の型を確認（例: "Age: " + 25）し、結果と型をコンソールに表示
+                    変数名 `score` に数値を保存し、データ型と値をコンソールに表示
                   </div>
                 </div>
                 
@@ -317,12 +317,12 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz4"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank4"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz4"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank4"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill4"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz4">
             <div class="quiz-container">
               <div class="quiz-grid">
@@ -355,7 +355,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank4">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -389,11 +389,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S4-1</span>
-                    変数名 `isActive` にtrue、変数名 `isComplete` にfalseを保存し、それぞれの型をコンソールに表示
+                    変数名 `isActive` にtrue、変数名 `isComplete` にfalseを保存し、それぞれデータ型と値をコンソールに表示
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S4-2</span>
-                    変数名 `emptyData` にnull、変数名 `unsetValue` にundefinedを保存し、それぞれの型をコンソールに表示
+                    変数名 `emptyData` にnull、変数名 `unsetValue` にundefinedを保存し、それぞれデータ型と値をコンソールに表示
                   </div>
                 </div>
                 
@@ -415,35 +415,35 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz5"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank5"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz5"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank5"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill5"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz5">
             <div class="quiz-container">
               <div class="quiz-grid">
                 <div class="question">
                   <h4>Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">120 + 30 * 2</div>
+                  <div class="quiz-code">let a = 10;<br>let b = 3;<br>console.log(a + b);</div>
                   <div class="choices">
-                    <label><input type="radio" name="q5_1" value="a"> 300</label>
-                    <label><input type="radio" name="q5_1" value="b"> 180</label>
-                    <label><input type="radio" name="q5_1" value="c"> 150</label>
-                    <label><input type="radio" name="q5_1" value="d"> 240</label>
+                    <label><input type="radio" name="q5_1" value="a"> 10</label>
+                    <label><input type="radio" name="q5_1" value="b"> 13</label>
+                    <label><input type="radio" name="q5_1" value="c"> 30</label>
+                    <label><input type="radio" name="q5_1" value="d"> 3</label>
                   </div>
                   <div id="quiz5-result1" class="result"></div>
                 </div>
                 
                 <div class="question">
                   <h4>Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">console.log(17 % 5);</div>
+                  <div class="quiz-code">let x = 7;<br>let y = 2;<br>console.log(x % y);</div>
                   <div class="choices">
                     <label><input type="radio" name="q5_2" value="a"> 3</label>
-                    <label><input type="radio" name="q5_2" value="b"> 2</label>
-                    <label><input type="radio" name="q5_2" value="c"> 5</label>
-                    <label><input type="radio" name="q5_2" value="d"> 12</label>
+                    <label><input type="radio" name="q5_2" value="b"> 1</label>
+                    <label><input type="radio" name="q5_2" value="c"> 7</label>
+                    <label><input type="radio" name="q5_2" value="d"> 2</label>
                   </div>
                   <div id="quiz5-result2" class="result"></div>
                 </div>
@@ -453,7 +453,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank5">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -467,10 +467,10 @@
                 </div>
                 
                 <div class="question">
-                  <h4>Q2: 奇数・偶数判定に使う余り演算のコードの空欄を埋めてください。</h4>
+                  <h4>Q2: 数値23を3で割った余りを計算し、コンソールに表示するコードの空欄を埋めてください。</h4>
                   <div class="code-block">
-                    <input type="text" id="blank5_3" placeholder="___"> remainder = number <input type="text" id="blank5_4" placeholder="___"> 2;<br>
-                    remainder = 15 % 2;
+                    <input type="text" id="blank5_3" placeholder="___"> remainder = 23 <input type="text" id="blank5_4" placeholder="___"> 3;<br>
+                    console.log(remainder);
                   </div>
                   <div id="fillblank5-result2" class="result"></div>
                   <button onclick="checkFillBlank5_2()" class="step-complete-btn">答えを確認</button>
@@ -513,18 +513,18 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz6"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank6"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz6"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank6"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill6"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz6">
             <div class="quiz-container">
               <div class="quiz-grid">
                 <div class="question">
                   <h4>Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">score = 50;<br>score += 30;</div>
+                  <div class="quiz-code">let score = 50;<br>score += 30;<br>console.log(score);</div>
                   <div class="choices">
                     <label><input type="radio" name="q6_1" value="a"> 50</label>
                     <label><input type="radio" name="q6_1" value="b"> 30</label>
@@ -551,7 +551,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank6">
             <div class="fillblank-container">
               <div class="fillblank-grid">
@@ -586,11 +586,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S6-1</span>
-                    変数 `points` に100を代入後、+=で50を加算、-=で20を減算し、各段階でコンソールに表示
+                    変数（適切な自由な名前）に100を代入後、代入演算子で50を加算、20を減算し、各段階でコンソールに表示
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S6-2</span>
-                    変数 `amount` に200を代入後、*=で1.5倍、/=で2で割り、各段階でコンソールに表示
+                    変数（適切な自由な名前）に200を代入後、代入演算子で1.5倍、2で割り、各段階でコンソールに表示
                   </div>
                 </div>
                 
@@ -603,44 +603,44 @@
           </div>
         </div>
 
-        <!-- Step7: 比較演算子 -->
+        <!-- Step7: 文字列結合 -->
         <div class="section">
           <div class="section-title">
-            <span class="material-icons">auto_awesome</span> Step7: 比較演算子
-            <span class="use-case">実際の使用場面: 年齢確認、価格比較、ランキング判定</span>
+            <span class="material-icons">auto_awesome</span> Step7: 文字列結合
+            <span class="use-case">実際の使用場面: メッセージ生成、表示テキスト作成</span>
           </div>
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz7"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank7"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz7"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank7"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill7"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz7">
             <div class="quiz-container">
               <div class="quiz-grid">
                 <div class="question">
                   <h4>Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">"5" === 5</div>
+                  <div class="quiz-code">console.log("Hello" + " World");</div>
                   <div class="choices">
-                    <label><input type="radio" name="q7_1" value="a"> true</label>
-                    <label><input type="radio" name="q7_1" value="b"> false</label>
-                    <label><input type="radio" name="q7_1" value="c"> エラー</label>
-                    <label><input type="radio" name="q7_1" value="d"> undefined</label>
+                    <label><input type="radio" name="q7_1" value="a"> Hello World</label>
+                    <label><input type="radio" name="q7_1" value="b"> "Hello World"</label>
+                    <label><input type="radio" name="q7_1" value="c"> HelloWorld</label>
+                    <label><input type="radio" name="q7_1" value="d"> エラー</label>
                   </div>
                   <div id="quiz7-result1" class="result"></div>
                 </div>
                 
                 <div class="question">
                   <h4>Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">20 >= 18</div>
+                  <div class="quiz-code">console.log("価格: " + 500 + "円");</div>
                   <div class="choices">
-                    <label><input type="radio" name="q7_2" value="a"> true</label>
-                    <label><input type="radio" name="q7_2" value="b"> false</label>
-                    <label><input type="radio" name="q7_2" value="c"> 20</label>
-                    <label><input type="radio" name="q7_2" value="d"> 18</label>
+                    <label><input type="radio" name="q7_2" value="a"> "価格: 500円"</label>
+                    <label><input type="radio" name="q7_2" value="b"> 価格: 500円</label>
+                    <label><input type="radio" name="q7_2" value="c"> エラー</label>
+                    <label><input type="radio" name="q7_2" value="d"> 500</label>
                   </div>
                   <div id="quiz7-result2" class="result"></div>
                 </div>
@@ -650,24 +650,25 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank7">
             <div class="fillblank-container">
               <div class="fillblank-grid">
                 <div class="question">
-                  <h4>Q1: 厳密等価比較のコードの空欄を埋めてください。再代入はありません。</h4>
+                  <h4>Q1: 文字列結合でメッセージを作成するコードの空欄を埋めてください。</h4>
                   <div class="code-block">
-                    <input type="text" id="blank7_1" placeholder="___"> isEqual = userAge <input type="text" id="blank7_2" placeholder="___"> 20;
+                    <input type="text" id="blank7_1" placeholder="___"> message = "こんにちは" <input type="text" id="blank7_2" placeholder="___"> "世界";<br>
+                    console.log(message);
                   </div>
                   <div id="fillblank7-result1" class="result"></div>
                   <button onclick="checkFillBlank7_1()" class="step-complete-btn">答えを確認</button>
                 </div>
                 
                 <div class="question">
-                  <h4>Q2: 大小比較のコードの空欄を埋めてください。</h4>
+                  <h4>Q2: 数値と文字列を結合するコードの空欄を埋めてください。</h4>
                   <div class="code-block">
-                    <input type="text" id="blank7_3" placeholder="___"> isAdult = age <input type="text" id="blank7_4" placeholder="___"> 18;<br>
-                    isAdult = 25 >= 18;
+                    <input type="text" id="blank7_3" placeholder="___"> result = "合計: " <input type="text" id="blank7_4" placeholder="___"> 100;<br>
+                    console.log(result);
                   </div>
                   <div id="fillblank7-result2" class="result"></div>
                   <button onclick="checkFillBlank7_2()" class="step-complete-btn">答えを確認</button>
@@ -684,11 +685,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S7-1</span>
-                    "10" == 10と"10" === 10の結果を比較し、==と===の違いをコンソールに表示
+                    ユーザー名と挨拶を組み合わせたメッセージを作成し、コンソールに表示
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S7-2</span>
-                    年齢制限チェック（18歳以上）と価格比較（1000円以下）の判定結果をコンソールに表示
+                    商品名、価格、在庫数を組み合わせた商品情報テキストを作成し、コンソールに表示
                   </div>
                 </div>
                 
@@ -701,44 +702,44 @@
           </div>
         </div>
 
-        <!-- Step8: 文字列結合 -->
+        <!-- Step8: 変数のスコープ -->
         <div class="section">
           <div class="section-title">
-            <span class="material-icons">auto_awesome</span> Step8: 文字列結合と演算子
-            <span class="use-case">実際の使用場面: メッセージ生成、表示テキスト作成</span>
+            <span class="material-icons">auto_awesome</span> Step8: 変数のスコープ
+            <span class="use-case">実際の使用場面: 関数内変数、ブロック内変数、グローバル変数の管理</span>
           </div>
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz8"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank8"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz8"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank8"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill8"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz8">
             <div class="quiz-container">
               <div class="quiz-grid">
                 <div class="question">
                   <h4>Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">"Hello" + " World"</div>
+                  <div class="quiz-code">const y = 5;<br>y = 10;<br>console.log(y);</div>
                   <div class="choices">
-                    <label><input type="radio" name="q8_1" value="a"> Hello World</label>
-                    <label><input type="radio" name="q8_1" value="b"> "Hello World"</label>
-                    <label><input type="radio" name="q8_1" value="c"> HelloWorld</label>
-                    <label><input type="radio" name="q8_1" value="d"> エラー</label>
+                    <label><input type="radio" name="q8_1" value="a"> 10</label>
+                    <label><input type="radio" name="q8_1" value="b"> 20</label>
+                    <label><input type="radio" name="q8_1" value="c"> エラー</label>
+                    <label><input type="radio" name="q8_1" value="d"> undefined</label>
                   </div>
                   <div id="quiz8-result1" class="result"></div>
                 </div>
                 
                 <div class="question">
                   <h4>Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">"価格: " + 500 + "円"</div>
+                  <div class="quiz-code">let x = 10;<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;let x = 20;<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br>}</div>
                   <div class="choices">
-                    <label><input type="radio" name="q8_2" value="a"> "価格: 500円"</label>
-                    <label><input type="radio" name="q8_2" value="b"> 価格: 500円</label>
+                    <label><input type="radio" name="q8_2" value="a"> 5</label>
+                    <label><input type="radio" name="q8_2" value="b"> 10</label>
                     <label><input type="radio" name="q8_2" value="c"> エラー</label>
-                    <label><input type="radio" name="q8_2" value="d"> 500</label>
+                    <label><input type="radio" name="q8_2" value="d"> undefined</label>
                   </div>
                   <div id="quiz8-result2" class="result"></div>
                 </div>
@@ -748,24 +749,27 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank8">
             <div class="fillblank-container">
               <div class="fillblank-grid">
                 <div class="question">
-                  <h4>Q1: 挨拶メッセージを作るコードの空欄を埋めてください。再代入はありません。</h4>
+                  <h4>Q1: ブロックスコープで変数を宣言するコードの空欄を埋めてください。</h4>
                   <div class="code-block">
-                    <input type="text" id="blank8_1" placeholder="___"> greeting = "こんにちは" <input type="text" id="blank8_2" placeholder="___"> "田中さん";
+                    {
+    <input type="text" id="blank8_1" placeholder="___"> localVar = <input type="text" id="blank8_2" placeholder="___">;<br>
+    console.log(localVar);
+}
                   </div>
                   <div id="fillblank8-result1" class="result"></div>
                   <button onclick="checkFillBlank8_1()" class="step-complete-btn">答えを確認</button>
                 </div>
                 
                 <div class="question">
-                  <h4>Q2: 商品情報を組み合わせるコードの空欄を埋めてください。</h4>
+                  <h4>Q2: 再代入不可の変数を宣言するコードの空欄を埋めてください。</h4>
                   <div class="code-block">
-                    <input type="text" id="blank8_3" placeholder="___"> productInfo = "商品名: " <input type="text" id="blank8_4" placeholder="___"> productName;<br>
-                    productInfo = "商品名: " + "ワイヤレスマウス";
+                    <input type="text" id="blank8_3" placeholder="___"> PI = <input type="text" id="blank8_4" placeholder="___">;<br>
+                    console.log(PI);
                   </div>
                   <div id="fillblank8-result2" class="result"></div>
                   <button onclick="checkFillBlank8_2()" class="step-complete-btn">答えを確認</button>
@@ -782,11 +786,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S8-1</span>
-                    ユーザー名と挨拶を組み合わせたメッセージを作成し、コンソールに表示
+                    グローバル変数とブロックスコープ内の同名変数を作成し、それぞれの値をコンソールに表示
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S8-2</span>
-                    商品名、価格、在庫数を組み合わせた商品情報テキストを作成し、コンソールに表示
+                    letとconstの違いを確認するコードを作成し、それぞれの動作をコンソールに表示
                   </div>
                 </div>
                 
@@ -808,12 +812,12 @@
           
           <!-- タブナビゲーション -->
           <div class="step-tabs">
-            <button class="tab-btn active" data-tab="quiz9"><span class="material-icons">quiz</span> クイズ</button>
-            <button class="tab-btn" data-tab="fillblank9"><span class="material-icons">build</span> 穴あき問題</button>
+            <button class="tab-btn active" data-tab="quiz9"><span class="material-icons">quiz</span> 出力予想</button>
+            <button class="tab-btn" data-tab="fillblank9"><span class="material-icons">build</span> コード補完</button>
             <button class="tab-btn" data-tab="drill9"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <!-- クイズ -->
+          <!-- 出力予想 -->
           <div class="tab-content active" id="quiz9">
             <div class="quiz-container">
               <div class="quiz-grid">
@@ -846,7 +850,7 @@
             </div>
           </div>
 
-          <!-- 穴あき問題 -->
+          <!-- コード補完 -->
           <div class="tab-content" id="fillblank9">
             <div class="fillblank-container">
               <div class="fillblank-grid">
