@@ -606,10 +606,10 @@ function checkQuiz8() {
   // Q1の答え合わせ
   if (!q1Selected) {
     result1Div.innerHTML = '<span style="color: orange;">選択肢を選んでください</span>';
-  } else if (q1Selected.value === 'c') {
+  } else if (q1Selected.value === 'a') {
     result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
-    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「エラー」です。constで宣言した変数には再代入できません。</span>';
+    result1Div.innerHTML = '<span style="color: #ff7b54;">✗ 不正解。正解は「10」です。ブロック内のconstが外側の変数をシャドーイングします。</span>';
   }
   
   // Q2の答え合わせ
