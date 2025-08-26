@@ -43,6 +43,7 @@
                     <label><input type="radio" name="q1" value="d" /> let userName</label>
                   </div>
                   <div id="quiz-result1" class="result"></div>
+                  <button onclick="checkQuizAnswer1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -55,10 +56,9 @@
                     <label><input type="radio" name="q2" value="d" /> エラー</label>
                   </div>
                   <div id="quiz-result2" class="result"></div>
+                  <button onclick="checkQuizAnswer2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkAllQuizAnswers()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -150,6 +150,7 @@
                     <label><input type="radio" name="q2_1" value="d" /> const age</label>
                   </div>
                   <div id="quiz2-result1" class="result"></div>
+                  <button onclick="checkQuiz2_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -162,10 +163,9 @@
                     <label><input type="radio" name="q2_2" value="d" /> num + 5</label>
                   </div>
                   <div id="quiz2-result2" class="result"></div>
+                  <button onclick="checkQuiz2_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz2()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -181,7 +181,7 @@
                 </div>
 
                 <div class="question">
-                  <h4>Q2: 在庫数の変数を作るコードの空欄を埋めてください。</h4>
+                  <h4>Q2: 在庫数150個の変数を作るコードの空欄を埋めてください。</h4>
                   <div class="code-block">
                     <input type="text" id="blank2_3" placeholder="___" /> stock = <input type="text" id="blank2_4" placeholder="___" />;<br />
                     stock = 75;
@@ -247,6 +247,7 @@
                     <label><input type="radio" name="q3_1" value="d" /> text</label>
                   </div>
                   <div id="quiz3-result1" class="result"></div>
+                  <button onclick="checkQuiz3_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -259,10 +260,9 @@
                     <label><input type="radio" name="q3_2" value="d" /> "string"</label>
                   </div>
                   <div id="quiz3-result2" class="result"></div>
+                  <button onclick="checkQuiz3_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz3()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -340,6 +340,7 @@
                     <label><input type="radio" name="q4_1" value="d" /> isLoggedIn</label>
                   </div>
                   <div id="quiz4-result1" class="result"></div>
+                  <button onclick="checkQuiz4_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -352,10 +353,9 @@
                     <label><input type="radio" name="q4_2" value="d" /> null</label>
                   </div>
                   <div id="quiz4-result2" class="result"></div>
+                  <button onclick="checkQuiz4_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz4()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -436,6 +436,7 @@
                     <label><input type="radio" name="q5_1" value="d" /> 3</label>
                   </div>
                   <div id="quiz5-result1" class="result"></div>
+                  <button onclick="checkQuiz5_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -448,10 +449,9 @@
                     <label><input type="radio" name="q5_2" value="d" /> 2</label>
                   </div>
                   <div id="quiz5-result2" class="result"></div>
+                  <button onclick="checkQuiz5_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz5()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -532,6 +532,7 @@
                     <label><input type="radio" name="q6_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz6-result1" class="result"></div>
+                  <button onclick="checkQuiz6_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -544,10 +545,9 @@
                     <label><input type="radio" name="q6_2" value="d" /> 4</label>
                   </div>
                   <div id="quiz6-result2" class="result"></div>
+                  <button onclick="checkQuiz6_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz6()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -631,6 +631,7 @@
                     <label><input type="radio" name="q7_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz7-result1" class="result"></div>
+                  <button onclick="checkQuiz7_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -643,10 +644,9 @@
                     <label><input type="radio" name="q7_2" value="d" /> 500</label>
                   </div>
                   <div id="quiz7-result2" class="result"></div>
+                  <button onclick="checkQuiz7_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz7()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -712,8 +712,13 @@
           <!-- タブナビゲーション -->
           <div class="step-tabs">
             <button class="tab-btn active" data-tab="quiz8"><span class="material-icons">quiz</span> 出力予想</button>
-            <button class="tab-btn" data-tab="fillblank8"><span class="material-icons">build</span> コード補完</button>
-            <button class="tab-btn" data-tab="drill8"><span class="material-icons">edit</span> 提出課題</button>
+            <button class="tab-btn" data-tab="fillblank8" disabled style="opacity: 0.5; cursor: not-allowed;"><span class="material-icons">build</span> コード補完</button>
+            <button class="tab-btn" data-tab="drill8" disabled style="opacity: 0.5; cursor: not-allowed;"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 20px; text-align: center; color: #666; font-size: 14px;">
+            <p><strong>Step8: 変数のスコープ</strong>は概念的な学習内容のため、「コード補完」と「提出課題」はありません。<br />
+            出力予想問題でスコープの動作を理解しましょう。</p>
           </div>
 
           <!-- 出力予想 -->
@@ -730,11 +735,12 @@
                     <label><input type="radio" name="q8_1" value="d" /> undefined</label>
                   </div>
                   <div id="quiz8-result1" class="result"></div>
+                  <button onclick="checkQuiz8_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
                   <h4>Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">let x = 10;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;let x = 20;<br />&nbsp;&nbsp;&nbsp;&nbsp;console.log(x);<br />}</div>
+                  <div class="quiz-code">let x = 10;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;let x = 20;<br />}<br />console.log(x);</div>
                   <div class="choices">
                     <label><input type="radio" name="q8_2" value="a" /> 5</label>
                     <label><input type="radio" name="q8_2" value="b" /> 10</label>
@@ -742,64 +748,12 @@
                     <label><input type="radio" name="q8_2" value="d" /> undefined</label>
                   </div>
                   <div id="quiz8-result2" class="result"></div>
-                </div>
-              </div>
-
-              <button onclick="checkQuiz8()" class="step-complete-btn">答えを確認</button>
-            </div>
-          </div>
-
-          <!-- コード補完 -->
-          <div class="tab-content" id="fillblank8">
-            <div class="fillblank-container">
-              <div class="fillblank-grid">
-                <div class="question">
-                  <h4>Q1: ブロックスコープで変数を宣言するコードの空欄を埋めてください。</h4>
-                  <div class="code-block">
-                    {
-                    <input type="text" id="blank8_1" placeholder="___" /> localVar = <input type="text" id="blank8_2" placeholder="___" />;<br />
-                    console.log(localVar); }
-                  </div>
-                  <div id="fillblank8-result1" class="result"></div>
-                  <button onclick="checkFillBlank8_1()" class="step-complete-btn">答えを確認</button>
-                </div>
-
-                <div class="question">
-                  <h4>Q2: 再代入不可の変数を宣言するコードの空欄を埋めてください。</h4>
-                  <div class="code-block">
-                    <input type="text" id="blank8_3" placeholder="___" /> PI = <input type="text" id="blank8_4" placeholder="___" />;<br />
-                    console.log(PI);
-                  </div>
-                  <div id="fillblank8-result2" class="result"></div>
-                  <button onclick="checkFillBlank8_2()" class="step-complete-btn">答えを確認</button>
+                  <button onclick="checkQuiz8_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 提出課題 -->
-          <div class="tab-content" id="drill8">
-            <div class="drill-container">
-              <div class="question">
-                <h4>Step8の課題</h4>
-                <div class="task-list">
-                  <div class="task-item">
-                    <span class="task-tag">L1-S8-1</span>
-                    グローバル変数とブロックスコープ内の同名変数を作成し、それぞれの値をコンソールに表示。
-                  </div>
-                  <div class="task-item">
-                    <span class="task-tag">L1-S8-2</span>
-                    letとconstの違いを確認するコードを作成し、それぞれの動作をコンソールに表示。
-                  </div>
-                </div>
-
-                <div class="drill-instructions">
-                  <p><strong>curriculum.js</strong> ファイルに実装してください。</p>
-                  <p>ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Step9: テンプレートリテラル -->
@@ -830,6 +784,7 @@
                     <label><input type="radio" name="q9_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz9-result1" class="result"></div>
+                  <button onclick="checkQuiz9_1()" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -842,10 +797,9 @@
                     <label><input type="radio" name="q9_2" value="d" /> エラー</label>
                   </div>
                   <div id="quiz9-result2" class="result"></div>
+                  <button onclick="checkQuiz9_2()" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
-
-              <button onclick="checkQuiz9()" class="step-complete-btn">答えを確認</button>
             </div>
           </div>
 
@@ -886,11 +840,11 @@
                 <div class="task-list">
                   <div class="task-item">
                     <span class="task-tag">L1-S9-1</span>
-                    商品名、価格、在庫数をテンプレートリテラルで組み合わせた商品カードテキストを作成し、コンソールに表示。
+                    商品名「ワイヤレスイヤホン」、価格8980円、在庫数15個を変数に保存し、テンプレートリテラルで「商品: ワイヤレスイヤホン、価格: 8980円、在庫: 15個」の形式でコンソールに表示。
                   </div>
                   <div class="task-item">
                     <span class="task-tag">L1-S9-2</span>
-                    ユーザープロフィール（名前、年齢、職業）をテンプレートリテラルで整理し、コンソールに表示。
+                    名前「山田花子」、年齢28歳、職業「エンジニア」を変数に保存し、テンプレートリテラルで「こんにちは！私は山田花子です。28歳のエンジニアです。」の形式でコンソールに表示。
                   </div>
                 </div>
 

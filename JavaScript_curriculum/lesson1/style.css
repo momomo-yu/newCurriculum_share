@@ -173,6 +173,11 @@
   margin-top: 15px;
 }
 
+/* 出力予想の「答えを確認」ボタンと選択肢の間隔 */
+.quiz-container .question button {
+  margin-top: 15px !important;
+}
+
 .choices label {
   display: block;
   padding: 8px 12px;
