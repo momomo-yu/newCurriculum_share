@@ -43,7 +43,7 @@
                     <label><input type="radio" name="q1" value="d" /> let userName</label>
                   </div>
                   <div id="quiz-result1" class="result"></div>
-                  <button onclick="checkQuizAnswer1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuizAnswer1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -56,7 +56,7 @@
                     <label><input type="radio" name="q2" value="d" /> エラー</label>
                   </div>
                   <div id="quiz-result2" class="result"></div>
-                  <button onclick="checkQuizAnswer2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuizAnswer2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@
                     />;
                   </div>
                   <div id="fillblank-result1" class="result"></div>
-                  <button onclick="checkFillBlank1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -90,7 +90,7 @@
                     noticeMessage = "休業日のお知らせ";
                   </div>
                   <div id="fillblank-result2" class="result"></div>
-                  <button onclick="checkFillBlank2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@
                     <label><input type="radio" name="q2_1" value="d" /> const age</label>
                   </div>
                   <div id="quiz2-result1" class="result"></div>
-                  <button onclick="checkQuiz2_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz2_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -163,7 +163,7 @@
                     <label><input type="radio" name="q2_2" value="d" /> num + 5</label>
                   </div>
                   <div id="quiz2-result2" class="result"></div>
-                  <button onclick="checkQuiz2_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz2_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -177,7 +177,7 @@
                   <h4>Q1: 価格の変数を作るコードの空欄を埋めてください。再代入はありません。</h4>
                   <div class="code-block"><input type="text" id="blank2_1" placeholder="___" /> price = <input type="text" id="blank2_2" placeholder="___" />;</div>
                   <div id="fillblank2-result1" class="result"></div>
-                  <button onclick="checkFillBlank2_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank2_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -187,7 +187,7 @@
                     stock = 75;
                   </div>
                   <div id="fillblank2-result2" class="result"></div>
-                  <button onclick="checkFillBlank2_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank2_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -247,7 +247,7 @@
                     <label><input type="radio" name="q3_1" value="d" /> text</label>
                   </div>
                   <div id="quiz3-result1" class="result"></div>
-                  <button onclick="checkQuiz3_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz3_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -260,7 +260,7 @@
                     <label><input type="radio" name="q3_2" value="d" /> "string"</label>
                   </div>
                   <div id="quiz3-result2" class="result"></div>
-                  <button onclick="checkQuiz3_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz3_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -274,14 +274,14 @@
                   <h4>Q1: 文字列"JavaScript"の型を確認するコードの空欄を埋めてください。</h4>
                   <div class="code-block">console.log(<input type="text" id="blank3_1" placeholder="___" /> "JavaScript");</div>
                   <div id="fillblank3-result1" class="result"></div>
-                  <button onclick="checkFillBlank3_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank3_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
                   <h4>Q2: 数値500の型を確認するコードの空欄を埋めてください。</h4>
                   <div class="code-block">console.log(<input type="text" id="blank3_2" placeholder="___" /> 500);</div>
                   <div id="fillblank3-result2" class="result"></div>
-                  <button onclick="checkFillBlank3_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank3_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -340,12 +340,12 @@
                     <label><input type="radio" name="q4_1" value="d" /> isLoggedIn</label>
                   </div>
                   <div id="quiz4-result1" class="result"></div>
-                  <button onclick="checkQuiz4_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz4_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
                   <h4>Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="quiz-code">const value;<br />console.log(typeof value);</div>
+                  <div class="quiz-code">let value;<br />console.log(typeof value);</div>
                   <div class="choices">
                     <label><input type="radio" name="q4_2" value="a" /> "undefined"</label>
                     <label><input type="radio" name="q4_2" value="b" /> "null"</label>
@@ -353,7 +353,7 @@
                     <label><input type="radio" name="q4_2" value="d" /> null</label>
                   </div>
                   <div id="quiz4-result2" class="result"></div>
-                  <button onclick="checkQuiz4_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz4_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -367,7 +367,7 @@
                   <h4>Q1: 文字列を数値に変換するコードの空欄を埋めてください。再代入はありません。</h4>
                   <div class="code-block"><input type="text" id="blank4_1" placeholder="___" /> numValue = <input type="text" id="blank4_2" placeholder="___" />("100");</div>
                   <div id="fillblank4-result1" class="result"></div>
-                  <button onclick="checkFillBlank4_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank4_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -377,7 +377,7 @@
                     emptyValue = undefined;
                   </div>
                   <div id="fillblank4-result2" class="result"></div>
-                  <button onclick="checkFillBlank4_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank4_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -437,7 +437,7 @@
                     <label><input type="radio" name="q5_1" value="d" /> 3</label>
                   </div>
                   <div id="quiz5-result1" class="result"></div>
-                  <button onclick="checkQuiz5_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz5_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -450,7 +450,7 @@
                     <label><input type="radio" name="q5_2" value="d" /> 2</label>
                   </div>
                   <div id="quiz5-result2" class="result"></div>
-                  <button onclick="checkQuiz5_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz5_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -464,7 +464,7 @@
                   <h4>Q1: 商品価格と送料の合計を計算するコードの空欄を埋めてください。再代入はありません。</h4>
                   <div class="code-block"><input type="text" id="blank5_1" placeholder="___" /> totalPrice = productPrice <input type="text" id="blank5_2" placeholder="___" /> shippingFee;</div>
                   <div id="fillblank5-result1" class="result"></div>
-                  <button onclick="checkFillBlank5_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank5_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -474,7 +474,7 @@
                     console.log(remainder);
                   </div>
                   <div id="fillblank5-result2" class="result"></div>
-                  <button onclick="checkFillBlank5_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank5_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -533,7 +533,7 @@
                     <label><input type="radio" name="q6_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz6-result1" class="result"></div>
-                  <button onclick="checkQuiz6_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz6_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -546,7 +546,7 @@
                     <label><input type="radio" name="q6_2" value="d" /> 4</label>
                   </div>
                   <div id="quiz6-result2" class="result"></div>
-                  <button onclick="checkQuiz6_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz6_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -563,7 +563,7 @@
                     counter <input type="text" id="blank6_2" placeholder="___" /> 10;
                   </div>
                   <div id="fillblank6-result1" class="result"></div>
-                  <button onclick="checkFillBlank6_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank6_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -573,7 +573,7 @@
                     price <input type="text" id="blank6_4" placeholder="___" /> 2;
                   </div>
                   <div id="fillblank6-result2" class="result"></div>
-                  <button onclick="checkFillBlank6_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank6_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -632,7 +632,7 @@
                     <label><input type="radio" name="q7_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz7-result1" class="result"></div>
-                  <button onclick="checkQuiz7_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz7_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -645,7 +645,7 @@
                     <label><input type="radio" name="q7_2" value="d" /> 500</label>
                   </div>
                   <div id="quiz7-result2" class="result"></div>
-                  <button onclick="checkQuiz7_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz7_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -662,7 +662,7 @@
                     console.log(message);
                   </div>
                   <div id="fillblank7-result1" class="result"></div>
-                  <button onclick="checkFillBlank7_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank7_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -672,7 +672,7 @@
                     console.log(result);
                   </div>
                   <div id="fillblank7-result2" class="result"></div>
-                  <button onclick="checkFillBlank7_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank7_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -738,7 +738,7 @@
                     <label><input type="radio" name="q8_1" value="d" /> undefined</label>
                   </div>
                   <div id="quiz8-result1" class="result"></div>
-                  <button onclick="checkQuiz8_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz8_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -751,7 +751,7 @@
                     <label><input type="radio" name="q8_2" value="d" /> undefined</label>
                   </div>
                   <div id="quiz8-result2" class="result"></div>
-                  <button onclick="checkQuiz8_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz8_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -786,7 +786,7 @@
                     <label><input type="radio" name="q9_1" value="d" /> エラー</label>
                   </div>
                   <div id="quiz9-result1" class="result"></div>
-                  <button onclick="checkQuiz9_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz9_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -799,7 +799,7 @@
                     <label><input type="radio" name="q9_2" value="d" /> エラー</label>
                   </div>
                   <div id="quiz9-result2" class="result"></div>
-                  <button onclick="checkQuiz9_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkQuiz9_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -816,7 +816,7 @@
                     <input type="text" id="blank9_3" placeholder="___" />productName<input type="text" id="blank9_4" placeholder="___" /><input type="text" id="blank9_5" placeholder="___" />;
                   </div>
                   <div id="fillblank9-result1" class="result"></div>
-                  <button onclick="checkFillBlank9_1()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank9_1" class="step-complete-btn">答えを確認</button>
                 </div>
 
                 <div class="question">
@@ -828,7 +828,7 @@
                     info = `ユーザー: ${userName}、年齢: ${age}歳`;
                   </div>
                   <div id="fillblank9-result2" class="result"></div>
-                  <button onclick="checkFillBlank9_2()" class="step-complete-btn">答えを確認</button>
+                  <button data-handler="checkFillBlank9_2" class="step-complete-btn">答えを確認</button>
                 </div>
               </div>
             </div>
@@ -964,7 +964,7 @@
     </div>
 
     <!-- トップへ戻るボタン -->
-    <button id="scroll-to-top" class="scroll-to-top" onclick="scrollToTop()">
+    <button id="scroll-to-top" class="scroll-to-top">
       <span class="material-icons">keyboard_arrow_up</span>
     </button>
 

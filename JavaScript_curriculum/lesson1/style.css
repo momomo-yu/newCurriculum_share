@@ -154,7 +154,7 @@
 
 /* 出力予想内のコードスタイル */
 .quiz-code {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: #1f2937;
   color: #d1d5db;
   padding: 8px 12px;
@@ -167,7 +167,6 @@
   line-height: 1.4;
   min-height: calc(1.4em * 2 + 16px); /* 2行分の高さ + padding */
 }
-
 
 .choices {
   margin-top: 15px;
@@ -216,7 +215,7 @@
 }
 
 .choices input[type="radio"]:checked::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 12px;
   height: 12px;
@@ -239,7 +238,7 @@
 
 /* コード補完スタイル */
 .code-block {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: #1f2937;
   color: #d1d5db;
   padding: 15px;
@@ -256,7 +255,7 @@
   border: 1px solid var(--primary-color);
   border-radius: 3px;
   text-align: center;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: white;
   color: #1f2937;
   font-weight: bold;
@@ -300,7 +299,7 @@
   background: var(--bg-color);
   padding: 2px 6px;
   border-radius: 3px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -382,7 +381,7 @@
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -432,7 +431,6 @@
   background: #52d4a3 !important;
 }
 
-
 /* 結果表示スタイル */
 .result {
   padding: 10px;
@@ -452,7 +450,7 @@
   padding: 15px;
   border-radius: 4px;
   margin-top: 8px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 14px;
   line-height: 1.6;
   width: 100%;
