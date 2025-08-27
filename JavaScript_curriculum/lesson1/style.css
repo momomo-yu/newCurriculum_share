@@ -364,10 +364,14 @@
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 12px;
-  padding: 12px;
+  padding: 20px;
   background: var(--bg-color);
   border-radius: 6px;
   border: 1px solid var(--border-color);
+}
+
+.task-item > div {
+  flex: 1;
 }
 
 .task-tag {
@@ -439,6 +443,36 @@
 
 .result:not(:empty) {
   display: block;
+}
+
+/* 出力例表示スタイル */
+.output-example {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 小画面対応 */
+@media (max-width: 900px) {
+  .output-example {
+    width: 100%;
+    max-width: calc(100vw - 48px);
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .output-example {
+    padding: 12px;
+    font-size: 12px;
+  }
 }
 
 * {

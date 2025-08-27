@@ -483,14 +483,14 @@ function checkFillBlank4_1() {
   const result1Div = document.getElementById('fillblank4-result1');
   
   const correct1 = blank1 === 'const';
-  const correct2 = blank2 === 'true';
+  const correct2 = blank2 === 'Number';
   
   if (correct1 && correct2) {
     result1Div.innerHTML = '<span style="color: green;">✓ 正解！</span>';
   } else {
     let feedback = '<span style="color: #ff7b54;">✗ 不正解。';
     if (!correct1) feedback += '1つ目は「const」 ';
-    if (!correct2) feedback += '2つ目は「true」 ';
+    if (!correct2) feedback += '2つ目は「Number」 ';
     feedback += 'です。</span>';
     result1Div.innerHTML = feedback;
   }
