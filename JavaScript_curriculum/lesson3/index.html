@@ -29,10 +29,10 @@
                     <button class="tab-btn active" data-step="1" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="1" data-tab="fillblank">
+                    <button class="tab-btn" data-step="1" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="1" data-tab="drill">
+                    <button class="tab-btn" data-step="1" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let age = 20;
 if (age >= 18) {
     console.log("大人です");
@@ -56,7 +56,7 @@ if (age >= 18) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let score = 70;
 if (score >= 80) {
     console.log("合格");
@@ -73,35 +73,35 @@ if (score >= 80) {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="1" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="1" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: 条件を満たす場合のみ処理を実行するif文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: 条件を満たす場合のみ処理を実行するif文を完成させてください。</h4>
                                 <div class="code-block">let temperature = 25;
 <input type="text" id="fill1-1-1" placeholder="if"> (temperature > 20) {
     console.log("暖かいです");
 }</div>
-                                <button onclick="checkFillBlank(['fill1-1-1'], ['if'], 'fillresult1-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill1-1-1'], ['if'], 'fillresult1-1')">答えを確認</button>
                                 <div id="fillresult1-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 数値の大小を判定するif文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 数値の大小を判定するif文を完成させてください。</h4>
                                 <div class="code-block">let number = 15;
 if (number <input type="text" id="fill1-2-1" placeholder="演算子"> 10) {
     console.log("10より大きい");
 }</div>
-                                <button onclick="checkFillBlank(['fill1-2-1'], ['>'], 'fillresult1-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill1-2-1'], ['>'], 'fillresult1-2')">答えを確認</button>
                                 <div id="fillresult1-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="1" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="1" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> ログイン状態の確認、年齢制限チェック、権限管理システム</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -123,10 +123,10 @@ if (number <input type="text" id="fill1-2-1" placeholder="演算子"> 10) {
                     <button class="tab-btn active" data-step="2" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="2" data-tab="fillblank">
+                    <button class="tab-btn" data-step="2" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="2" data-tab="drill">
+                    <button class="tab-btn" data-step="2" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -135,7 +135,7 @@ if (number <input type="text" id="fill1-2-1" placeholder="演算子"> 10) {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let isLoggedIn = true;
 if (isLoggedIn) {
     console.log("ログイン中");
@@ -152,7 +152,7 @@ if (isLoggedIn) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let weather = "rain";
 if (weather === "sunny") {
     console.log("晴れです");
@@ -171,39 +171,39 @@ if (weather === "sunny") {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="2" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="2" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: if-else文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: if-else文を完成させてください。</h4>
                                 <div class="code-block">let password = "abc123";
 if (password === "password") {
     console.log("ログイン成功");
 } <input type="text" id="fill2-1-1" placeholder="else"> {
     console.log("パスワードが違います");
 }</div>
-                                <button onclick="checkFillBlank(['fill2-1-1'], ['else'], 'fillresult2-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill2-1-1'], ['else'], 'fillresult2-1')">答えを確認</button>
                                 <div id="fillresult2-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 年齢判定のif-else文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 年齢判定のif-else文を完成させてください。</h4>
                                 <div class="code-block">let age = 16;
 <input type="text" id="fill2-2-1" placeholder="if"> (age >= 18) {
     console.log("成人");
 } else {
     console.log(<input type="text" id="fill2-2-2" placeholder="メッセージ">);
 }</div>
-                                <button onclick="checkFillBlank(['fill2-2-1', 'fill2-2-2'], ['if', '\"未成年\"'], 'fillresult2-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill2-2-1', 'fill2-2-2'], ['if', '\"未成年\"'], 'fillresult2-2')">答えを確認</button>
                                 <div id="fillresult2-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="2" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="2" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> 成功・失敗の処理分岐、ON/OFF切り替え、二択の選択肢</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -225,10 +225,10 @@ if (password === "password") {
                     <button class="tab-btn active" data-step="3" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="3" data-tab="fillblank">
+                    <button class="tab-btn" data-step="3" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="3" data-tab="drill">
+                    <button class="tab-btn" data-step="3" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -237,7 +237,7 @@ if (password === "password") {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let score = 85;
 if (score >= 90) {
     console.log("優秀");
@@ -256,7 +256,7 @@ if (score >= 90) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let time = 14;
 if (time < 12) {
     console.log("午前");
@@ -277,11 +277,11 @@ if (time < 12) {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="3" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="3" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: 成績判定のif-else if-else文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: 成績判定のif-else if-else文を完成させてください。</h4>
                                 <div class="code-block">let grade = 75;
 if (grade >= 90) {
     console.log("A");
@@ -290,12 +290,12 @@ if (grade >= 90) {
 } else {
     console.log("C");
 }</div>
-                                <button onclick="checkFillBlank(['fill3-1-1'], ['else if'], 'fillresult3-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill3-1-1'], ['else if'], 'fillresult3-1')">答えを確認</button>
                                 <div id="fillresult3-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 温度による服装判定を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 温度による服装判定を完成させてください。</h4>
                                 <div class="code-block">let temp = 25;
 if (temp > 30) {
     console.log("半袖");
@@ -304,16 +304,16 @@ if (temp > 30) {
 } else {
     console.log("厚着");
 }</div>
-                                <button onclick="checkFillBlank(['fill3-2-1'], ['20'], 'fillresult3-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill3-2-1'], ['20'], 'fillresult3-2')">答えを確認</button>
                                 <div id="fillresult3-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="3" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="3" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> 成績評価システム、料金体系、時間帯別処理</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -335,10 +335,10 @@ if (temp > 30) {
                     <button class="tab-btn active" data-step="4" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="4" data-tab="fillblank">
+                    <button class="tab-btn" data-step="4" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="4" data-tab="drill">
+                    <button class="tab-btn" data-step="4" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -347,7 +347,7 @@ if (temp > 30) {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let age = 20;
 let status = age >= 18 ? "成人" : "未成年";
 console.log(status);</div>
@@ -361,7 +361,7 @@ console.log(status);</div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let score = 60;
 let result = score >= 70 ? "合格" : "不合格";
 console.log(result);</div>
@@ -377,33 +377,33 @@ console.log(result);</div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="4" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="4" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: 条件演算子（三項演算子）を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: 条件演算子（三項演算子）を完成させてください。</h4>
                                 <div class="code-block">let price = 1000;
 let discount = price > 500 <input type="text" id="fill4-1-1" placeholder="?"> "割引あり" : "割引なし";
 console.log(discount);</div>
-                                <button onclick="checkFillBlank(['fill4-1-1'], ['?'], 'fillresult4-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill4-1-1'], ['?'], 'fillresult4-1')">答えを確認</button>
                                 <div id="fillresult4-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 偶数・奇数判定の三項演算子を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 偶数・奇数判定の三項演算子を完成させてください。</h4>
                                 <div class="code-block">let number = 7;
 let type = number % 2 === 0 ? <input type="text" id="fill4-2-1" placeholder="偶数"> : "奇数";
 console.log(type);</div>
-                                <button onclick="checkFillBlank(['fill4-2-1'], ['\"偶数\"'], 'fillresult4-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill4-2-1'], ['\"偶数\"'], 'fillresult4-2')">答えを確認</button>
                                 <div id="fillresult4-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="4" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="4" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> 変数への条件付き代入、表示テキストの切り替え、簡潔な条件分岐</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -425,10 +425,10 @@ console.log(type);</div>
                     <button class="tab-btn active" data-step="5" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="5" data-tab="fillblank">
+                    <button class="tab-btn" data-step="5" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="5" data-tab="drill">
+                    <button class="tab-btn" data-step="5" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -437,7 +437,7 @@ console.log(type);</div>
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let day = "月";
 switch (day) {
     case "月":
@@ -459,7 +459,7 @@ switch (day) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let grade = "B";
 switch (grade) {
     case "A":
@@ -485,11 +485,11 @@ switch (grade) {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="5" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="5" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: switch文の基本構造を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: switch文の基本構造を完成させてください。</h4>
                                 <div class="code-block">let color = "red";
 <input type="text" id="fill5-1-1" placeholder="switch"> (color) {
     case "red":
@@ -498,12 +498,12 @@ switch (grade) {
     <input type="text" id="fill5-1-2" placeholder="default">:
         console.log("その他の色");
 }</div>
-                                <button onclick="checkFillBlank(['fill5-1-1', 'fill5-1-2'], ['switch', 'default'], 'fillresult5-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill5-1-1', 'fill5-1-2'], ['switch', 'default'], 'fillresult5-1')">答えを確認</button>
                                 <div id="fillresult5-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 季節判定のswitch文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 季節判定のswitch文を完成させてください。</h4>
                                 <div class="code-block">let month = 7;
 switch (month) {
     case 6:
@@ -514,16 +514,16 @@ switch (month) {
     default:
         console.log("夏以外");
 }</div>
-                                <button onclick="checkFillBlank(['fill5-2-1'], ['break'], 'fillresult5-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill5-2-1'], ['break'], 'fillresult5-2')">答えを確認</button>
                                 <div id="fillresult5-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="5" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="5" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> メニュー選択、カテゴリー分類、状態管理</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -545,10 +545,10 @@ switch (month) {
                     <button class="tab-btn active" data-step="6" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="6" data-tab="fillblank">
+                    <button class="tab-btn" data-step="6" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="6" data-tab="drill">
+                    <button class="tab-btn" data-step="6" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -557,7 +557,7 @@ switch (month) {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">for (let i = 0; i < 3; i++) {
     console.log(i);
 }</div>
@@ -571,7 +571,7 @@ switch (month) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">for (let i = 1; i <= 2; i++) {
     console.log("Hello");
 }</div>
@@ -587,33 +587,33 @@ switch (month) {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="6" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="6" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: 5回繰り返すfor文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: 5回繰り返すfor文を完成させてください。</h4>
                                 <div class="code-block"><input type="text" id="fill6-1-1" placeholder="for"> (let i = 0; i < 5; i++) {
     console.log("繰り返し: " + i);
 }</div>
-                                <button onclick="checkFillBlank(['fill6-1-1'], ['for'], 'fillresult6-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill6-1-1'], ['for'], 'fillresult6-1')">答えを確認</button>
                                 <div id="fillresult6-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 1から10まで表示するfor文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: 1から10まで表示するfor文を完成させてください。</h4>
                                 <div class="code-block">for (let i = 1; i <input type="text" id="fill6-2-1" placeholder="<="> 10; i++) {
     console.log(i);
 }</div>
-                                <button onclick="checkFillBlank(['fill6-2-1'], ['<='], 'fillresult6-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill6-2-1'], ['<='], 'fillresult6-2')">答えを確認</button>
                                 <div id="fillresult6-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="6" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="6" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> 配列の処理、連番生成、決まった回数の処理実行</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -635,10 +635,10 @@ switch (month) {
                     <button class="tab-btn active" data-step="7" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="7" data-tab="fillblank">
+                    <button class="tab-btn" data-step="7" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="7" data-tab="drill">
+                    <button class="tab-btn" data-step="7" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -647,7 +647,7 @@ switch (month) {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let count = 0;
 while (count < 2) {
     console.log(count);
@@ -663,7 +663,7 @@ while (count < 2) {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let number = 10;
 while (number > 5) {
     console.log("実行中");
@@ -681,37 +681,37 @@ while (number > 5) {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="7" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="7" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: while文の基本構造を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: while文の基本構造を完成させてください。</h4>
                                 <div class="code-block">let i = 0;
 <input type="text" id="fill7-1-1" placeholder="while"> (i < 3) {
     console.log(i);
     i++;
 }</div>
-                                <button onclick="checkFillBlank(['fill7-1-1'], ['while'], 'fillresult7-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill7-1-1'], ['while'], 'fillresult7-1')">答えを確認</button>
                                 <div id="fillresult7-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: カウントダウンのwhile文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: カウントダウンのwhile文を完成させてください。</h4>
                                 <div class="code-block">let timer = 3;
 while (timer > 0) {
     console.log(timer);
     timer<input type="text" id="fill7-2-1" placeholder="--">;
 }</div>
-                                <button onclick="checkFillBlank(['fill7-2-1'], ['--'], 'fillresult7-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill7-2-1'], ['--'], 'fillresult7-2')">答えを確認</button>
                                 <div id="fillresult7-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="7" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="7" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> ユーザー入力待ち、データ処理の継続条件、動的な繰り返し処理</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -733,10 +733,10 @@ while (timer > 0) {
                     <button class="tab-btn active" data-step="8" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="8" data-tab="fillblank">
+                    <button class="tab-btn" data-step="8" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="8" data-tab="drill">
+                    <button class="tab-btn" data-step="8" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -745,7 +745,7 @@ while (timer > 0) {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let i = 5;
 do {
     console.log("実行");
@@ -761,7 +761,7 @@ do {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">let count = 0;
 do {
     console.log(count);
@@ -779,37 +779,37 @@ do {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="8" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="8" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: do-while文の基本構造を完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: do-while文の基本構造を完成させてください。</h4>
                                 <div class="code-block">let num = 1;
 <input type="text" id="fill8-1-1" placeholder="do"> {
     console.log(num);
     num++;
 } while (num <= 3);</div>
-                                <button onclick="checkFillBlank(['fill8-1-1'], ['do'], 'fillresult8-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill8-1-1'], ['do'], 'fillresult8-1')">答えを確認</button>
                                 <div id="fillresult8-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: メニュー表示のdo-while文を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: メニュー表示のdo-while文を完成させてください。</h4>
                                 <div class="code-block">let choice;
 do {
     console.log("メニューを選択してください");
     choice = "exit"; // 仮の入力
 } <input type="text" id="fill8-2-1" placeholder="while"> (choice !== "exit");</div>
-                                <button onclick="checkFillBlank(['fill8-2-1'], ['while'], 'fillresult8-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill8-2-1'], ['while'], 'fillresult8-2')">答えを確認</button>
                                 <div id="fillresult8-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="8" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="8" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> メニューシステム、入力検証、確認プロンプト</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -831,10 +831,10 @@ do {
                     <button class="tab-btn active" data-step="9" data-tab="quiz">
                         <span class="material-icons">quiz</span>出力予想
                     </button>
-                    <button class="tab-btn" data-step="9" data-tab="fillblank">
+                    <button class="tab-btn" data-step="9" data-tab="blank">
                         <span class="material-icons">edit</span>コード補完
                     </button>
-                    <button class="tab-btn" data-step="9" data-tab="drill">
+                    <button class="tab-btn" data-step="9" data-tab="task">
                         <span class="material-icons">assignment</span>提出課題
                     </button>
                 </div>
@@ -843,7 +843,7 @@ do {
                     <div class="quiz-container">
                         <div class="quiz-grid">
                             <div class="question">
-                                <h4>Q1: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">for (let i = 1; i <= 5; i++) {
     if (i % 2 === 0) {
         console.log(i);
@@ -859,7 +859,7 @@ do {
                             </div>
 
                             <div class="question">
-                                <h4>Q2: 実行結果として正しいものを選んでください。</h4>
+                                <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                                 <div class="quiz-code">for (let i = 0; i < 4; i++) {
     if (i === 2) {
         continue;
@@ -878,38 +878,38 @@ do {
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="9" data-tab="fillblank">
-                    <div class="fillblank-container">
-                        <div class="fillblank-grid">
+                <div class="tab-content" data-step="9" data-tab="blank">
+                    <div class="blank-container">
+                        <div class="blank-grid">
                             <div class="question">
-                                <h4>Q1: 偶数のみを表示するループを完成させてください。</h4>
+                                <h4 class="c-title-question">Q1: 偶数のみを表示するループを完成させてください。</h4>
                                 <div class="code-block">for (let i = 1; i <= 10; i++) {
     <input type="text" id="fill9-1-1" placeholder="if"> (i % 2 === 0) {
         console.log(i);
     }
 }</div>
-                                <button onclick="checkFillBlank(['fill9-1-1'], ['if'], 'fillresult9-1')">答えを確認</button>
+                                <button onclick="checkBlank(['fill9-1-1'], ['if'], 'fillresult9-1')">答えを確認</button>
                                 <div id="fillresult9-1" class="result"></div>
                             </div>
 
                             <div class="question">
-                                <h4>Q2: break文を使った処理を完成させてください。</h4>
+                                <h4 class="c-title-question">Q2: break文を使った処理を完成させてください。</h4>
                                 <div class="code-block">for (let i = 0; i < 10; i++) {
     if (i === 5) {
         <input type="text" id="fill9-2-1" placeholder="break">;
     }
     console.log(i);
 }</div>
-                                <button onclick="checkFillBlank(['fill9-2-1'], ['break'], 'fillresult9-2')">答えを確認</button>
+                                <button onclick="checkBlank(['fill9-2-1'], ['break'], 'fillresult9-2')">答えを確認</button>
                                 <div id="fillresult9-2" class="result"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="tab-content" data-step="9" data-tab="drill">
-                    <div class="drill-container">
-                        <div class="drill-instructions">
+                <div class="tab-content" data-step="9" data-tab="task">
+                    <div class="task-container">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> データ検索処理、条件付きリスト作成、複雑な業務ロジック</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>
@@ -928,18 +928,18 @@ do {
                 </h2>
                 
                 <div class="step-tabs">
-                    <button class="tab-btn active step-complete-btn" data-step="10" data-tab="drill">
+                    <button class="tab-btn active step-complete-btn" data-step="10" data-tab="task">
                         <span class="material-icons">assignment</span>総合課題
                     </button>
                 </div>
 
-                <div class="tab-content active" data-step="10" data-tab="drill">
-                    <div class="drill-container">
+                <div class="tab-content active" data-step="10" data-tab="task">
+                    <div class="task-container">
                         <div class="task-list">
                             <div class="task-item">
                                 <div class="task-tag" onclick="scrollToStep(1)">L2-S10-1</div>
                                 <div>
-                                    <h4>成績管理システム</h4>
+                                    <h4 class="c-title-question">成績管理システム</h4>
                                     <p>複数の学生の成績を管理し、平均点計算や合格判定を行うシステムを作成してください。if文、ループ文を組み合わせて実装します。</p>
                                 </div>
                             </div>
@@ -947,7 +947,7 @@ do {
                             <div class="task-item">
                                 <div class="task-tag" onclick="scrollToStep(2)">L2-S10-2</div>
                                 <div>
-                                    <h4>カウントダウンタイマー</h4>
+                                    <h4 class="c-title-question">カウントダウンタイマー</h4>
                                     <p>指定された時間からカウントダウンし、条件に応じてメッセージを表示するタイマーシステムを作成してください。</p>
                                 </div>
                             </div>
@@ -955,7 +955,7 @@ do {
                             <div class="task-item">
                                 <div class="task-tag" onclick="scrollToStep(3)">L2-S10-3</div>
                                 <div>
-                                    <h4>数値分類システム</h4>
+                                    <h4 class="c-title-question">数値分類システム</h4>
                                     <p>入力された数値を偶数・奇数、正数・負数で分類し、統計情報を表示するシステムを作成してください。</p>
                                 </div>
                             </div>
@@ -963,7 +963,7 @@ do {
                             <div class="task-item">
                                 <div class="task-tag" onclick="scrollToStep(4)">L2-S10-4</div>
                                 <div>
-                                    <h4>簡単な在庫管理システム</h4>
+                                    <h4 class="c-title-question">簡単な在庫管理システム</h4>
                                     <p>商品の在庫数を管理し、入庫・出庫処理を行い、在庫切れアラートを表示するシステムを作成してください。</p>
                                 </div>
                             </div>
@@ -971,13 +971,13 @@ do {
                             <div class="task-item">
                                 <div class="task-tag" onclick="scrollToStep(5)">L2-S10-5</div>
                                 <div>
-                                    <h4>パスワード強度チェッカー</h4>
+                                    <h4 class="c-title-question">パスワード強度チェッカー</h4>
                                     <p>パスワードの長さや文字種類をチェックし、強度を判定するシステムを作成してください。条件分岐を活用します。</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="drill-instructions">
+                        <div class="task-instructions">
                             <p><strong>実際の使用場面:</strong> 条件分岐とループを組み合わせたStep1-9で学習した内容の総合的な応用</p>
                             <div class="file-info">
                                 <span class="material-icons">description</span>

@@ -106,11 +106,11 @@
 }
 
 /* コード補完スタイル */
-.fillblank-grid {
+.blank-grid {
   gap: 30px;
 }
 
-.fillblank-grid .question {
+.blank-grid .question {
   background: var(--bg-color);
   padding: 20px;
   border-radius: 8px;
@@ -118,18 +118,18 @@
   margin-bottom: 20px;
 }
 
-.fillblank-grid .question:last-child {
+.blank-grid .question:last-child {
   margin-bottom: 0;
 }
 
-.fillblank-grid .question h4 {
+.blank-grid .question h4 {
   color: var(--text-color);
   margin-bottom: 8px;
   font-size: 16px;
 }
 
 /* コード補完のタイトル+コードブロックのセット */
-.fillblank-grid .question h4 + .code-block {
+.blank-grid .question h4 + .code-block {
   margin-bottom: 15px;
 }
 
@@ -154,7 +154,7 @@
 
 /* 出力予想内のコードスタイル */
 .quiz-code {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: #1f2937;
   color: #d1d5db;
   padding: 8px 12px;
@@ -167,7 +167,6 @@
   line-height: 1.4;
   min-height: calc(1.4em * 2 + 16px); /* 2行分の高さ + padding */
 }
-
 
 .choices {
   margin-top: 15px;
@@ -211,7 +210,7 @@
 }
 
 .choices input[type="radio"]:checked::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 12px;
   height: 12px;
@@ -234,7 +233,7 @@
 
 /* コード補完スタイル */
 .code-block {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: #1f2937;
   color: #d1d5db;
   padding: 15px;
@@ -251,27 +250,27 @@
   border: 1px solid var(--primary-color);
   border-radius: 3px;
   text-align: center;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   background: white;
   color: #1f2937;
   font-weight: bold;
 }
 
 /* ドリルスタイル */
-.drill-instructions {
+.task-instructions {
   background: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
 }
 
-.drill-instructions p {
+.task-instructions p {
   margin-bottom: 10px;
   color: var(--text-color);
   line-height: 1.6;
 }
 
-.drill-instructions p:last-child {
+.task-instructions p:last-child {
   margin-bottom: 0;
 }
 
@@ -295,7 +294,7 @@
   background: var(--bg-color);
   padding: 2px 6px;
   border-radius: 3px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -373,7 +372,7 @@
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -385,8 +384,8 @@
 
 /* 共通ボタンスタイル */
 .quiz-container button,
-.fillblank-container button,
-.drill-container button {
+.blank-container button,
+.task-container button {
   background: var(--primary-color);
   color: white;
   border: none;
@@ -402,13 +401,13 @@
 }
 
 .quiz-container button:hover,
-.fillblank-container button:hover,
-.drill-container button:hover {
+.blank-container button:hover,
+.task-container button:hover {
   background: #52d4a3;
 }
 
 /* ドリルボタングループ */
-.drill-buttons {
+.task-buttons {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -422,7 +421,6 @@
 .copy-btn:hover {
   background: #52d4a3 !important;
 }
-
 
 /* 結果表示スタイル */
 .result {
