@@ -58,6 +58,7 @@ function checkQuizGeneric(stepNum, questionNum, correctValue, explanation) {
  * @param {*} expectedAnswers
  */
 function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) {
+  const isTemplateLiteral = stepNum === "9"; // Step9はテンプレートリテラル
   const stepClass = stepNum ? `js-blank-${stepNum}` : "js-blank-1";
   const container = getByClass(stepClass);
   const inputs = [];
@@ -72,26 +73,108 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
   const resultClass = stepNum ? `js-blank-result--${stepNum}${questionNum}` : `js-blank-result--${questionNum}`;
   const resultDisplay = container.querySelector(`.${resultClass}`);
 
+  // 全角・半角変換マップ
+  const zenkakuToHankaku = {
+    'ｃ': 'c', 'ｏ': 'o', 'ｎ': 'n', 'ｓ': 's', 'ｔ': 't',
+    'ｌ': 'l', 'ｅ': 'e', 
+    '０': '0', '１': '1', '２': '2', '３': '3', '４': '4', 
+    '５': '5', '６': '6', '７': '7', '８': '8', '９': '9',
+    '"': '"', "'": "'", '（': '(', '）': ')'
+  };
+
+  // 引用符のペア判定用（問題ごとに引用符の開始位置を記録）
+  const quoteCheckResults = [];
+  let quoteStartIndexes = [];
+  
   const results = inputs.map((input, index) => {
-    if (Array.isArray(expectedAnswers[index])) {
-      return expectedAnswers[index].includes(input);
+    let isCorrect = false;
+    let isZenkakuError = false;
+    let isQuoteMismatch = false;
+    
+    // 引用符のペア判定
+    if (Array.isArray(expectedAnswers[index]) && expectedAnswers[index].includes('"') || expectedAnswers[index].includes("'") || expectedAnswers[index].includes('`')) {
+      // 引用符の場合、開始位置を記録
+      if (input === '"' || input === "'" || input === '`') {
+        if (quoteStartIndexes.length === 0) {
+          // 最初の引用符（開始）
+          quoteStartIndexes.push({ index, quote: input });
+        } else {
+          // 2番目以降の引用符（終了）
+          const startQuote = quoteStartIndexes[quoteStartIndexes.length - 1];
+          if (startQuote.quote !== input) {
+            isQuoteMismatch = true;
+          }
+          // ペアが完成したら記録をクリア
+          quoteStartIndexes = [];
+        }
+      }
     }
-    return input === expectedAnswers[index];
+    
+    if (Array.isArray(expectedAnswers[index])) {
+      isCorrect = expectedAnswers[index].includes(input);
+    } else {
+      isCorrect = input === expectedAnswers[index];
+    }
+
+    // 全角文字チェック（正解でない場合）
+    if (!isCorrect) {
+      const convertedInput = input.split('').map(char => zenkakuToHankaku[char] || char).join('');
+      if (Array.isArray(expectedAnswers[index])) {
+        if (expectedAnswers[index].includes(convertedInput)) {
+          isZenkakuError = true;
+        }
+      } else {
+        if (convertedInput === expectedAnswers[index]) {
+          isZenkakuError = true;
+        }
+      }
+    }
+
+    return { correct: isCorrect, zenkakuError: isZenkakuError, quoteMismatch: isQuoteMismatch };
   });
 
-  if (results.every((r) => r)) {
+  // 引用符のペア整合性をチェック
+  const hasQuoteMismatch = results.some(r => r.quoteMismatch);
+  
+  if (results.every((r) => r.correct) && !hasQuoteMismatch) {
     resultDisplay.innerHTML = '<span class="u-color-normal">〇 正解！</span>';
   } else {
     let feedback = '<span class="u-color-warning">✕ 不正解。';
-    results.forEach((correct, index) => {
-      if (!correct) {
-        if (Array.isArray(expectedAnswers[index])) {
-          feedback += `${index + 1}つ目は引用符（"、'、\`）のいずれか `;
-        } else {
-          feedback += `${index + 1}つ目は「${expectedAnswers[index]}」 `;
+    
+    if (hasQuoteMismatch) {
+      feedback += '引用符の開始と終了は同じ記号を使用してください（"と"、\'と\'、`と`）。';
+    } else {
+      results.forEach((result, index) => {
+        if (!result.correct) {
+          if (result.zenkakuError) {
+            if (Array.isArray(expectedAnswers[index])) {
+              if (isTemplateLiteral) {
+                feedback += `${index + 1}つ目はテンプレートリテラル用の半角文字のバッククォート（\`） `;
+              } else {
+                feedback += `${index + 1}つ目は半角文字の引用符（"、'、\`）のいずれか `;
+              }
+            } else {
+              feedback += `${index + 1}つ目は半角文字の「${expectedAnswers[index]}」 `;
+            }
+          } else {
+            if (Array.isArray(expectedAnswers[index])) {
+              if (isTemplateLiteral) {
+                feedback += `${index + 1}つ目はテンプレートリテラル用のバッククォート（\`） `;
+              } else {
+                feedback += `${index + 1}つ目は引用符（"、'、\`）のいずれか `;
+              }
+            } else {
+              if (isTemplateLiteral && expectedAnswers[index] === '`') {
+                feedback += `${index + 1}つ目はテンプレートリテラル用のバッククォート（\`） `;
+              } else {
+                feedback += `${index + 1}つ目は「${expectedAnswers[index]}」 `;
+              }
+            }
+          }
         }
-      }
-    });
+      });
+    }
+    
     feedback += "です。</span>";
     resultDisplay.innerHTML = feedback;
   }
@@ -113,7 +196,10 @@ function switchTab(tabName, stepSection) {
   tabContents.forEach((content) => content.classList.remove("is-active"));
 
   // 選択されたタブをアクティブに
-  sectionElement.querySelector(`[data-tab="${tabName}"]`).classList.add("is-active");
+  const targetTab = sectionElement.querySelector(`[data-tab="${tabName}"]`);
+  if (targetTab) {
+    targetTab.classList.add("is-active");
+  }
 
   // タブに対応するコンテンツを探して表示
   let targetContent = null;
@@ -141,15 +227,20 @@ function switchTab(tabName, stepSection) {
  */
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".js-tab-btn").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const stepSection = this.closest(".js-section");
-      switchTab(this.dataset.tab, stepSection);
+    btn.addEventListener("click", function (event) {
+      try {
+        const stepSection = this.closest(".js-section");
+        console.log('Tab clicked:', this.dataset.tab, 'Section:', stepSection);
+        switchTab(this.dataset.tab, stepSection);
 
-      // タブをクリックした時にそのStepにスクロール
-      const sections = document.querySelectorAll(".js-section");
-      const sectionIndex = Array.from(sections).indexOf(stepSection);
-      if (sectionIndex !== -1) {
-        scrollToStep(sectionIndex + 1);
+        // タブをクリックした時にそのStepにスクロール
+        const sections = document.querySelectorAll(".js-section");
+        const sectionIndex = Array.from(sections).indexOf(stepSection);
+        if (sectionIndex !== -1) {
+          scrollToStep(sectionIndex + 1);
+        }
+      } catch (error) {
+        console.error('Tab switch error:', error);
       }
     });
   });
@@ -162,6 +253,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const sectionIndex = Array.from(sections).indexOf(stepSection);
       if (sectionIndex !== -1) {
         scrollToStep(sectionIndex + 1);
+      }
+    });
+
+    // ラジオボタンでEnterキー押下時の処理
+    radio.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        
+        // 該当する問題の答えを確認ボタンを見つけて押下
+        const quizItem = this.closest(".p-quiz__item");
+        if (quizItem) {
+          const checkButton = quizItem.querySelector("[data-handler]");
+          if (checkButton) {
+            checkButton.click();
+          }
+        }
       }
     });
   });
@@ -185,6 +292,56 @@ document.addEventListener("DOMContentLoaded", function () {
       const taskId = this.textContent;
       copyToClipboard(taskId);
       showCopyToast(taskId);
+    });
+  });
+
+  // コード補完入力欄でキー操作時の処理
+  document.querySelectorAll(".js-tab-content .c-input").forEach((input) => {
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        
+        // 該当する問題の答えを確認ボタンを見つけて押下
+        const blankItem = this.closest(".p-blank__item");
+        if (blankItem) {
+          const checkButton = blankItem.querySelector("[data-handler]");
+          if (checkButton) {
+            checkButton.click();
+          }
+        }
+      } else if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        // 現在の入力欄が問題内の最後の文字位置かチェック
+        const isAtEnd = (event.key === "ArrowRight" && this.selectionStart === this.value.length);
+        const isAtStart = (event.key === "ArrowLeft" && this.selectionStart === 0);
+        
+        if (isAtEnd || isAtStart) {
+          event.preventDefault();
+          
+          // 同じ問題内の入力欄を取得
+          const blankItem = this.closest(".p-blank__item");
+          if (blankItem) {
+            const inputs = Array.from(blankItem.querySelectorAll(".c-input"));
+            const currentIndex = inputs.indexOf(this);
+            
+            let nextInput = null;
+            if (event.key === "ArrowRight" && currentIndex < inputs.length - 1) {
+              nextInput = inputs[currentIndex + 1];
+            } else if (event.key === "ArrowLeft" && currentIndex > 0) {
+              nextInput = inputs[currentIndex - 1];
+            }
+            
+            if (nextInput) {
+              nextInput.focus();
+              // カーソルを適切な位置に配置
+              if (event.key === "ArrowRight") {
+                nextInput.setSelectionRange(0, 0);
+              } else {
+                nextInput.setSelectionRange(nextInput.value.length, nextInput.value.length);
+              }
+            }
+          }
+        }
+      }
     });
   });
 
@@ -273,7 +430,7 @@ function checkQuizAnswer1() {
  * Step1 Q2の答え合わせ
  */
 function checkQuizAnswer2() {
-  checkQuizGeneric("", "2", "b", "正解は「HelloWorld」です。文字列結合の結果です。");
+  checkQuizGeneric("", "2", "b", "正解は「変更」です。変数messageの値が再代入により変更されます。");
 }
 
 /**
@@ -364,14 +521,14 @@ function checkQuiz4_2() {
  * Step4コード補完の答え合わせ（Q1）
  */
 function checkBlank4_1() {
-  checkBlankGeneric("4", "1", [1, 2], ["const", "Number"]);
+  checkBlankGeneric("4", "1", [1, 2], ["let", "String"]);
 }
 
 /**
  * Step4コード補完の答え合わせ（Q2）
  */
 function checkBlank4_2() {
-  checkBlankGeneric("4", "2", [3, 4], ["let", "null"]);
+  checkBlankGeneric("4", "2", [3, 4], ["let", "Number"]);
 }
 
 /**
@@ -490,12 +647,12 @@ function checkQuiz9_2() {
  * Step9コード補完の答え合わせ（Q1）
  */
 function checkBlank9_1() {
-  checkBlankGeneric("9", "1", [1, 2, 3, 4], ["const", ["`", "`"], "${", ["}`", "}`"]]);
+  checkBlankGeneric("9", "1", [1, 2, 3, 4], ["const", "`", "${", "}`"]);
 }
 
 /**
  * Step9コード補完の答え合わせ（Q2）
  */
 function checkBlank9_2() {
-  checkBlankGeneric("9", "2", [6, 7, 8, 9], ["const", ["`", "`"], "${", ["}`", "}`"]]);
+  checkBlankGeneric("9", "2", [6, 7, 8, 9], ["const", "`", "${", "}`"]);
 }

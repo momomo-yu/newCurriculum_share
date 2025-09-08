@@ -50,20 +50,20 @@
                     <label class="p-choice__item"><input type="radio" name="q1" value="c" /> "userName"</label>
                     <label class="p-choice__item"><input type="radio" name="q1" value="d" /> let userName</label>
                   </div>
-                  <div class="js-quiz-result--1"></div>
+                  <div class="p-result u-mb-10 js-quiz-result--1"></div>
                   <button data-handler="checkQuizAnswer1" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item">
                   <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">console.log("Hello" + "World");</div>
+                  <div class="p-quiz__code">let message = "初回";<br />message = "変更";<br />console.log(message);</div>
                   <div class="p-choice js-choices">
-                    <label class="p-choice__item"><input type="radio" name="q2" value="a" /> Hello World</label>
-                    <label class="p-choice__item"><input type="radio" name="q2" value="b" /> HelloWorld</label>
-                    <label class="p-choice__item"><input type="radio" name="q2" value="c" /> "Hello" + "World"</label>
+                    <label class="p-choice__item"><input type="radio" name="q2" value="a" /> 初回</label>
+                    <label class="p-choice__item"><input type="radio" name="q2" value="b" /> 変更</label>
+                    <label class="p-choice__item"><input type="radio" name="q2" value="c" /> 初回変更</label>
                     <label class="p-choice__item"><input type="radio" name="q2" value="d" /> エラー</label>
                   </div>
-                  <div class="js-quiz-result--2"></div>
+                  <div class="p-result u-mb-10 js-quiz-result--2"></div>
                   <button data-handler="checkQuizAnswer2" class="c-btn">答えを確認</button>
                 </div>
               </div>
@@ -78,10 +78,9 @@
               <div class="p-blank__item">
                 <h4 class="c-title-question">Q1: 商品名を保存し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--1" placeholder="___" /> productName = <input type="text" class="c-input js-blank--2" placeholder="___" />ワイヤレスイヤホン<input
+                  <input type="text" class="c-input js-blank--1" /> productName = <input type="text" class="c-input js-blank--2" />ワイヤレスイヤホン<input
                     type="text"
                     class="c-input js-blank--3"
-                    placeholder="___"
                   />;<br />
                   console.log(productName);
                 </div>
@@ -92,10 +91,9 @@
               <div class="p-blank__item">
                 <h4 class="c-title-question">Q2: お知らせメッセージを保存し、再代入した後にコンソールに表示するコードの空欄を埋めてください。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--4" placeholder="___" /> noticeMessage = <input type="text" class="c-input js-blank--5" placeholder="___" />営業時間変更のお知らせ<input
+                  <input type="text" class="c-input js-blank--4" /> noticeMessage = <input type="text" class="c-input js-blank--5" />営業時間変更のお知らせ<input
                     type="text"
                     class="c-input js-blank--6"
-                    placeholder="___"
                   />;<br />
                   noticeMessage = "休業日のお知らせ";<br />
                   console.log(noticeMessage);
@@ -185,7 +183,7 @@
               <div class="p-blank__item">
                 <h4 class="c-title-question">Q1: 価格980円を保存し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--21" placeholder="___" /> price = <input type="text" class="c-input js-blank--22" placeholder="___" />;<br />console.log(price);
+                  <input type="text" class="c-input js-blank--21" /> price = <input type="text" class="c-input js-blank--22" />;<br />console.log(price);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--21"></div>
                 <button data-handler="checkBlank2_1" class="c-btn">答えを確認</button>
@@ -194,7 +192,7 @@
               <div class="p-blank__item">
                 <h4 class="c-title-question">Q2: 在庫数150個を保存し、75を再代入した後にコンソールに表示するコードの空欄を埋めてください。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--23" placeholder="___" /> stock = <input type="text" class="c-input js-blank--24" placeholder="___" />;<br />
+                  <input type="text" class="c-input js-blank--23" /> stock = <input type="text" class="c-input js-blank--24" />;<br />
                   stock = 75;<br />
                   console.log(stock);
                 </div>
@@ -373,21 +371,22 @@
             </div>
             <div class="p-blank">
               <div class="p-blank__item">
-                <h4 class="c-title-question">Q1: 文字列を数値に変換し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
+                <h4 class="c-title-question">Q1: 数値456を文字列に変換し、コンソールに表示するコードの空欄を埋めてください。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--41" placeholder="___" /> numValue =
-                  <input type="text" class="c-input js-blank--42" placeholder="___" />("100");<br />console.log(numValue);
+                  <input type="text" class="c-input js-blank--41" /> initValue = 456;<br />
+                  initValue = <input type="text" class="c-input js-blank--42" />(initValue);<br />
+                  console.log(initValue);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--41"></div>
                 <button data-handler="checkBlank4_1" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item">
-                <h4 class="c-title-question">Q2: 空の値を表現し、再代入した後にコンソールに表示するコードの空欄を埋めてください。</h4>
+                <h4 class="c-title-question">Q2: 文字列"123"を数値に変換し、コンソールに表示するコードの空欄を埋めてください。</h4>
                 <div class="p-blank__code">
-                  <input type="text" class="c-input js-blank--43" placeholder="___" /> emptyValue = <input type="text" class="c-input js-blank--44" placeholder="___" />;<br />
-                  emptyValue = undefined;<br />
-                  console.log(emptyValue);
+                  <input type="text" class="c-input js-blank--43" /> strValue = "123";<br />
+                  strValue = <input type="text" class="c-input js-blank--44" />(strValue);<br />
+                  console.log(strValue);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--42"></div>
                 <button data-handler="checkBlank4_2" class="c-btn">答えを確認</button>
