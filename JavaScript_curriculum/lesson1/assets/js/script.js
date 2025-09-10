@@ -46,7 +46,7 @@ function checkQuizGeneric(stepNum, questionNum, correctValue, explanation) {
   } else if (selectedAnswer.value === correctValue) {
     resultDisplay.innerHTML = '<span class="u-color-normal">〇 正解！</span>';
   } else {
-    resultDisplay.innerHTML = `<span class="u-color-warning">✗ 不正解。${explanation}</span>`;
+    resultDisplay.innerHTML = `<span class="u-color-warning">✕ 不正解。${explanation}</span>`;
   }
 }
 
@@ -75,26 +75,42 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
 
   // 全角・半角変換マップ
   const zenkakuToHankaku = {
-    'ｃ': 'c', 'ｏ': 'o', 'ｎ': 'n', 'ｓ': 's', 'ｔ': 't',
-    'ｌ': 'l', 'ｅ': 'e', 
-    '０': '0', '１': '1', '２': '2', '３': '3', '４': '4', 
-    '５': '5', '６': '6', '７': '7', '８': '8', '９': '9',
-    '"': '"', "'": "'", '（': '(', '）': ')'
+    ｃ: "c",
+    ｏ: "o",
+    ｎ: "n",
+    ｓ: "s",
+    ｔ: "t",
+    ｌ: "l",
+    ｅ: "e",
+    "０": "0",
+    "１": "1",
+    "２": "2",
+    "３": "3",
+    "４": "4",
+    "５": "5",
+    "６": "6",
+    "７": "7",
+    "８": "8",
+    "９": "9",
+    '"': '"',
+    "'": "'",
+    "（": "(",
+    "）": ")",
   };
 
   // 引用符のペア判定用（問題ごとに引用符の開始位置を記録）
   const quoteCheckResults = [];
   let quoteStartIndexes = [];
-  
+
   const results = inputs.map((input, index) => {
     let isCorrect = false;
     let isZenkakuError = false;
     let isQuoteMismatch = false;
-    
+
     // 引用符のペア判定
-    if (Array.isArray(expectedAnswers[index]) && expectedAnswers[index].includes('"') || expectedAnswers[index].includes("'") || expectedAnswers[index].includes('`')) {
+    if ((Array.isArray(expectedAnswers[index]) && expectedAnswers[index].includes('"')) || expectedAnswers[index].includes("'") || expectedAnswers[index].includes("`")) {
       // 引用符の場合、開始位置を記録
-      if (input === '"' || input === "'" || input === '`') {
+      if (input === '"' || input === "'" || input === "`") {
         if (quoteStartIndexes.length === 0) {
           // 最初の引用符（開始）
           quoteStartIndexes.push({ index, quote: input });
@@ -109,7 +125,7 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
         }
       }
     }
-    
+
     if (Array.isArray(expectedAnswers[index])) {
       isCorrect = expectedAnswers[index].includes(input);
     } else {
@@ -118,7 +134,10 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
 
     // 全角文字チェック（正解でない場合）
     if (!isCorrect) {
-      const convertedInput = input.split('').map(char => zenkakuToHankaku[char] || char).join('');
+      const convertedInput = input
+        .split("")
+        .map((char) => zenkakuToHankaku[char] || char)
+        .join("");
       if (Array.isArray(expectedAnswers[index])) {
         if (expectedAnswers[index].includes(convertedInput)) {
           isZenkakuError = true;
@@ -134,15 +153,19 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
   });
 
   // 引用符のペア整合性をチェック
-  const hasQuoteMismatch = results.some(r => r.quoteMismatch);
-  
+  const hasQuoteMismatch = results.some((r) => r.quoteMismatch);
+
   if (results.every((r) => r.correct) && !hasQuoteMismatch) {
     resultDisplay.innerHTML = '<span class="u-color-normal">〇 正解！</span>';
   } else {
     let feedback = '<span class="u-color-warning">✕ 不正解。';
-    
+
     if (hasQuoteMismatch) {
-      feedback += '引用符の開始と終了は同じ記号を使用してください（"と"、\'と\'、`と`）。';
+      if (isTemplateLiteral) {
+        feedback += "テンプレートリテラルはバッククォート（`と`）で囲んでください。";
+      } else {
+        feedback += "引用符の開始と終了は同じ記号を使用してください（\"と\"、'と'、`と`）。";
+      }
     } else {
       results.forEach((result, index) => {
         if (!result.correct) {
@@ -164,7 +187,7 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
                 feedback += `${index + 1}つ目は引用符（"、'、\`）のいずれか `;
               }
             } else {
-              if (isTemplateLiteral && expectedAnswers[index] === '`') {
+              if (isTemplateLiteral && expectedAnswers[index] === "`") {
                 feedback += `${index + 1}つ目はテンプレートリテラル用のバッククォート（\`） `;
               } else {
                 feedback += `${index + 1}つ目は「${expectedAnswers[index]}」 `;
@@ -174,7 +197,7 @@ function checkBlankGeneric(stepNum, questionNum, blankNumbers, expectedAnswers) 
         }
       });
     }
-    
+
     feedback += "です。</span>";
     resultDisplay.innerHTML = feedback;
   }
@@ -230,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function (event) {
       try {
         const stepSection = this.closest(".js-section");
-        console.log('Tab clicked:', this.dataset.tab, 'Section:', stepSection);
+        console.log("Tab clicked:", this.dataset.tab, "Section:", stepSection);
         switchTab(this.dataset.tab, stepSection);
 
         // タブをクリックした時にそのStepにスクロール
@@ -240,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
           scrollToStep(sectionIndex + 1);
         }
       } catch (error) {
-        console.error('Tab switch error:', error);
+        console.error("Tab switch error:", error);
       }
     });
   });
@@ -260,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     radio.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         event.preventDefault();
-        
+
         // 該当する問題の答えを確認ボタンを見つけて押下
         const quizItem = this.closest(".p-quiz__item");
         if (quizItem) {
@@ -287,11 +310,41 @@ document.addEventListener("DOMContentLoaded", function () {
   getByClass("js-scrollBtn").addEventListener("click", scrollToTop);
 
   // c-tagコピー機能
-  document.querySelectorAll(".js-copyable").forEach((tag) => {
-    tag.addEventListener("click", function () {
-      const taskId = this.textContent;
-      copyToClipboard(taskId);
-      showCopyToast(taskId);
+  document.querySelectorAll(".js-tooltip").forEach((element) => {
+    // data-copy属性を持つ要素はクリックでコピー処理
+    if (element.hasAttribute("data-copy")) {
+      element.addEventListener("click", function () {
+        const taskId = this.textContent;
+        copyToClipboard(taskId);
+        showCopyToast(taskId);
+      });
+    }
+
+    // ツールチップ表示処理
+    let tooltip = null;
+
+    element.addEventListener("mouseenter", function (event) {
+      const tooltipText = this.getAttribute("data-tooltip");
+      if (!tooltipText) return;
+
+      tooltip = document.createElement("div");
+      tooltip.className = "c-tooltip";
+      tooltip.textContent = tooltipText;
+      document.body.appendChild(tooltip);
+
+      const rect = this.getBoundingClientRect();
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+
+      tooltip.style.left = rect.left + scrollX + rect.width / 2 + "px";
+      tooltip.style.top = rect.top + scrollY - 8 + "px";
+    });
+
+    element.addEventListener("mouseleave", function () {
+      if (tooltip) {
+        tooltip.remove();
+        tooltip = null;
+      }
     });
   });
 
@@ -300,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
     input.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         event.preventDefault();
-        
+
         // 該当する問題の答えを確認ボタンを見つけて押下
         const blankItem = this.closest(".p-blank__item");
         if (blankItem) {
@@ -311,25 +364,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } else if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
         // 現在の入力欄が問題内の最後の文字位置かチェック
-        const isAtEnd = (event.key === "ArrowRight" && this.selectionStart === this.value.length);
-        const isAtStart = (event.key === "ArrowLeft" && this.selectionStart === 0);
-        
+        const isAtEnd = event.key === "ArrowRight" && this.selectionStart === this.value.length;
+        const isAtStart = event.key === "ArrowLeft" && this.selectionStart === 0;
+
         if (isAtEnd || isAtStart) {
           event.preventDefault();
-          
+
           // 同じ問題内の入力欄を取得
           const blankItem = this.closest(".p-blank__item");
           if (blankItem) {
             const inputs = Array.from(blankItem.querySelectorAll(".c-input"));
             const currentIndex = inputs.indexOf(this);
-            
+
             let nextInput = null;
             if (event.key === "ArrowRight" && currentIndex < inputs.length - 1) {
               nextInput = inputs[currentIndex + 1];
             } else if (event.key === "ArrowLeft" && currentIndex > 0) {
               nextInput = inputs[currentIndex - 1];
             }
-            
+
             if (nextInput) {
               nextInput.focus();
               // カーソルを適切な位置に配置
@@ -451,14 +504,14 @@ function checkBlank2() {
  * Step2 Q1の答え合わせ
  */
 function checkQuiz2_1() {
-  checkQuizGeneric("2", "1", "b", "正解は「25」です。const age = 25の出力結果は25です。");
+  checkQuizGeneric("2", "1", "b", "正解は「25」です。変数ageの値が出力されます。");
 }
 
 /**
  * Step2 Q2の答え合わせ
  */
 function checkQuiz2_2() {
-  checkQuizGeneric("2", "2", "b", "正解は「15」です。変数numの値「10」 + 5 = 15です。");
+  checkQuizGeneric("2", "2", "b", "正解は「15」です。変数numの値 10 + 5 = 15です。");
 }
 
 /**
@@ -479,14 +532,14 @@ function checkBlank2_2() {
  * Step3 Q1の答え合わせ
  */
 function checkQuiz3_1() {
-  checkQuizGeneric("3", "1", "b", '正解は「"string"」です。typeof演算子は文字列を返します。');
+  checkQuizGeneric("3", "1", "b", "正解は「string」です。messageの型が出力されます。");
 }
 
 /**
  * Step3 Q2の答え合わせ
  */
 function checkQuiz3_2() {
-  checkQuizGeneric("3", "2", "c", '正解は「"number"」です。typeof演算子の結果が出力されます。');
+  checkQuizGeneric("3", "2", "c", "正解は「number」です。numの型が出力されます。");
 }
 
 /**
@@ -507,14 +560,14 @@ function checkBlank3_2() {
  * Step4 Q1の答え合わせ
  */
 function checkQuiz4_1() {
-  checkQuizGeneric("4", "1", "b", "正解は「true」です。let isLoggedIn = trueの出力結果はtrueです。");
+  checkQuizGeneric("4", "1", "b", "正解は「true」です。isLoggedInの型が出力されます。。");
 }
 
 /**
  * Step4 Q2の答え合わせ
  */
 function checkQuiz4_2() {
-  checkQuizGeneric("4", "2", "a", '正解は「"undefined"」です。未定義変数のtypeof結果は文字列「undefined」です。');
+  checkQuizGeneric("4", "2", "a", "正解は「undefined」です。let で宣言しただけの変数は undefined が返ります。");
 }
 
 /**
@@ -535,14 +588,14 @@ function checkBlank4_2() {
  * Step5 Q1の答え合わせ
  */
 function checkQuiz5_1() {
-  checkQuizGeneric("5", "1", "b", "正解は「13」です。a = 10、b = 3 なので 10 + 3 = 13です。");
+  checkQuizGeneric("5", "1", "b", "正解は「13」です。10 + 3 = 13です。");
 }
 
 /**
  * Step5 Q2の答え合わせ
  */
 function checkQuiz5_2() {
-  checkQuizGeneric("5", "2", "b", "正解は「1」です。x = 7、y = 2 なので 7 % 2 = 1です。");
+  checkQuizGeneric("5", "2", "b", "正解は「1」です。7を2で割った余りは1です。");
 }
 
 /**
@@ -563,14 +616,14 @@ function checkBlank5_2() {
  * Step6 Q1の答え合わせ
  */
 function checkQuiz6_1() {
-  checkQuizGeneric("6", "1", "c", "正解は「80」です。score += 30 は score = score + 30 と同じで、50 + 30 = 80です。");
+  checkQuizGeneric("6", "1", "c", "正解は「80」です。50 + 30 = 80 が出力されます。");
 }
 
 /**
  * Step6 Q2の答え合わせ
  */
 function checkQuiz6_2() {
-  checkQuizGeneric("6", "2", "b", "正解は「12」です。count = 4; count *= 3 で 4 * 3 = 12 が出力されます。");
+  checkQuizGeneric("6", "2", "b", "正解は「12」です。4 * 3 = 12 が出力されます。");
 }
 
 /**
@@ -591,7 +644,7 @@ function checkBlank6_2() {
  * Step7 Q1の答え合わせ
  */
 function checkQuiz7_1() {
-  checkQuizGeneric("7", "1", "a", "正解は「Hello World」です。文字列結合の結果が出力されます。");
+  checkQuizGeneric("7", "1", "a", "正解は「Hello World」です。");
 }
 
 /**
@@ -633,26 +686,26 @@ function checkQuiz8_2() {
  * Step9 Q1の答え合わせ
  */
 function checkQuiz9_1() {
-  checkQuizGeneric("9", "1", "a", "正解は「Hello 世界」です。テンプレートリテラルの実行結果です。");
+  checkQuizGeneric("9", "1", "a", "正解は「Hello 世界」です。");
 }
 
 /**
  * Step9 Q2の答え合わせ
  */
 function checkQuiz9_2() {
-  checkQuizGeneric("9", "2", "a", "正解は「こんにちは田中さん」です。console.logでテンプレートリテラルが出力されます。");
+  checkQuizGeneric("9", "2", "a", "正解は「こんにちは田中さん」です。");
 }
 
 /**
  * Step9コード補完の答え合わせ（Q1）
  */
 function checkBlank9_1() {
-  checkBlankGeneric("9", "1", [1, 2, 3, 4], ["const", "`", "${", "}`"]);
+  checkBlankGeneric("9", "1", [1, 2, 3, 4, 5], ["`", "$", "{", "}", "`"]);
 }
 
 /**
  * Step9コード補完の答え合わせ（Q2）
  */
 function checkBlank9_2() {
-  checkBlankGeneric("9", "2", [6, 7, 8, 9], ["const", "`", "${", "}`"]);
+  checkBlankGeneric("9", "2", [6, 7], ["greeting", "$"]);
 }
