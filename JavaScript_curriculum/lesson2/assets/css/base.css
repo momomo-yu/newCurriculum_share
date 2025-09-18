@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap");
+
+:root {
+  --font-primary: "M PLUS Rounded 1c", sans-serif;
+  --primary-color: #c1a3e8;
+  --primary-color-light: #ede9fe;
+  --secondary-color: #d8b4fe;
+  --text-color: #5a5a5a;
+  --text-color-light: #8d8d8d;
+  --bg-color: #fdfdff;
+  --card-bg-color: #ffffff;
+  --border-color: #e0e0e0;
+  --success-color: #d8b4fe;
+  --error-color: #ff7b54;
+  --warning-color: #ffd6a5;
+}
