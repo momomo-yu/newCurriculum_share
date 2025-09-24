@@ -882,35 +882,39 @@
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
-                  <h4 class="c-title-question">Q1: 要素の親要素を取得するプロパティは？</h4>
-                  <div class="p-quiz__code">const element = document.querySelector('.target-item');<br />console.log(element.???);</div>
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__html">
+                    &lt;ul class="js-navList"&gt;<br />&nbsp;&nbsp;&lt;li&gt;ホーム&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li class="js-targetItem"&gt;サービス&lt;/li&gt;<br />&lt;/ul&gt;
+                  </div>
+                  <div class="p-quiz__code">const element = document.querySelector('.js-targetItem');<br />console.log(element.parentElement.tagName);</div>
                   <div class="p-choice js-choices">
-                    <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> parentNode</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> parent</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_1" value="c" /> parentElement</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> aまたはc</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> js-navList</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> UL</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="c" /> LI</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> サービス</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--71">
                     <span class="js-quiz-message--71 u-color-text u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--71 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。parentNode または parentElement で親要素を取得できます</span>
+                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。正解は「UL」です。.js-targetItemの親要素&lt;ul&gt;タグが出力されます。</span>
                   </div>
                   <button data-quiz-id="q7_1" data-step-question-id="71" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
-                  <h4 class="c-title-question">Q2: 要素の子要素数を取得するプロパティは？</h4>
-                  <div class="p-quiz__code">const parent = document.querySelector('#container');<br />console.log(parent.children.???);</div>
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__html">&lt;div id="container"&gt;<br />&nbsp;&nbsp;&lt;p&gt;お名前&lt;/p&gt;<br />&nbsp;&nbsp;&lt;span&gt;必須&lt;/span&gt;<br />&lt;/div&gt;</div>
+                  <div class="p-quiz__code">const parent = document.querySelector('#container');<br />console.log(parent.children.length);</div>
                   <div class="p-choice js-choices">
-                    <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> size</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> length</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_2" value="c" /> count</label>
-                    <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> number</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 1</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> 2</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="c" /> 3</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> 0</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--72">
                     <span class="js-quiz-message--72 u-color-text u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--72 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。children コレクションの要素数は length プロパティで取得します</span>
+                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。正解は「2」です。#containerの子要素は&lt;p&gt;、&lt;span&gt;の2つです。</span>
                   </div>
                   <button data-quiz-id="q7_2" data-step-question-id="72" class="c-btn">答えを確認</button>
                 </div>
@@ -961,14 +965,24 @@
               <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
               <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
             </ul>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">メニュー</h2>
+              <ul class="p-practice__inner -cardContent">
+                <li class="p-practice__container">ホーム</li>
+                <li class="p-practice__container js-target-stepSeven">サービス</li>
+                <li class="p-practice__container">お問い合わせ</li>
+              </ul>
+            </div>
+
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S7-1</span>
-                <span class="u-flex-1">'#targetElement'の要素の親要素を取得し、コンソールに表示。</span>
+                <span class="u-flex-1">.js-target-stepSeven要素の親要素を変数に保存、最初の子要素のテキストをコンソールに表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S7-2</span>
-                <span class="u-flex-1">'#parentContainer'の要素の子要素数を取得し、コンソールに表示。</span>
+                <span class="u-flex-1">.js-target-stepSeven要素の次の兄弟要素を変数に保存、そのテキストを「ニュース」へ変更。</span>
               </div>
             </div>
           </div>
@@ -1260,7 +1274,7 @@
           <ul class="p-inst">
             <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
             <p class="c-text">
-              ・ これまでに学んだDOM操作（要素取得、テキスト変更、スタイル変更、クラス操作、イベントリスナー、フォーム操作、DOM navigation、dataset操作）を組み合わせて実装してください。
+              ・ これまでに学んだDOM操作（要素取得、テキスト変更、スタイル変更、クラス操作、フォーム操作、DOM navigation、dataset操作）を組み合わせて実装してください。
             </p>
             <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
             <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
@@ -1270,56 +1284,74 @@
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-1</span>
               <div class="u-flex-1">
-                <strong>動的カウンター作成</strong><br />
-                '#counter'の要素、'#increment'と'decrement'のボタンを作成。<br />
-                カウンターの初期値は0、incrementボタンで+1、decrementボタンで-1。<br />
-                カウンターの値が5以上の場合は背景色を赤、0未満の場合は青、それ以外は白に設定。<br />
-                カウンターの値をdata-count属性としても保存する。
-                <div class="p-task__output">
-                  HTML例:<br />
-                  &lt;div id="counter" data-count="0"&gt;0&lt;/div&gt;<br />
-                  &lt;button id="increment"&gt;+&lt;/button&gt;<br />
-                  &lt;button id="decrement"&gt;-&lt;/button&gt;
+                <strong>動的カウンター</strong>
+
+                <div class="p-practice">
+                  <div class="p-practice__inner">
+                    <div class="p-practice__container js-counter" data-count="0" style="font-size: 2rem; font-weight: bold; text-align: center; min-width: 120px">0</div>
+                    <div>
+                      <button class="p-practice__container--button js-increment">+</button>
+                      <button class="p-practice__container--button js-decrement">-</button>
+                    </div>
+                  </div>
                 </div>
+
+                <p>
+                  .js-counter クラスの要素を取得し、data-count 属性の値を取得。data-count の値を数値に変換して +5 加算。<br />加算結果を data-count 属性に保存し直す。.js-counter のテキスト内容を更新した値に変更する。
+                </p>
               </div>
             </div>
 
             <div class="p-task__item">
-              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-2</span>
+              <span class="c-tag js-tooltip" data -tooltip="問題番号をコピー" data-copy>L2-S10-2</span>
               <div class="u-flex-1">
-                <strong>ユーザープロフィール管理システム</strong><br />
-                '#nameInput'、'emailInput'、'statusSelect'の入力欄と'#updateButton'のボタンを作成。<br />
-                ボタンクリック時に、'#profileDisplay'の要素に名前、メール、ステータスを表示。<br />
-                ステータスが'VIP'の場合は.vipを追加、'active'の場合は'.active'を追加。<br />
-                プロフィール情報をdata-name、data-email、data-status属性として保存。
-                <div class="p-task__output">
-                  表示例: 名前: 田中太郎, メール: tanaka@example.com, ステータス: VIP<br />
-                  HTML例:<br />
-                  &lt;input type="text" id="nameInput" placeholder="名前"&gt;<br />
-                  &lt;input type="email" id="emailInput" placeholder="メール"&gt;<br />
-                  &lt;select id="statusSelect"&gt;&lt;option value="active"&gt;Active&lt;/option&gt;&lt;option value="VIP"&gt;VIP&lt;/option&gt;&lt;/select&gt;<br />
-                  &lt;button id="updateButton"&gt;更新&lt;/button&gt;<br />
-                  &lt;div id="profileDisplay"&gt;&lt;/div&gt;
-                </div>
+                <strong>タスク管理リスト</strong>
+                <p>
+                  .js-taskList クラスの &lt;ul&gt; にタスクを追加する。<br />
+                  新規タスク「会議準備」に data-priority="medium" と 一意の data-task-id を付与する（例: let id = 1; でタスクごとに id++）。<br />
+                  既存タスクで data-priority="high" のものには classList.toggle("highlight") を追加する。<br />
+                  既存タスクの取得は querySelectorAll を使って行う。
+                </p>
               </div>
             </div>
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-3</span>
               <div class="u-flex-1">
-                <strong>タスク管理アプリケーション</strong><br />
-                IDがtaskInputの入力欄、IDがaddTaskButtonの追加ボタン、IDがtaskListのリストを作成。<br />
-                追加ボタンを押すと入力内容がリストに追加され、各項目には完了ボタンと削除ボタンも追加。<br />
-                完了ボタンを押すとタスクに.completed要素が追加される。削除ボタンでタスクを削除。<br />
-                各タスクにはdata-task-id属性として一意のIDを付与する（Date.now()を使用）。<br />
-                タスクリストの上に現在のタスク数を表示する要素（'#taskCount'）も作成。
-                <div class="p-task__output">
-                  HTML例:<br />
-                  &lt;input type="text" id="taskInput" placeholder="新しいタスク"&gt;<br />
-                  &lt;button id="addTaskButton"&gt;追加&lt;/button&gt;<br />
-                  &lt;div id="taskCount"&gt;タスク数: 0&lt;/div&gt;<br />
-                  &lt;ul id="taskList"&gt;&lt;/ul&gt;
-                </div>
+                <strong>プロフィールカード生成</strong>
+                <p>
+                  .js-profileCard クラスの &lt;div&gt; を作る。<br />
+                  名前と年齢を変数で宣言して表示する。<br />
+                  年齢から月齢を計算し表示する。<br />
+                  &lt;div&gt; に data-user-id を設定する。<br />
+                  プロフィールカードの要素取得は getElementsByClassName を使う。
+                </p>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-4</span>
+              <div class="u-flex-1">
+                <strong>メニュー自動作成</strong>
+                <p>
+                  .js-menu クラスの要素に &lt;li&gt; を3つ作成し、HOME / ABOUT / CONTACT を追加する。<br />
+                  各 &lt;li&gt; に data-index を設定する。<br />
+                  DocumentFragment を使ってまとめて追加する。<br />
+                  最初の &lt;li&gt; のテキストを書き換える。
+                </p>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-5</span>
+              <div class="u-flex-1">
+                <strong>計算結果表示 + closest</strong>
+                <p>
+                  .js-calcResult要素を取得する。<br />
+                  計算結果を表示する。<br />
+                  計算結果を data-total 属性として保存する。<br />
+                  自分自身を含めた一番近い親要素に closest を使ってjs-result-wrapperを追加する。　デモ付き
+                </p>
               </div>
             </div>
           </div>

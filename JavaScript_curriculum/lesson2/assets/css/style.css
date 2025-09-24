@@ -754,6 +754,7 @@
   display: block;
   font-weight: 500;
   color: var(--text-color);
+  cursor: pointer;
 }
 
 .p-practice__item input[type="email"] {
@@ -773,6 +774,7 @@
 
 .p-practice__item input[type="checkbox"] {
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .js-cancelBtn-stepThird:disabled {
