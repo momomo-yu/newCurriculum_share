@@ -1273,9 +1273,7 @@
 
           <ul class="p-inst">
             <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-            <p class="c-text">
-              ・ これまでに学んだDOM操作（要素取得、テキスト変更、スタイル変更、クラス操作、フォーム操作、DOM navigation、dataset操作）を組み合わせて実装してください。
-            </p>
+            <p class="c-text">・ これまでに学んだDOM操作（要素取得、テキスト変更、スタイル変更、クラス操作、フォーム操作、DOM navigation、dataset操作）を組み合わせて実装してください。</p>
             <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
             <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
           </ul>
@@ -1297,7 +1295,7 @@
                 </div>
 
                 <p>
-                  .js-counter クラスの要素を取得し、data-count 属性の値を取得。data-count の値を数値に変換して +5 加算。<br />加算結果を data-count 属性に保存し直す。.js-counter のテキスト内容を更新した値に変更する。
+                  .js-counter要素を取得し、data-count属性の値を取得。data-countの値を数値に変換して+5 加算。<br />加算結果をdata-count属性に保存し直す。.js-counter要素のテキスト内容を更新した値に変更する。
                 </p>
               </div>
             </div>
@@ -1307,10 +1305,10 @@
               <div class="u-flex-1">
                 <strong>タスク管理リスト</strong>
                 <p>
-                  .js-taskList クラスの &lt;ul&gt; にタスクを追加する。<br />
-                  新規タスク「会議準備」に data-priority="medium" と 一意の data-task-id を付与する（例: let id = 1; でタスクごとに id++）。<br />
-                  既存タスクで data-priority="high" のものには classList.toggle("highlight") を追加する。<br />
-                  既存タスクの取得は querySelectorAll を使って行う。
+                  .js-taskList要素の &lt;ul&gt; にタスクを追加。<br />
+                  新規タスク「会議準備」にdata-priority="medium"と 一意のdata-task-idを付与（例: let id = 1;でタスクごとに id++）。<br />
+                  既存タスクでdata-priority="high"のものにはclassList.toggle("highlight")を追加。<br />
+                  既存タスクの取得はquerySelectorAllを使用。
                 </p>
               </div>
             </div>
@@ -1320,11 +1318,11 @@
               <div class="u-flex-1">
                 <strong>プロフィールカード生成</strong>
                 <p>
-                  .js-profileCard クラスの &lt;div&gt; を作る。<br />
-                  名前と年齢を変数で宣言して表示する。<br />
-                  年齢から月齢を計算し表示する。<br />
-                  &lt;div&gt; に data-user-id を設定する。<br />
-                  プロフィールカードの要素取得は getElementsByClassName を使う。
+                  .js-profileCardクラスの&lt;div&gt;を作る。<br />
+                  名前と年齢を変数で宣言して表示。<br />
+                  年齢から月齢を計算し表示。<br />
+                  &lt;div&gt;にdata-user-idを設定する。<br />
+                  プロフィールカードの要素取得はgetElementsByClassNameを使用する。
                 </p>
               </div>
             </div>
@@ -1334,10 +1332,10 @@
               <div class="u-flex-1">
                 <strong>メニュー自動作成</strong>
                 <p>
-                  .js-menu クラスの要素に &lt;li&gt; を3つ作成し、HOME / ABOUT / CONTACT を追加する。<br />
-                  各 &lt;li&gt; に data-index を設定する。<br />
-                  DocumentFragment を使ってまとめて追加する。<br />
-                  最初の &lt;li&gt; のテキストを書き換える。
+                  .js-menu要素に &lt;li&gt; を3つ作成し、HOME / ABOUT / CONTACTを追加。<br />
+                  各&lt;li&gt;にdata-indexを設定。<br />
+                  DocumentFragmentを使ってまとめて追加。<br />
+                  最初の&lt;li&gt;のテキストを書き換える。
                 </p>
               </div>
             </div>
@@ -1345,12 +1343,11 @@
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-5</span>
               <div class="u-flex-1">
-                <strong>計算結果表示 + closest</strong>
+                <strong>計算結果表示</strong>
                 <p>
-                  .js-calcResult要素を取得する。<br />
-                  計算結果を表示する。<br />
-                  計算結果を data-total 属性として保存する。<br />
-                  自分自身を含めた一番近い親要素に closest を使ってjs-result-wrapperを追加する。　デモ付き
+                  .js-calcResult要素を取得し、計算結果を表示。<br />
+                  計算結果をdata-total属性として保存。<br />
+                  自分自身を含めた一番近い親要素に.js-result-wrapperを追加する。
                 </p>
               </div>
             </div>
