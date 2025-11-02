@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript練習 - Lesson1</title>
+    <link rel="stylesheet" href="../common/assets/css/reset.css" />
+    <link rel="stylesheet" href="../common/assets/css/base.css" />
+    <link rel="stylesheet" href="../common/assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
@@ -20,6 +22,7 @@
       </header>
 
       <main class="l-main">
+        <!-- Step1 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -40,15 +43,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const userName = "山田太郎";<br />console.log(userName);</div>
+                  <div class="c-code">const userName = "山田太郎";<br />console.log(userName);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="a" /> userName</label>
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="b" /> 山田太郎</label>
@@ -56,16 +60,16 @@
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="d" /> let userName</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--11">
-                    <span class="js-quiz-message--11 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--11 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--11 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--11 u-color-warning u-hide">✕ 不正解。正解は「山田太郎」です。変数userNameの値が出力されます。</span>
+                    <span class="js-quiz-incorrect--11 u-color-warning u-hide">✕ 不正解。<br />正解は「山田太郎」です。変数userNameの値が出力されます。</span>
                   </div>
                   <button data-quiz-id="q1_1" data-step-question-id="11" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">let message = "初回";<br />message = "変更";<br />console.log(message);</div>
+                  <div class="c-code">let message = "初回";<br />message = "変更";<br />console.log(message);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="a" /> 初回</label>
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="b" /> 変更</label>
@@ -73,24 +77,24 @@
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="d" /> エラー</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--12">
-                    <span class="js-quiz-message--12 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--12 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--12 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--12 u-color-warning u-hide">✕ 不正解。正解は「変更」です。変数messageの値が再代入により変更されます。</span>
+                    <span class="js-quiz-incorrect--12 u-color-warning u-hide">✕ 不正解。<br />正解は「変更」です。変数messageの値が再代入により変更されます。</span>
                   </div>
                   <button data-quiz-id="q1_2" data-step-question-id="12" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="p-section__tab js-tab-content js-blank-1" data-tab-content="blank">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="blank">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 商品名を保存し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-11" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--1" id="blank1-11" placeholder="①" /> productName =
                   <label for="blank1-12" class="c-label-input">String quote</label><input type="text" class="c-input js-blank--2" id="blank1-12" placeholder="②" />ワイヤレスイヤホン
                   <label for="blank1-13" class="c-label-input">String quote close</label
@@ -98,14 +102,14 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--11">
                   <span class="js-blank-correct--11 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--11 u-color-warning u-hide">✕ 不正解。正解は ①const ②"または'または` ③"または'または` です。</span>
+                  <span class="js-blank-incorrect--11 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②"または'または` ③"または'または` です。</span>
                 </div>
                 <button data-blank-id="11" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: お知らせメッセージを保存し、再代入した後にコンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-14" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--4" id="blank1-14" placeholder="①" /> noticeMessage =
                   <label for="blank1-15" class="c-label-input">String quote</label><input type="text" class="c-input js-blank--5" id="blank1-15" placeholder="②" />営業時間変更のお知らせ<label
                     for="blank1-16"
@@ -117,19 +121,18 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--12">
                   <span class="js-blank-correct--12 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--12 u-color-warning u-hide">✕ 不正解。正解は ①let ②"または'または` ③"または'または` です。</span>
+                  <span class="js-blank-incorrect--12 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②"または'または` ③"または'または` です。</span>
                 </div>
                 <button data-blank-id="12" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S1-1</span>
@@ -142,7 +145,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step2 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -163,15 +166,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task2"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz2">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const age = 25;<br />console.log(age);</div>
+                  <div class="c-code">const age = 25;<br />console.log(age);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="a" /> "25"</label>
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="b" /> 25</label>
@@ -179,16 +183,16 @@
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="d" /> const age</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--21">
-                    <span class="js-quiz-message--21 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--21 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--21 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--21 u-color-warning u-hide">✕ 不正解。正解は「25」です。変数ageの値が出力されます。</span>
+                    <span class="js-quiz-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />正解は「25」です。変数ageの値が出力されます。</span>
                   </div>
                   <button data-quiz-id="q2_1" data-step-question-id="21" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const num = 10;<br />console.log(num + 5);</div>
+                  <div class="c-code">const num = 10;<br />console.log(num + 5);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="a" /> 10 + 5</label>
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="b" /> 15</label>
@@ -196,37 +200,37 @@
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="d" /> num + 5</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--22">
-                    <span class="js-quiz-message--22 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--22 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--22 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。正解は「15」です。変数numの値 10 + 5 = 15です。</span>
+                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は「15」です。変数numの値 10 + 5 = 15です。</span>
                   </div>
                   <button data-quiz-id="q2_2" data-step-question-id="22" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-2" data-tab-content="blank2">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 価格980円を保存し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-21" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--7" id="blank1-21" placeholder="①" /> price =
                   <label for="blank1-22" class="c-label-input">Number value</label><input type="text" class="c-input js-blank--8" id="blank1-22" placeholder="②" />;<br />console.log(price);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--21">
                   <span class="js-blank-correct--21 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--21 u-color-warning u-hide">✕ 不正解。正解は ①const ②980 です。</span>
+                  <span class="js-blank-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②980 です。</span>
                 </div>
                 <button data-blank-id="21" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 在庫数150個を保存し、75を再代入した後にコンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-23" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--9" id="blank1-23" placeholder="①" /> stock =
                   <label for="blank1-24" class="c-label-input">Number value</label><input type="text" class="c-input js-blank--10" id="blank1-24" placeholder="②" />;<br />
                   stock = 75;<br />
@@ -234,19 +238,18 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--22">
                   <span class="js-blank-correct--22 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--22 u-color-warning u-hide">✕ 不正解。正解は ①let ②150 です。</span>
+                  <span class="js-blank-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②150 です。</span>
                 </div>
                 <button data-blank-id="22" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task2">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S2-1</span>
@@ -259,7 +262,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step3 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -280,15 +283,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task3"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz3">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const message = "Hello";<br />console.log(typeof message);</div>
+                  <div class="c-code">const message = "Hello";<br />console.log(typeof message);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="a" /> Hello</label>
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="b" /> string</label>
@@ -296,16 +300,16 @@
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="d" /> undefined</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--31">
-                    <span class="js-quiz-message--31 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--31 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--31 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--31 u-color-warning u-hide">✕ 不正解。正解は「string」です。messageの型が出力されます。</span>
+                    <span class="js-quiz-incorrect--31 u-color-warning u-hide">✕ 不正解。<br />正解は「string」です。messageの型が出力されます。</span>
                   </div>
                   <button data-quiz-id="q3_1" data-step-question-id="31" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const num = 100;<br />console.log(typeof num);</div>
+                  <div class="c-code">const num = 100;<br />console.log(typeof num);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q3_2" value="a" /> 100</label>
                     <label class="p-choice__item"><input type="radio" name="q3_2" value="b" /> num</label>
@@ -313,56 +317,54 @@
                     <label class="p-choice__item"><input type="radio" name="q3_2" value="d" /> string</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--32">
-                    <span class="js-quiz-message--32 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--32 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--32 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--32 u-color-warning u-hide">✕ 不正解。正解は「number」です。numの型が出力されます。</span>
+                    <span class="js-quiz-incorrect--32 u-color-warning u-hide">✕ 不正解。<br />正解は「number」です。numの型が出力されます。</span>
                   </div>
                   <button data-quiz-id="q3_2" data-step-question-id="32" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-3" data-tab-content="blank3">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 商品価格として1200を保存し、その型を確認するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-31" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--11" placeholder="①" id="blank1-31" /> price =
                   <label for="blank1-32" class="c-label-input">Number value</label><input type="text" class="c-input js-blank--12" placeholder="②" id="blank1-32" />;<br />console.log(typeof price);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--31">
                   <span class="js-blank-correct--31 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--31 u-color-warning u-hide">✕ 不正解。正解は ①let ②150 です。</span>
+                  <span class="js-blank-incorrect--31 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②150 です。</span>
                 </div>
                 <button data-blank-id="31" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 変数statusに数値200を保存し、その型を確認するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const status = 200;<br />console.log(<label for="blank1-33" class="c-label-input">Typeof operator</label
                   ><input type="text" class="c-input js-blank--13" placeholder="①" id="blank1-33" /> <label for="blank1-34" class="c-label-input">Variable name</label
                   ><input type="text" class="c-input js-blank--14" placeholder="②" id="blank1-34" />);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--32">
                   <span class="js-blank-correct--32 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--32 u-color-warning u-hide">✕ 不正解。正解は ①typeof ②status です。</span>
+                  <span class="js-blank-incorrect--32 u-color-warning u-hide">✕ 不正解。<br />正解は ①typeof ②status です。</span>
                 </div>
                 <button data-blank-id="32" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task3">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S3-1</span>
@@ -375,7 +377,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step4 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -396,15 +398,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task4"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz4">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const isLoggedIn = true;<br />console.log(isLoggedIn);</div>
+                  <div class="c-code">const isLoggedIn = true;<br />console.log(isLoggedIn);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="a" /> false</label>
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="b" /> true</label>
@@ -412,16 +415,16 @@
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="d" /> isLoggedIn</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--41">
-                    <span class="js-quiz-message--41 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--41 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--41 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--41 u-color-warning u-hide">✕ 不正解。正解は「true」です。</span>
+                    <span class="js-quiz-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は「true」です。</span>
                   </div>
                   <button data-quiz-id="q4_1" data-step-question-id="41" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">let value;<br />console.log(typeof value);</div>
+                  <div class="c-code">let value;<br />console.log(typeof value);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="a" /> undefined</label>
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="b" /> boolean</label>
@@ -429,24 +432,24 @@
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="d" /> string</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--42">
-                    <span class="js-quiz-message--42 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--42 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--42 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。正解は「undefined」です。値が代入されていない変数は自動的にundefinedとなります。</span>
+                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は「undefined」です。値が代入されていない変数は自動的にundefinedとなります。</span>
                   </div>
                   <button data-quiz-id="q4_2" data-step-question-id="42" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-4" data-tab-content="blank4">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 数値456を文字列に変換し、コンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-41" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--15" id="blank1-41" placeholder="①" /> initValue = 456;<br />
                   initValue = <label for="blank1-42" class="c-label-input">Conversion function</label
                   ><input type="text" class="c-input js-blank--16" id="blank1-42" placeholder="②" />(initValue);<br />
@@ -454,33 +457,31 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--41">
                   <span class="js-blank-correct--41 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--41 u-color-warning u-hide">✕ 不正解。正解は ①let ②String です。</span>
+                  <span class="js-blank-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②String です。</span>
                 </div>
                 <button data-blank-id="41" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 文字列"123"を数値に変換し、コンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-43" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--17" id="blank1-43" placeholder="①" /> strValue = "123";<br />
                   strValue = <label for="blank1-44" class="c-label-input">Conversion function</label><input type="text" class="c-input js-blank--18" id="blank1-44" placeholder="②" />(strValue);<br />
                   console.log(strValue);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--42">
                   <span class="js-blank-correct--42 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--42 u-color-warning u-hide">✕ 不正解。正解は ①let ②Number です。</span>
+                  <span class="js-blank-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②Number です。</span>
                 </div>
                 <button data-blank-id="42" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task4">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S4-1</span>
@@ -493,7 +494,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step5 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -514,15 +515,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task5"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz5">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const a = 10;<br />const b = 3;<br />console.log(a + b);</div>
+                  <div class="c-code">const a = 10;<br />const b = 3;<br />console.log(a + b);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="a" /> 10</label>
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="b" /> 13</label>
@@ -530,16 +532,16 @@
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="d" /> 3</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--51">
-                    <span class="js-quiz-message--51 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--51 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--51 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--51 u-color-warning u-hide">✕ 不正解。正解は「13」です。+ 演算子は加算できます。</span>
+                    <span class="js-quiz-incorrect--51 u-color-warning u-hide">✕ 不正解。<br />正解は「13」です。+ 演算子は加算できます。</span>
                   </div>
                   <button data-quiz-id="q5_1" data-step-question-id="51" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const x = 7;<br />const y = 2;<br />console.log(x % y);</div>
+                  <div class="c-code">const x = 7;<br />const y = 2;<br />console.log(x % y);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="a" /> 3</label>
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="b" /> 1</label>
@@ -547,57 +549,55 @@
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="d" /> 2</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--52">
-                    <span class="js-quiz-message--52 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--52 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--52 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--52 u-color-warning u-hide">✕ 不正解。正解は「1」です。% 演算子は余りを求めます</span>
+                    <span class="js-quiz-incorrect--52 u-color-warning u-hide">✕ 不正解。<br />正解は「1」です。% 演算子は余りを求めます</span>
                   </div>
                   <button data-quiz-id="q5_2" data-step-question-id="52" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-5" data-tab-content="blank5">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 商品価格と送料の合計を計算し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-51" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--19" placeholder="①" id="blank1-51" /> totalPrice = productPrice
                   <label for="blank1-52" class="c-label-input">Arithmetic operator</label
                   ><input type="text" class="c-input js-blank--20" placeholder="②" id="blank1-52" /> shippingFee;<br />console.log(totalPrice);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--51">
                   <span class="js-blank-correct--51 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--51 u-color-warning u-hide">✕ 不正解。正解は ①const ②+ です。</span>
+                  <span class="js-blank-incorrect--51 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②+ です。</span>
                 </div>
                 <button data-blank-id="51" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 数値23を3で割った余りを計算し、コンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-53" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--21" placeholder="①" id="blank1-53" /> remainder = 23
                   <label for="blank1-54" class="c-label-input">Arithmetic operator</label><input type="text" class="c-input js-blank--22" placeholder="②" id="blank1-54" /> 3;<br />
                   console.log(remainder);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--52">
                   <span class="js-blank-correct--52 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--52 u-color-warning u-hide">✕ 不正解。正解は ①const ②% です。</span>
+                  <span class="js-blank-incorrect--52 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②% です。</span>
                 </div>
                 <button data-blank-id="52" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task5">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S5-1</span>
@@ -610,7 +610,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step6 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -631,15 +631,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task6"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz6">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">let score = 50;<br />score += 30;<br />console.log(score);</div>
+                  <div class="c-code">let score = 50;<br />score += 30;<br />console.log(score);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="a" /> 50</label>
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="b" /> 30</label>
@@ -647,16 +648,16 @@
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="d" /> エラー</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--61">
-                    <span class="js-quiz-message--61 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--61 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--61 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--61 u-color-warning u-hide">✕ 不正解。正解は「80」です。+= で加算代入できます。</span>
+                    <span class="js-quiz-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は「80」です。+= で加算代入できます。</span>
                   </div>
                   <button data-quiz-id="q6_1" data-step-question-id="61" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">let count = 4;<br />count *= 3;<br />console.log(count);</div>
+                  <div class="c-code">let count = 4;<br />count *= 3;<br />console.log(count);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="a" /> 7</label>
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="b" /> 12</label>
@@ -664,57 +665,55 @@
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="d" /> 4</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--62">
-                    <span class="js-quiz-message--62 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--62 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--62 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--62 u-color-warning u-hide">✕ 不正解。正解は「12」です。*= で乗算代入できます。</span>
+                    <span class="js-quiz-incorrect--62 u-color-warning u-hide">✕ 不正解。<br />正解は「12」です。*= で乗算代入できます。</span>
                   </div>
                   <button data-quiz-id="q6_2" data-step-question-id="62" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-6" data-tab-content="blank6">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: カウンターに10を加算し、コンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-61" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--23" placeholder="①" id="blank1-61" /> counter = 50;<br />
                   counter <label for="blank1-62" class="c-label-input">Assignment operator</label><input type="text" class="c-input js-blank--24" placeholder="②" id="blank1-62" /> 10;<br />
                   console.log(counter);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--61">
                   <span class="js-blank-correct--61 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--61 u-color-warning u-hide">✕ 不正解。正解は ①let ②+= です。</span>
+                  <span class="js-blank-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②+= です。</span>
                 </div>
                 <button data-blank-id="61" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 価格を2倍にし、コンソールに表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-63" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--25" placeholder="①" id="blank1-63" /> price = 100;<br />
                   price <label for="blank1-64" class="c-label-input">Assignment operator</label><input type="text" class="c-input js-blank--26" placeholder="②" id="blank1-64" /> 2;<br />
                   console.log(price);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--62">
                   <span class="js-blank-correct--62 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--62 u-color-warning u-hide">✕ 不正解。正解は ①let ②*= です。</span>
+                  <span class="js-blank-incorrect--62 u-color-warning u-hide">✕ 不正解。<br />正解は ①let ②*= です。</span>
                 </div>
                 <button data-blank-id="62" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task6">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S6-1</span>
@@ -727,7 +726,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step7 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -748,15 +747,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task7"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz7">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">console.log("Hello" + " World");</div>
+                  <div class="c-code">console.log("Hello" + " World");</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> Hello World</label>
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> Hello+ World</label>
@@ -764,16 +764,16 @@
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> エラー</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--71">
-                    <span class="js-quiz-message--71 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--71 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--71 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。正解は「Hello World」です。+ で文字列連結できます。</span>
+                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。<br />正解は「Hello World」です。+ で文字列連結できます。</span>
                   </div>
                   <button data-quiz-id="q7_1" data-step-question-id="71" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">console.log("価格: " + 500 + "円");</div>
+                  <div class="c-code">console.log("価格: " + 500 + "円");</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 価格:500円</label>
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> 価格: 500円</label>
@@ -781,57 +781,55 @@
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> 500</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--72">
-                    <span class="js-quiz-message--72 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--72 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--72 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。正解は「 価格: 500円」です。+ で文字列連結できます。</span>
+                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は「 価格: 500円」です。+ で文字列連結できます。</span>
                   </div>
                   <button data-quiz-id="q7_2" data-step-question-id="72" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-7" data-tab-content="blank7">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 文字列結合でメッセージを作成するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-71" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--27" placeholder="①" id="blank1-71" /> message = "こんにちは"
                   <label for="blank1-72" class="c-label-input">String operator</label><input type="text" class="c-input js-blank--28" placeholder="②" id="blank1-72" /> "世界";<br />
                   console.log(message);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--71">
                   <span class="js-blank-correct--71 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--71 u-color-warning u-hide">✕ 不正解。正解は ①const ②+ です。</span>
+                  <span class="js-blank-incorrect--71 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②+ です。</span>
                 </div>
                 <button data-blank-id="71" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 数値と文字列を結合するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   <label for="blank1-73" class="c-label-input">Variable declaration</label><input type="text" class="c-input js-blank--29" placeholder="①" id="blank1-73" /> result = "合計: "
                   <label for="blank1-74" class="c-label-input">String operator</label><input type="text" class="c-input js-blank--30" placeholder="②" id="blank1-74" /> 100;<br />
                   console.log(result);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--72">
                   <span class="js-blank-correct--72 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--72 u-color-warning u-hide">✕ 不正解。正解は ①const ②+ です。</span>
+                  <span class="js-blank-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は ①const ②+ です。</span>
                 </div>
                 <button data-blank-id="72" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task7">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S7-1</span>
@@ -844,7 +842,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step8 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -865,22 +863,23 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task8" disabled style="opacity: 0.5; cursor: not-allowed"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
-          <ul class="p-inst">
+          <ul class="p-desc">
             <p class="c-text">
               Step8: 変数のスコープは概念的な学習内容のため、「コード補完」と「提出課題」はありません。<br />
               出力予想問題でスコープの動作を理解しましょう。
             </p>
           </ul>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz8">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const y = 5;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;const y = 10;<br />&nbsp;&nbsp;&nbsp;&nbsp;console.log(y);<br />}</div>
+                  <div class="c-code">const y = 5;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;const y = 10;<br />&nbsp;&nbsp;&nbsp;&nbsp;console.log(y);<br />}</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="a" /> 10</label>
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="b" /> 20</label>
@@ -888,16 +887,16 @@
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="d" /> undefined</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--81">
-                    <span class="js-quiz-message--81 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--81 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--81 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--81 u-color-warning u-hide">✕ 不正解。ブロック内の y は 10 です</span>
+                    <span class="js-quiz-incorrect--81 u-color-warning u-hide">✕ 不正解。<br />ブロック内の y は 10 です</span>
                   </div>
                   <button data-quiz-id="q8_1" data-step-question-id="81" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">let x = 10;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;let x = 20;<br />}<br />console.log(x);</div>
+                  <div class="c-code">let x = 10;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;let x = 20;<br />}<br />console.log(x);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="a" /> 5</label>
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="b" /> 10</label>
@@ -905,9 +904,9 @@
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="d" /> undefined</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--82">
-                    <span class="js-quiz-message--82 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--82 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--82 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--82 u-color-warning u-hide">✕ 不正解。ブロック外の x は 10 です</span>
+                    <span class="js-quiz-incorrect--82 u-color-warning u-hide">✕ 不正解。<br />ブロック外の x は 10 です</span>
                   </div>
                   <button data-quiz-id="q8_2" data-step-question-id="82" class="c-btn">答えを確認</button>
                 </div>
@@ -915,7 +914,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step9 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -936,15 +935,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task9"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz9">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">console.log(`Hello 世界`)</div>
+                  <div class="c-code">console.log(`Hello 世界`)</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q9_1" value="a" /> Hello 世界</label>
                     <label class="p-choice__item"><input type="radio" name="q9_1" value="b" /> `Hello 世界`</label>
@@ -952,16 +952,16 @@
                     <label class="p-choice__item"><input type="radio" name="q9_1" value="d" /> エラー</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--91">
-                    <span class="js-quiz-message--91 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--91 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--91 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--91 u-color-warning u-hide">✕ 不正解。正解は「Hello 世界」です。バッククォートで囲った文字列が出力されます。</span>
+                    <span class="js-quiz-incorrect--91 u-color-warning u-hide">✕ 不正解。<br />正解は「Hello 世界」です。バッククォートで囲った文字列が出力されます。</span>
                   </div>
                   <button data-quiz-id="q9_1" data-step-question-id="91" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">const name = "田中";<br />console.log(`こんにちは${name}さん`);</div>
+                  <div class="c-code">const name = "田中";<br />console.log(`こんにちは${name}さん`);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q9_2" value="a" /> こんにちは田中さん</label>
                     <label class="p-choice__item"><input type="radio" name="q9_2" value="b" /> こんにちは${name}さん</label>
@@ -969,24 +969,24 @@
                     <label class="p-choice__item"><input type="radio" name="q9_2" value="d" /> エラー</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--92">
-                    <span class="js-quiz-message--92 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--92 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--92 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--92 u-color-warning u-hide">✕ 不正解。正解は「こんにちは田中さん」です。${} で変数を埋め込み、変数の値が出力されます。</span>
+                    <span class="js-quiz-incorrect--92 u-color-warning u-hide">✕ 不正解。<br />正解は「こんにちは田中さん」です。${} で変数を埋め込み、変数の値が出力されます。</span>
                   </div>
                   <button data-quiz-id="q9_2" data-step-question-id="92" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-9" data-tab-content="blank9">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: テンプレートリテラルで商品情報を作成し、コンソールに表示するコードの空欄を埋めてください。再代入はありません。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const message = <label for="blank1-91" class="c-label-input">Template literal start</label><input type="text" class="c-input js-blank--31" id="blank1-91" placeholder="①" />商品:
                   <label for="blank1-92" class="c-label-input">Expression start</label><input type="text" class="c-input js-blank--32" id="blank1-92" placeholder="②" /><label
                     for="blank1-93"
@@ -999,14 +999,14 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--91">
                   <span class="js-blank-correct--91 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--91 u-color-warning u-hide">✕ 不正解。正解は ①` ②$ ③{ ④} ⑤`です。</span>
+                  <span class="js-blank-incorrect--91 u-color-warning u-hide">✕ 不正解。<br />正解は ①` ②$ ③{ ④} ⑤`です。</span>
                 </div>
                 <button data-blank-id="91" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 変数nameの値をテンプレートリテラルで表示するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const name = "太郎";<br />
                   const <label for="blank1-96" class="c-label-input">Variable name</label><input type="text" class="c-input js-blank--36" id="blank1-96" placeholder="①" /> = `Hello
                   <label for="blank1-97" class="c-label-input">Expression syntax</label><input type="text" class="c-input js-blank--37" id="blank1-97" placeholder="②" />{name}`;<br />
@@ -1014,19 +1014,17 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--92">
                   <span class="js-blank-correct--92 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--92 u-color-warning u-hide">✕ 不正解。正解は ①greeting ②$ です。</span>
+                  <span class="js-blank-incorrect--92 u-color-warning u-hide">✕ 不正解。<br />正解は ①greeting ②$ です。</span>
                 </div>
                 <button data-blank-id="92" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task9">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S9-1</span>
@@ -1043,7 +1041,7 @@
             </div>
           </div>
         </div>
-
+        <!-- Step10 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -1057,21 +1055,20 @@
             </a>
           </div>
 
-          <ul class="p-inst">
-            <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-            <li class="c-text">・ これまでに学んだ変数宣言（const/let）、データ型、演算子、文字列結合、テンプレートリテラル、比較演算子などを組み合わせて実装してください。</li>
-            <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-            <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-          </ul>
+          <div class="p-desc">
+            <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+          </div>
 
           <div class="p-task">
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S10-1</span>
-              <div class="u-flex-1">
-                <strong>動的価格計算システム</strong><br />
-                初期の商品価格1200円、数量3個、税率10%、送料500円をそれぞれ変数に保存。<br />
-                商品価格に20%割引を適用し、割引後の価格を同じ変数に再代入。<br />
-                テンプレートリテラルを使用して以下の形式でコンソールに表示。<br />
+              <div class="p-task__contents u-flex-1">
+                <strong>割引計算して情報を表示する処理</strong>
+                <p class="u-mt-8">
+                  初期の商品価格1200円、数量3個、税率10%、送料500円として変数に保存。<br />
+                  商品価格に20%割引を適用し、割引後の価格を同じ変数を更新。<br />
+                  テンプレートリテラルを使用して以下の形式でコンソールに表示。<br />
+                </p>
                 <div class="p-task__output">
                   元価格: 1200円<br />
                   セール価格: （割引後の価格）円<br />
@@ -1082,25 +1079,25 @@
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S10-2</span>
-              <div class="u-flex-1">
-                <strong>ユーザーステータス更新システム</strong>
-                <p>
+              <div class="p-task__contents u-flex-1">
+                <strong>ユーザー情報を更新して変更前後を表示する処理</strong>
+                <p class="u-mt-8">
                   ユーザー名"田中太郎"、年齢25、ログイン状態false、ポイント1500を変数に保存。<br />
-                  年齢を26に更新、ログイン状態をtrueに変更、ポイントに代入演算子を使用し500を加算。<br />
-                  テンプレートリテラルを使用して以下の形式でコンソールに表示。各項目の（）内にはデータ型を表示。
+                  年齢を26に更新、ログイン状態をtrueに変更、ポイントに代入演算子を使用して500を加算。<br />
+                  テンプレートリテラルを使用して以下の形式でコンソールに表示。（）内には各値のデータ型を表示。
                 </p>
                 <div class="p-task__output">
-                  更新前 - 名前: 田中太郎, 年齢: 25, ログイン: false, ポイント: 1500<br />
-                  更新後 - 名前: 田中太郎 (string), 年齢: 26 (number), ログイン: true (boolean), ポイント: 2000 (number)
+                  before|名前: 田中太郎, 年齢: 25, ログイン: false, ポイント: 1500<br />
+                  after|名前: 田中太郎 (string), 年齢: 26 (number), ログイン: true (boolean), ポイント: 2000 (number)
                 </div>
               </div>
             </div>
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S10-3</span>
-              <div class="u-flex-1">
-                <strong>成績管理・評価システム</strong>
-                <p>
+              <div class="p-task__contents u-flex-1">
+                <strong>科目の点数から合計と平均を計算して表示する処理</strong>
+                <p class="u-mt-8">
                   国語85点、数学92点、英語78点を変数に保存し、合計点・平均点を計算。<br />
                   テンプレートリテラルを使用して以下の形式でコンソールに表示。
                 </p>
@@ -1114,9 +1111,9 @@
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S10-4</span>
-              <div class="u-flex-1">
-                <strong>在庫管理・発注システム</strong>
-                <p>
+              <div class="p-task__contents u-flex-1">
+                <strong>数量の変化を表示する処理</strong>
+                <p class="u-mt-8">
                   商品名"ワイヤレスマウス"、現在の在庫数50、最小在庫数10、補充目標数100を変数に保存。<br />
                   販売により在庫を35減らし、その後在庫を補充目標数になるように代入演算子を用いて補充。<br />
                   テンプレートリテラルを使用して以下の形式でコンソールに表示。
@@ -1133,9 +1130,9 @@
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L1-S10-5</span>
-              <div class="u-flex-1">
-                <strong>データ変換・検証システム</strong>
-                <p>
+              <div class="p-task__contents u-flex-1">
+                <strong>文字列を数値に変換して計算し、結果を文字列にする処理</strong>
+                <p class="u-mt-8">
                   文字列"123"と文字列"456"を変数に保存。<br />
                   それぞれを数値に変換し、123と456を足して、結果を文字列に戻す。<br />
                   テンプレートリテラルを使用して以下の形式でコンソールに表示。
@@ -1157,14 +1154,13 @@
       </footer>
     </div>
 
-    <button class="c-floatingBtn js-scrollBtn">
+    <button class="c-floatingBtn js-floating">
       <span class="material-icons">keyboard_arrow_up</span>
     </button>
+    <div class="c-copy js-toast"></div>
 
-    <div class="c-copy js-toastContainer"></div>
-
-    <script src="../setting.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/curriculum.js"></script>
+    <script src="../common/assets/js/config.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/curriculum.js" defer></script>
   </body>
 </html>

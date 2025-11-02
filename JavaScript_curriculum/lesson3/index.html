@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript練習 - Lesson3</title>
+    <link rel="stylesheet" href="../common/assets/css/reset.css" />
+    <link rel="stylesheet" href="../common/assets/css/base.css" />
+    <link rel="stylesheet" href="../common/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="l-wrapper">
+      <header class="l-header">
+        <div class="p-headerTitle">
+          <span class="material-icons">school</span>
+          <h1 class="c-title-top">JavaScript Lesson3</h1>
+        </div>
+        <p class="c-title-sub">イベントリスナーでインタラクティブなWebサイトを作ろう！</p>
+      </header>
+
+      <main class="l-main">
+        <!-- Step1 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step1: イベントリスナー</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: ボタンクリック、フォーム送信、マウスホバー、キーボード入力</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-myBtn"&gt;クリック&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-myBtn");<br />
+                    btn.addEventListener("click", function() {<br />
+                    &nbsp;&nbsp;console.log("Hello");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="a" /> Hello</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="b" /> "Hello"</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="c" /> console.log("Hello");</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--11">
+                    <span class="js-quiz-message--11 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--11 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--11 u-color-warning u-hide">✕ 不正解。<br />正解は「Hello」です。console.log("Hello")が実行され、文字列Helloがコンソールに表示されます。</span>
+                  </div>
+                  <button data-quiz-id="q1_1" data-step-question-id="11" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">送信ボタンを2回クリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-submitBtn"&gt;送信&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const submitBtn = document.querySelector(".js-submitBtn");<br />
+                    submitBtn.addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("データを検証します");<br />
+                    });<br />
+                    submitBtn.addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("送信しました");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="a" /> データを検証します 送信しました（2回表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="b" /> データを検証します 送信しました データを検証します 送信しました</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="c" /> 送信しましたのみ（2回表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="d" /> データを検証しますのみ（2回表示）</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--12">
+                    <span class="js-quiz-message--12 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--12 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--12 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「データを検証します 送信しました データを検証します
+                      送信しました」です。1回のクリックで両方のリスナーが実行され、2回クリックすると計4個のメッセージが表示されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q1_2" data-step-question-id="12" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="blank">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: ボタンにクリックイベントを追加するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;button id="submitBtn"&gt;送信&lt;/button&gt;</div>
+                <div class="c-code -blank">
+                  const btn = document.getElementById("submitBtn");<br />
+                  btn.<label for="blank-11" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--1" id="blank-11" placeholder="①" />(<label
+                    for="blank-12"
+                    class="c-label-input"
+                    >Event type</label
+                  ><input type="text" class="c-input js-blank--2" id="blank-12" placeholder="②" />, function() {<br />
+                  &nbsp;&nbsp;console.log("送信ボタンがクリックされました");<br />
+                  });
+                </div>
+                <button data-step-question-id="11" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: アロー関数を使ってマウスオーバーイベントを追加するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;div id="hoverArea"&gt;ホバーエリア&lt;/div&gt;</div>
+                <div class="c-code -blank">
+                  const area = document.getElementById("hoverArea");<br />
+                  area.addEventListener(<label for="blank-13" class="c-label-input">Event type</label><input type="text" class="c-input js-blank--3" id="blank-13" placeholder="③" />,
+                  <label for="blank-14" class="c-label-input">Arrow function</label><input type="text" class="c-input js-blank--4" id="blank-14" placeholder="④" /> => {<br />
+                  &nbsp;&nbsp;console.log("マウスがホバーしました");<br />
+                  });
+                </div>
+                <button data-step-question-id="12" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">イベント練習エリア</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-click-stepFirst">クリック</button>
+                <div class="p-practice__card js-display-stepFirst">メッセージが表示されます</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S1-1</span>
+                <span class="u-flex-1">'.js-click-stepFirst'要素にクリックイベントを追加し、クリック時に.js-display-stepFirst要素のテキストを「ボタンがクリックされました」に変更。</span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S1-2</span>
+                <span class="u-flex-1">'.js-click-stepFirst'要素にダブルクリックイベントを追加し、ダブルクリック時に.js-display-stepFirst要素のテキストを「ダブルクリックされました」に変更。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step2 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step2: イベント属性</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: シンプルなクリック処理、HTML属性での設定、レガシーコードでの使用</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz2"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank2"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task2"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz2">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">各パターンでボタンをクリックした</div>
+                  <div class="c-code">
+                    // パターン1<br />
+                    button.onclick = function() {<br />
+                    &nbsp;&nbsp;console.log("A");<br />
+                    };<br />
+                    button.onclick = function() {<br />
+                    &nbsp;&nbsp;console.log("B");<br />
+                    };<br /><br />
+                    // パターン2<br />
+                    button.addEventListener("click", function() {<br />
+                    &nbsp;&nbsp;console.log("A");<br />
+                    });<br />
+                    button.addEventListener("click", function() {<br />
+                    &nbsp;&nbsp;console.log("B");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="a" /> パターン1: A B / パターン2: B</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="b" /> パターン1: B / パターン2: A B</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="c" /> パターン1: A B / パターン2: A B</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="d" /> パターン1: B / パターン2: B</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--21">
+                    <span class="js-quiz-message--21 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--21 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--21 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「パターン1: B / パターン2: A B」です。onclickは上書きされますが、addEventListenerは複数登録できます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q2_1" data-step-question-id="21" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-clickBtn"&gt;クリック&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-clickBtn");<br />
+                    btn.onclick = function() {<br />
+                    &nbsp;&nbsp;console.log("First");<br />
+                    };<br />
+                    btn.addEventListener("click", function() {<br />
+                    &nbsp;&nbsp;console.log("Second");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="a" /> First</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="b" /> Second</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="c" /> First Second</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="d" /> Second First</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--22">
+                    <span class="js-quiz-message--22 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--22 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は「First Second」です。onclickとaddEventListenerは共存でき、onclickが先に実行されます。</span>
+                  </div>
+                  <button data-quiz-id="q2_2" data-step-question-id="22" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-2" data-tab-content="blank2">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: onclickプロパティを使ってクリック処理を設定するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;button id="onclickBtn"&gt;クリック&lt;/button&gt;</div>
+                <div class="c-code -blank">
+                  const btn = document.getElementById("onclickBtn");<br />
+                  btn.<label for="blank-21" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--5" id="blank-21" placeholder="⑤" /> =
+                  <label for="blank-22" class="c-label-input">Function</label><input type="text" class="c-input js-blank--6" id="blank-22" placeholder="⑥" />() {<br />
+                  &nbsp;&nbsp;alert("onclickでクリックされました");<br />
+                  };
+                </div>
+                <button data-step-question-id="21" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task2">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">onclick練習エリア</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-onclick-stepSecond">onclickテスト</button>
+                <div class="p-practice__card js-result-stepSecond">結果表示エリア</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S2-1</span>
+                <span class="u-flex-1"
+                  >.js-onclick-stepSecond要素にonclickプロパティを使ってクリック処理を設定し、クリック時に.js-result-stepSecond要素のテキストを「onclickで処理されました」に変更。</span
+                >
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S2-2</span>
+                <span class="u-flex-1"
+                  >.js-onclick-stepSecond要素のonclickプロパティを一度設定した後、別の関数で上書きし、クリック時に.js-result-stepSecond要素のテキストを「上書きされた処理」に変更。</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step3 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step3: イベントの種類</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: フォーム入力、マウス操作、キーボード操作、ページ読み込み、リサイズ対応</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz3"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank3"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task3"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz3">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">入力欄に「a」と入力した</div>
+                  <div class="c-code -ref">&lt;input type="text" class="js-myInput"&gt;</div>
+                  <div class="c-code">
+                    const input = document.querySelector(".js-myInput");<br />
+                    input.addEventListener("input", (e) => {<br />
+                    &nbsp;&nbsp;console.log(e.target.value);<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="a" /> input</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="b" /> a</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="c" /> e.target.value</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--31">
+                    <span class="js-quiz-message--31 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--31 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--31 u-color-warning u-hide">✕ 不正解。<br />正解は「a」です。inputイベントで入力された値がe.target.valueに格納され、コンソールに表示されます。</span>
+                  </div>
+                  <button data-quiz-id="q3_1" data-step-question-id="31" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">保存ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-saveBtn"&gt;保存&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-saveBtn");<br />
+                    btn.addEventListener("mouseenter", () => {<br />
+                    &nbsp;&nbsp;console.log("保存の準備完了");<br />
+                    });<br />
+                    btn.addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("データを保存しました");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="a" /> 保存の準備完了</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="b" /> 保存の準備完了 データを保存しました</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="c" /> データを保存しました</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--32">
+                    <span class="js-quiz-message--32 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--32 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--32 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「保存の準備完了 データを保存しました」です。ボタンをクリックする際、マウスが入ってからクリックするため両方のイベントが発火します。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q3_2" data-step-question-id="32" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-3" data-tab-content="blank3">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 入力フィールドにフォーカスが当たったときのイベント処理のコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;input type="text" id="focusInput" placeholder="フォーカステスト"&gt;</div>
+                <div class="c-code -blank">
+                  const input = document.getElementById("focusInput");<br />
+                  input.addEventListener(<label for="blank-31" class="c-label-input">Event type</label><input type="text" class="c-input js-blank--7" id="blank-31" placeholder="⑦" />, function() {<br />
+                  &nbsp;&nbsp;console.log("フォーカスされました");<br />
+                  });
+                </div>
+                <button data-step-question-id="31" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task3">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">イベント種類練習エリア</h2>
+              <div class="p-practice__inner">
+                <input type="text" class="c-input js-input-stepThird" placeholder="ここに入力してください" />
+                <div class="p-practice__card js-hover-stepThird">マウスホバーエリア</div>
+                <div class="p-practice__card js-status-stepThird">ステータス表示</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S3-1</span>
+                <span class="u-flex-1">.js-input-stepThird要素にinputイベントを追加し、入力のたびに.js-status-stepThird要素のテキストを「入力中: [入力された値]」の形式で表示。</span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S3-2</span>
+                <span class="u-flex-1"
+                  >.js-hover-stepThird要素にmouseenterイベントとmouseleaveイベントを追加し、ホバー時に.js-status-stepThird要素のテキストを「ホバー中」、離れたときに「ホバー終了」に変更。</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step4 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step4: イベントオブジェクト</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: フォーム送信阻止、マウス座標取得、押されたキーの判定、ドラッグ&ドロップ</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz4"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank4"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task4"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz4">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-myBtn"&gt;クリック&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-myBtn");<br />
+                    btn.addEventListener("click", function(event) {<br />
+                    &nbsp;&nbsp;console.log(event.type);<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="a" /> click</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="b" /> button</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="c" /> event</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="d" /> myBtn</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--41">
+                    <span class="js-quiz-message--41 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--41 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は「click」です。event.typeプロパティはイベントの種類を文字列で返します。</span>
+                  </div>
+                  <button data-quiz-id="q4_1" data-step-question-id="41" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">入力欄に「Hello」と入力した</div>
+                  <div class="c-code -ref">&lt;input type="text" class="js-textInput"&gt;</div>
+                  <div class="c-code">
+                    const input = document.querySelector(".js-textInput");<br />
+                    input.addEventListener("input", function(event) {<br />
+                    &nbsp;&nbsp;console.log(event.target.tagName);<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="a" /> INPUT</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="b" /> input</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="c" /> Hello</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="d" /> text</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--42">
+                    <span class="js-quiz-message--42 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--42 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は「INPUT」です。event.target.tagNameはイベントが発生した要素のタグ名を大文字で返します。</span>
+                  </div>
+                  <button data-quiz-id="q4_2" data-step-question-id="42" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-4" data-tab-content="blank4">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: イベントオブジェクトからクリック座標を取得するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;div id="clickArea"&gt;クリックエリア&lt;/div&gt;</div>
+                <div class="c-code -blank">
+                  const area = document.getElementById("clickArea");<br />
+                  area.addEventListener("click", function(<label for="blank-41" class="c-label-input">Parameter</label><input type="text" class="c-input js-blank--8" id="blank-41" placeholder="⑧" />)
+                  {<br />
+                  &nbsp;&nbsp;console.log("X座標: " + <label for="blank-42" class="c-label-input">X coordinate</label
+                  ><input type="text" class="c-input js-blank--9" id="blank-42" placeholder="⑨" />);<br />
+                  &nbsp;&nbsp;console.log("Y座標: " + <label for="blank-43" class="c-label-input">Y coordinate</label
+                  ><input type="text" class="c-input js-blank--10" id="blank-43" placeholder="⑩" />);<br />
+                  });
+                </div>
+                <button data-step-question-id="41" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task4">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">イベントオブジェクト練習エリア</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-event-stepFour">イベント情報取得</button>
+                <input type="text" class="c-input js-key-stepFour" placeholder="キーを押してください" />
+                <div class="p-practice__card js-info-stepFour">イベント情報が表示されます</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S4-1</span>
+                <span class="u-flex-1"
+                  >.js-event-stepFour要素にクリックイベントを追加し、クリック時にイベントオブジェクトのtypeプロパティを.js-info-stepFour要素に「イベントタイプ: [type]」の形式で表示。</span
+                >
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S4-2</span>
+                <span class="u-flex-1"
+                  >.js-key-stepFour要素にkeydownイベントを追加し、キー押下時にイベントオブジェクトのkeyプロパティを.js-info-stepFour要素に「押されたキー: [key]」の形式で表示。</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step5 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step5: イベントの伝播</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: ネストした要素でのイベント処理、モーダルの外側クリック、ドロップダウンメニュー</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz5"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank5"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task5"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz5">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">内側の削除ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;div class="js-card"&gt;&lt;button class="js-deleteBtn"&gt;削除&lt;/button&gt;&lt;/div&gt;</div>
+                  <div class="c-code">
+                    document.querySelector(".js-card").addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("カードを選択しました");<br />
+                    });<br />
+                    document.querySelector(".js-deleteBtn").addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("削除します");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="a" /> 削除します カードを選択しました</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="b" /> カードを選択しました 削除します</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="c" /> 削除します</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="d" /> カードを選択しました</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--51">
+                    <span class="js-quiz-message--51 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--51 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--51 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「削除します カードを選択しました」です。イベントバブリングにより、子要素から親要素へイベントが伝播します。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q5_1" data-step-question-id="51" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">内側の編集ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;div class="js-modal"&gt;&lt;button class="js-editBtn"&gt;編集&lt;/button&gt;&lt;/div&gt;</div>
+                  <div class="c-code">
+                    document.querySelector(".js-modal").addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("モーダルを閉じます");<br />
+                    });<br />
+                    document.querySelector(".js-editBtn").addEventListener("click", (e) => {<br />
+                    &nbsp;&nbsp;e.stopPropagation();<br />
+                    &nbsp;&nbsp;console.log("編集モードに入ります");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="a" /> 編集モードに入ります</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="b" /> 編集モードに入ります モーダルを閉じます</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="c" /> モーダルを閉じます</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="d" /> モーダルを閉じます 編集モードに入ります</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--52">
+                    <span class="js-quiz-message--52 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--52 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--52 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「編集モードに入ります」です。stopPropagation()により、親要素へのイベント伝播が阻止されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q5_2" data-step-question-id="52" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-5" data-tab-content="blank5">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: イベントバブリングを止めるコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;div id="outer"&gt;&lt;div id="inner"&gt;内側&lt;/div&gt;&lt;/div&gt;</div>
+                <div class="c-code -blank">
+                  const inner = document.getElementById("inner");<br />
+                  inner.addEventListener("click", function(event) {<br />
+                  &nbsp;&nbsp;event.<label for="blank-51" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--11" id="blank-51" placeholder="⑪" />();<br />
+                  &nbsp;&nbsp;console.log("内側のみ実行");<br />
+                  });
+                </div>
+                <button data-step-question-id="51" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task5">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">イベント伝播練習エリア</h2>
+              <div class="p-practice__inner">
+                <div class="p-practice__card js-outer-stepFive">
+                  外側の要素
+                  <button type="button" class="c-button-practice js-inner-stepFive">内側のボタン</button>
+                </div>
+                <div class="p-practice__card js-log-stepFive">イベントログ</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S5-1</span>
+                <span class="u-flex-1"
+                  >.js-outer-stepFive要素と.js-inner-stepFive要素の両方にクリックイベントを追加し、それぞれクリック時に.js-log-stepFive要素に「外側クリック」「内側クリック」を追記。</span
+                >
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S5-2</span>
+                <span class="u-flex-1">.js-inner-stepFive要素のクリックイベントでstopPropagation()を使用し、内側ボタンクリック時に外側のイベントが発火しないように設定。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step6 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step6: 既定の動作制御</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: フォーム送信の制御、リンククリックの無効化、ドラッグ&ドロップの実装、右クリックメニューの無効化</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz6"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank6"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task6"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz6">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: ブラウザに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">リンクをクリックした</div>
+                  <div class="c-code -ref">&lt;a href="https://example.com" class="js-myLink"&gt;リンク&lt;/a&gt;</div>
+                  <div class="c-code">
+                    const link = document.querySelector(".js-myLink");<br />
+                    link.addEventListener("click", function(event) {<br />
+                    &nbsp;&nbsp;event.preventDefault();<br />
+                    &nbsp;&nbsp;console.log("クリックされました");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="a" /> コンソールに「クリックされました」と表示され、ページ遷移しない</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="b" /> コンソールに「クリックされました」と表示され、ページ遷移する</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="c" /> 何も表示されず、ページ遷移しない</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="d" /> 何も表示されず、ページ遷移する</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--61">
+                    <span class="js-quiz-message--61 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--61 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--61 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「コンソールに「クリックされました」と表示され、ページ遷移しない」です。preventDefault()はリンクの既定の動作（ページ遷移）を阻止します。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q6_1" data-step-question-id="61" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: ブラウザに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">フォームの送信ボタンをクリックした</div>
+                  <div class="c-code -ref">&lt;form class="js-myForm"&gt;&lt;button type="submit"&gt;送信&lt;/button&gt;&lt;/form&gt;</div>
+                  <div class="c-code">
+                    const form = document.querySelector(".js-myForm");<br />
+                    form.addEventListener("submit", function(event) {<br />
+                    &nbsp;&nbsp;event.preventDefault();<br />
+                    &nbsp;&nbsp;console.log("送信処理");<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="a" /> コンソールに「送信処理」と表示され、ページがリロードされない</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="b" /> コンソールに「送信処理」と表示され、ページがリロードされる</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="c" /> 何も表示されず、ページがリロードされる</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="d" /> エラーが発生する</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--62">
+                    <span class="js-quiz-message--62 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--62 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--62 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「コンソールに「送信処理」と表示され、ページがリロードされない」です。preventDefault()でフォーム送信の既定動作を阻止します。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q6_2" data-step-question-id="62" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-6" data-tab-content="blank6">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: フォームの送信を阻止するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;form id="testForm"&gt;&lt;button type="submit"&gt;送信&lt;/button&gt;&lt;/form&gt;</div>
+                <div class="c-code -blank">
+                  const form = document.getElementById("testForm");<br />
+                  form.addEventListener(<label for="blank-61" class="c-label-input">Event type</label><input type="text" class="c-input js-blank--12" id="blank-61" placeholder="⑫" />, function(event)
+                  {<br />
+                  &nbsp;&nbsp;event.<label for="blank-62" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--13" id="blank-62" placeholder="⑬" />();<br />
+                  &nbsp;&nbsp;console.log("送信を阻止しました");<br />
+                  });
+                </div>
+                <button data-step-question-id="61" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task6">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">既定動作制御練習エリア</h2>
+              <div class="p-practice__inner">
+                <form class="js-form-stepSix">
+                  <input type="text" class="c-input js-input-required" placeholder="必須入力" required />
+                  <button type="submit" class="c-button-practice">送信</button>
+                </form>
+                <a href="https://example.com" class="c-link js-link-stepSix">テストリンク</a>
+                <div class="p-practice__card js-message-stepSix">メッセージ表示エリア</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S6-1</span>
+                <span class="u-flex-1">.js-form-stepSix要素にsubmitイベントを追加し、フォーム送信時にpreventDefault()で送信を阻止し、.js-message-stepSix要素に「送信を阻止しました」と表示。</span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S6-2</span>
+                <span class="u-flex-1"
+                  >.js-link-stepSix要素にclickイベントを追加し、リンククリック時にpreventDefault()でページ遷移を阻止し、.js-message-stepSix要素に「リンククリックを阻止しました」と表示。</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step7 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step7: イベントリスナーの管理</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: リスナーの削除でメモリリーク防止、ワンタイムイベント、パフォーマンス最適化</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz7"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank7"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task7"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz7">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">通知を許可ボタンを3回クリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-allowBtn"&gt;通知を許可&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-allowBtn");<br />
+                    btn.addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;console.log("通知を許可しました");<br />
+                    }, { once: true });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> 通知を許可しました（1回のみ表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> 通知を許可しました 通知を許可しました 通知を許可しました（3回表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="c" /> 何も表示されない</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> エラーが発生する</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--71">
+                    <span class="js-quiz-message--71 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--71 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--71 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「通知を許可しました（1回のみ表示）」です。{ once: true }オプションにより、イベントリスナーは最初の1回のみ実行されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q7_1" data-step-question-id="71" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">ダウンロードボタンを2回クリックした</div>
+                  <div class="c-code -ref">&lt;button class="js-downloadBtn"&gt;ダウンロード&lt;/button&gt;</div>
+                  <div class="c-code">
+                    const btn = document.querySelector(".js-downloadBtn");<br />
+                    function handleDownload() {<br />
+                    &nbsp;&nbsp;console.log("ダウンロード開始");<br />
+                    }<br />
+                    btn.addEventListener("click", handleDownload);<br />
+                    btn.removeEventListener("click", handleDownload);
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 何も表示されない</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> ダウンロード開始（1回のみ表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="c" /> ダウンロード開始 ダウンロード開始（2回表示）</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> エラーが発生する</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--72">
+                    <span class="js-quiz-message--72 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--72 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--72 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「何も表示されない」です。removeEventListenerでリスナーが削除されているため、クリックしても何も実行されません。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q7_2" data-step-question-id="72" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-7" data-tab-content="blank7">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: イベントリスナーを削除するコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;button id="removeBtn"&gt;削除テスト&lt;/button&gt;</div>
+                <div class="c-code -blank">
+                  const btn = document.getElementById("removeBtn");<br />
+                  function handleClick() { console.log("クリック"); }<br />
+                  btn.addEventListener("click", handleClick);<br />
+                  btn.<label for="blank-71" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--14" id="blank-71" placeholder="⑭" />(<label
+                    for="blank-72"
+                    class="c-label-input"
+                    >Event type</label
+                  ><input type="text" class="c-input js-blank--15" id="blank-72" placeholder="⑮" />, <label for="blank-73" class="c-label-input">Function reference</label
+                  ><input type="text" class="c-input js-blank--16" id="blank-73" placeholder="⑯" />);
+                </div>
+                <button data-step-question-id="71" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task7">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">リスナー管理練習エリア</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-once-stepSeven">一度だけ実行</button>
+                <button type="button" class="c-button-practice js-remove-stepSeven">削除テスト</button>
+                <button type="button" class="c-button-practice js-remover-stepSeven">リスナー削除</button>
+                <div class="p-practice__card js-result-stepSeven">実行結果</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S7-1</span>
+                <span class="u-flex-1">.js-once-stepSeven要素にクリックイベントを{ once: true }オプション付きで追加し、一度だけ.js-result-stepSeven要素に「一度だけ実行されました」と表示。</span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S7-2</span>
+                <span class="u-flex-1">.js-remove-stepSeven要素にクリックイベントを追加し、.js-remover-stepSeven要素のクリックでremoveEventListenerを使用してリスナーを削除。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step8 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step8: イベント委譲</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: 動的に追加される要素、大量の要素での効率化、リスト項目の操作、テーブル行の処理</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz8"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank8"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task8"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz8">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">「タスクB」をクリックした</div>
+                  <div class="c-code -ref">&lt;ul class="js-taskList"&gt;&lt;li&gt;タスクA&lt;/li&gt;&lt;li&gt;タスクB&lt;/li&gt;&lt;/ul&gt;</div>
+                  <div class="c-code">
+                    const list = document.querySelector(".js-taskList");<br />
+                    list.addEventListener("click", (e) => {<br />
+                    &nbsp;&nbsp;console.log(e.target.textContent);<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q8_1" value="a" /> タスクAタスクB</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_1" value="b" /> タスクB</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_1" value="c" /> taskList</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_1" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--81">
+                    <span class="js-quiz-message--81 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--81 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--81 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「タスクB」です。イベント委譲により、親要素にリスナーを設定し、e.targetで実際にクリックされた子要素のテキストを取得できます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q8_1" data-step-question-id="81" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="p-quiz__action">「商品B」をクリックした後、追加ボタンをクリックし、「新商品」をクリックした</div>
+                  <div class="c-code -ref">
+                    &lt;ul class="js-productList"&gt;&lt;li class="js-product"&gt;商品A&lt;/li&gt;&lt;li class="js-product"&gt;商品B&lt;/li&gt;&lt;/ul&gt;&lt;button
+                    class="js-addProductBtn"&gt;商品を追加&lt;/button&gt;
+                  </div>
+                  <div class="c-code">
+                    const list = document.querySelector(".js-productList");<br />
+                    list.addEventListener("click", (e) => {<br />
+                    &nbsp;&nbsp;if (e.target.classList.contains("js-product")) {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log(e.target.textContent);<br />
+                    &nbsp;&nbsp;}<br />
+                    });<br />
+                    document.querySelector(".js-addProductBtn").addEventListener("click", () => {<br />
+                    &nbsp;&nbsp;const li = document.createElement("li");<br />
+                    &nbsp;&nbsp;li.className = "js-product";<br />
+                    &nbsp;&nbsp;li.textContent = "新商品";<br />
+                    &nbsp;&nbsp;list.appendChild(li);<br />
+                    });
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q8_2" value="a" /> 商品B</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_2" value="b" /> 商品B 新商品</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_2" value="c" /> 新商品</label>
+                    <label class="p-choice__item"><input type="radio" name="q8_2" value="d" /> 商品B 商品A 新商品</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--82">
+                    <span class="js-quiz-message--82 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--82 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--82 u-color-warning u-hide">✕ 不正解。<br />正解は「商品B 新商品」です。イベント委譲により、動的に追加された要素にもイベントが機能します。</span>
+                  </div>
+                  <button data-quiz-id="q8_2" data-step-question-id="82" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-8" data-tab-content="blank8">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: イベント委譲を使ったコードの空欄を埋めてください。</h4>
+                <div class="p-blank__html">&lt;ul id="list"&gt;&lt;li&gt;項目1&lt;/li&gt;&lt;li&gt;項目2&lt;/li&gt;&lt;/ul&gt;</div>
+                <div class="c-code -blank">
+                  const list = document.getElementById("list");<br />
+                  list.addEventListener("click", function(event) {<br />
+                  &nbsp;&nbsp;if (event.<label for="blank-81" class="c-label-input">Property</label><input type="text" class="c-input js-blank--17" id="blank-81" placeholder="⑰" />.<label
+                    for="blank-82"
+                    class="c-label-input"
+                    >Property</label
+                  ><input type="text" class="c-input js-blank--18" id="blank-82" placeholder="⑱" /> === "LI") {<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log("リスト項目がクリックされました");<br />
+                  &nbsp;&nbsp;}<br />
+                  });
+                </div>
+                <button data-step-question-id="81" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task8">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice">
+              <h2 class="c-title-lesson">イベント委譲練習エリア</h2>
+              <div class="p-practice__inner">
+                <ul class="js-list-stepEight">
+                  <li class="p-practice__card js-item">項目1</li>
+                  <li class="p-practice__card js-item">項目2</li>
+                </ul>
+                <button type="button" class="c-button-practice js-add-stepEight">項目追加</button>
+                <div class="p-practice__card js-message-stepEight">クリック情報</div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S8-1</span>
+                <span class="u-flex-1">.js-list-stepEight要素にクリックイベントを委譲で追加し、.js-itemクラスの要素がクリックされたときに.js-message-stepEight要素にそのテキスト内容を表示。</span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S8-2</span>
+                <span class="u-flex-1">.js-add-stepEight要素にクリックイベントを追加し、クリック時に.js-list-stepEight要素に新しいli要素（.js-itemクラス付き）を追加。テキストは「新しい項目」。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step9 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step9: 総合演習</p>
+              </div>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-desc">
+            <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+          </div>
+
+          <div class="p-task">
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-1</span>
+              <div class="u-flex-1">
+                <strong>ユーザー情報表示システム</strong><br />
+                .js-name-input要素（input）に名前を入力、.js-age-input要素（input）に年齢を入力、.js-register-btn要素をクリックすると、入力内容を.js-user-info要素に「名前: [名前], 年齢:
+                [年齢]歳」の形式で表示。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <label class="c-label">名前:</label>
+                    <input type="text" class="c-input js-name-input" placeholder="名前を入力" />
+                  </div>
+                  <div class="u-mb-16">
+                    <label class="c-label">年齢:</label>
+                    <input type="text" class="c-input js-age-input" placeholder="年齢を入力" />
+                  </div>
+                  <button class="c-btn js-register-btn">登録</button>
+                  <div class="p-result js-user-info u-mt-16"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-2</span>
+              <div class="u-flex-1">
+                <strong>動的リスト追加システム</strong><br />
+                .js-todo-input要素（input）にタスクを入力、.js-add-todo-btn要素をクリックで新しいli要素（クラス名:
+                p-practice__cardとjs-item）を.js-todo-list要素に追加、追加した各li要素には削除ボタン（.js-delete-btnクラス、テキスト「削除」）を付ける、削除ボタンをクリックでその親要素のli要素を削除、.js-todo-count要素にタスク数を「タスク数:
+                [数]個」の形式で常に表示。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <input type="text" class="c-input js-todo-input" placeholder="新しいタスク" />
+                    <button class="c-btn js-add-todo-btn u-ml-8">追加</button>
+                  </div>
+                  <div class="p-result js-todo-count u-mb-16">タスク数: 0個</div>
+                  <ul class="p-list js-todo-list"></ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-3</span>
+              <div class="u-flex-1">
+                <strong>簡単な計算機</strong><br />
+                .js-num1-input、.js-num2-input要素（input
+                type="number"）に数値を入力、.js-add-btn、.js-subtract-btn、.js-multiply-btn、.js-divide-btn要素をクリックで各計算を実行、結果を.js-calc-result要素に「結果: [計算結果]」の形式で表示。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <input type="number" class="c-input js-num1-input" placeholder="数値1" value="0" />
+                    <input type="number" class="c-input js-num2-input u-ml-8" placeholder="数値2" value="0" />
+                  </div>
+                  <div class="u-mb-16">
+                    <button class="c-btn js-add-btn">+</button>
+                    <button class="c-btn js-subtract-btn u-ml-4">-</button>
+                    <button class="c-btn js-multiply-btn u-ml-4">×</button>
+                    <button class="c-btn js-divide-btn u-ml-4">÷</button>
+                  </div>
+                  <div class="p-result js-calc-result"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-4</span>
+              <div class="u-flex-1">
+                <strong>動的スタイル変更</strong><br />
+                .js-color-input要素（input
+                type="color"）で色を選択、.js-target-box要素の背景色を選択した色に変更、.js-reset-btn要素をクリックで背景色を初期状態（白）に戻す、.js-current-color要素に現在の色のHEXコードを表示。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <label class="c-label">色を選択:</label>
+                    <input type="color" class="js-color-input u-ml-8" value="#ffffff" />
+                    <button class="c-btn js-reset-btn u-ml-8">リセット</button>
+                  </div>
+                  <div class="p-box js-target-box u-mb-16" style="width: 200px; height: 100px; border: 2px solid #ccc; background-color: #ffffff"></div>
+                  <div class="p-result js-current-color">現在の色: #ffffff</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-5</span>
+              <div class="u-flex-1">
+                <strong>リアルタイム文字カウンター</strong><br />
+                .js-text-input要素（textarea）にテキストを入力、inputイベントで入力のたびに.js-char-count要素に「文字数:
+                [文字数]」を表示、.js-clear-btn要素をクリックでテキストエリアを空にし、.js-char-count要素を「文字数: 0」に更新。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <label class="c-label">テキスト入力:</label>
+                    <textarea class="c-input js-text-input" rows="4" placeholder="ここに文字を入力してください"></textarea>
+                  </div>
+                  <button class="c-btn js-clear-btn">クリア</button>
+                  <div class="p-result js-char-count u-mt-16">文字数: 0</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L3-S10-6</span>
+              <div class="u-flex-1">
+                <strong>チェックボックス連動システム</strong><br />
+                .js-checkbox-all要素（チェックボックス）をクリックしたときに、.js-checkbox-item要素（すべてのチェックボックス）のcheckedプロパティを.js-checkbox-all要素のcheckedプロパティと同じ状態にする、.js-checked-count要素に「選択数:
+                [チェックされた.js-checkbox-itemの数]」を表示。
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <label class="p-checkbox-label">
+                      <input type="checkbox" class="js-checkbox-all" />
+                      すべて選択
+                    </label>
+                  </div>
+                  <div class="u-mb-16">
+                    <label class="p-checkbox-label">
+                      <input type="checkbox" class="js-checkbox-item" />
+                      項目1
+                    </label>
+                    <label class="p-checkbox-label u-ml-16">
+                      <input type="checkbox" class="js-checkbox-item" />
+                      項目2
+                    </label>
+                    <label class="p-checkbox-label u-ml-16">
+                      <input type="checkbox" class="js-checkbox-item" />
+                      項目3
+                    </label>
+                  </div>
+                  <div class="p-result js-checked-count">選択数: 0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="l-footer">
+        <span class="material-icons">school</span>
+        <p>JavaScriptCurriculum Lesson3 | イベントリスナーでインタラクティブなWebサイトを作ろう！</p>
+      </footer>
+    </div>
+    <button class="c-floatingBtn js-floating">
+      <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+    <div class="c-copy js-toast"></div>
+    <script src="../common/assets/js/config.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/curriculum.js" defer></script>
+  </body>
+</html>

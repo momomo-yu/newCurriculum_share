@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript練習 - Lesson2</title>
+    <link rel="stylesheet" href="../common/assets/css/reset.css" />
+    <link rel="stylesheet" href="../common/assets/css/base.css" />
+    <link rel="stylesheet" href="../common/assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
@@ -20,12 +22,13 @@
       </header>
 
       <main class="l-main">
+        <!-- Step1 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step1: 要素の取得</p>
+                <p>Step1: DOM取得</p>
               </div>
               <span class="c-useCase">実際の使用場面: ログインフォームのユーザー名入力欄、商品リストの各アイテム、ナビゲーションメニューのボタン</span>
             </div>
@@ -40,16 +43,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;h1 id="title"&gt;はじめてのDOM&lt;/h1&gt;</div>
-                  <div class="p-quiz__code">const title = document.getElementById("title");<br />console.log(title);</div>
+                  <div class="c-code -ref">&lt;h1 id="title"&gt;はじめてのDOM&lt;/h1&gt;</div>
+                  <div class="c-code">const title = document.getElementById("title");<br />console.log(title);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="a" /> はじめてのDOM</label>
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="b" /> &lt;h1 id="title"&gt;はじめてのDOM&lt;/h1&gt;</label>
@@ -57,10 +61,10 @@
                     <label class="p-choice__item"><input type="radio" name="q1_1" value="d" /> null</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--11">
-                    <span class="js-quiz-message--11 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--11 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--11 u-color-normal u-hide">〇 正解！</span>
                     <span class="js-quiz-incorrect--11 u-color-warning u-hide"
-                      >✕ 不正解。正解は「&lt;h1 id="title"&gt;はじめてのDOM&lt;/h1&gt;」です。要素が存在する場合はHTML要素オブジェクトが返されます。</span
+                      >✕ 不正解。<br />正解は「&lt;h1 id="title"&gt;はじめてのDOM&lt;/h1&gt;」です。要素が存在する場合はHTML要素オブジェクトが返されます。</span
                     >
                   </div>
                   <button data-quiz-id="q1_1" data-step-question-id="11" class="c-btn">答えを確認</button>
@@ -68,11 +72,11 @@
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">
+                  <div class="c-code -ref">
                     &lt;p class="js-note"&gt;メモ1&lt;/p&gt;<br />
                     &lt;p class="js-note"&gt;メモ2&lt;/p&gt;
                   </div>
-                  <div class="p-quiz__code">const note = document.querySelector(".js-note");<br />console.log(note);</div>
+                  <div class="c-code">const note = document.querySelector(".js-note");<br />console.log(note);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="a" /> メモ1</label>
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="b" /> メモ2</label>
@@ -80,10 +84,10 @@
                     <label class="p-choice__item"><input type="radio" name="q1_2" value="d" /> &lt;p class="note"&gt;メモ1&lt;/p&gt; と &lt;p class="note"&gt;メモ2&lt;/p&gt;</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--12">
-                    <span class="js-quiz-message--12 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--12 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--12 u-color-normal u-hide">〇 正解！</span>
                     <span class="js-quiz-incorrect--12 u-color-warning u-hide"
-                      >✕ 不正解。正解は「&lt;p class="note"&gt;メモ1&lt;/p&gt;」です。条件に一致する最初の要素のHTML要素オブジェクトを返します。複数あっても最初の1つだけです。</span
+                      >✕ 不正解。<br />正解は「&lt;p class="note"&gt;メモ1&lt;/p&gt;」です。条件に一致する最初の要素のHTML要素オブジェクトを返します。複数あっても最初の1つだけです。</span
                     >
                   </div>
                   <button data-quiz-id="q1_2" data-step-question-id="12" class="c-btn">答えを確認</button>
@@ -91,15 +95,15 @@
               </div>
             </div>
           </div>
-
-          <div class="p-section__tab js-tab-content js-blank-1" data-tab-content="blank">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="blank">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: '#title'の要素を取得するコードの空欄を埋めてください</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const textElement = document.<label for="blank-11" class="c-label-input">Document method</label><input type="text" class="c-input js-blank--1" id="blank-11" placeholder="①" />(<label
                     for="blank-12"
                     class="c-label-input"
@@ -111,7 +115,7 @@
                 <div class="p-result u-mb-10 js-blank-result--11">
                   <span class="js-blank-correct--11 u-color-normal u-hide">〇 正解！</span>
                   <span class="js-blank-incorrect--11 u-color-warning u-hide"
-                    >✕ 不正解。正解は ①querySelector ②"または'または` ③"または'または` です。<br />()の中で#でセレクタ指定をしているためgetElementByIdは使えません。</span
+                    >✕ 不正解。<br />正解は ①querySelector ②"または'または` ③"または'または` です。<br />()の中で'#'でセレクタ指定をしているためgetElementByIdは使えません。</span
                   >
                 </div>
                 <button data-blank-id="11" class="c-btn">答えを確認</button>
@@ -119,7 +123,7 @@
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: '.button'の中の'.js-button-item'を最初の1つだけ取得するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const button = document.querySelector(".js-button");<br />
                   const buttonItem = <label for="blank-4" class="c-label-input">Variable name</label><input type="text" class="c-input js-blank--4" id="blank-14" placeholder="①" />.<label
                     for="blank-5"
@@ -131,29 +135,27 @@
                 <div class="p-result u-mb-10 js-blank-result--12">
                   <span class="js-blank-correct--12 u-color-normal u-hide">〇 正解！</span>
                   <span class="js-blank-incorrect--12 u-color-warning u-hide"
-                    >✕ 不正解。正解は ①button ②querySelector です。<br />()の中で.でセレクタ指定をしているためgetElementByClassは使えません。<br />DOMの探索範囲を狭くすると、処理が速くなり、意図しない要素を取得するリスクが減ります。</span
+                    >✕ 不正解。<br />正解は ①button ②querySelector です。<br />()の中で'.'でセレクタ指定をしているためgetElementByClassは使えません。<br />DOMの探索範囲を狭くすると、処理が速くなり、意図しない要素を取得するリスクが減ります。</span
                   >
                 </div>
                 <button data-blank-id="12" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
             <div class="p-practice">
               <h2 id="title-stepFirst" class="c-title-lesson">商品ページ</h2>
 
               <div class="p-practice__inner">
-                <div class="p-practice__container js-item-stepFirst">商品</div>
+                <div class="p-practice__card js-item-stepFirst">商品</div>
                 <div class="js-container-stepFirst">
-                  <button type="button" class="p-practice__container--button js-button-stepFirst">買い物リストに入れる</button>
-                  <button type="button" class="p-practice__container--button js-button-stepFirst">購入</button>
+                  <button type="button" class="c-button-practice js-button-stepFirst">買い物リストに入れる</button>
+                  <button type="button" class="c-button-practice js-button-stepFirst">購入</button>
                 </div>
               </div>
             </div>
@@ -169,22 +171,22 @@
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S1-3</span>
-                <span class="u-flex-1">'.js-container-stepFirst'の中にある'js-button-stepFirst'をNodeListとしてすべて取得し、変数に代入してコンソールに表示。</span>
+                <span class="u-flex-1">'.js-container-stepFirst'の中にある'js-button-stepFirst'をNodeListとしてすべて取得し、コンソールに表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S1-4</span>
-                <span class="u-flex-1">問題番号：L2-S1-3で取得した要素のうち2つ目の要素をNodeListのインデックス[]を使って指定し、変数に代入してコンソールに表示。</span>
+                <span class="u-flex-1">問題番号：L2-S1-3で取得した要素のうち2つ目の要素をNodeListのインデックス[]を使って指定し、コンソールに表示。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step2 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step2: テキストやHTMLの変更</p>
+                <p>Step2: テキスト変更</p>
               </div>
               <span class="c-useCase">実際の使用場面: リアルタイムチャットでの新着メッセージ、商品価格の更新表示、エラーメッセージの動的表示</span>
             </div>
@@ -199,16 +201,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task2"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz2">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: ブラウザに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;p class="js-msg"&gt;こんにちは&lt;/p&gt;</div>
-                  <div class="p-quiz__code">const msg = document.querySelector(".js-msg");<br />msg.textContent = "おはよう";</div>
+                  <div class="c-code -ref">&lt;p class="js-msg"&gt;こんにちは&lt;/p&gt;</div>
+                  <div class="c-code">const msg = document.querySelector(".js-msg");<br />msg.textContent = "おはよう";</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="a" /> こんにちは</label>
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="b" /> おはよう</label>
@@ -216,17 +219,17 @@
                     <label class="p-choice__item"><input type="radio" name="q2_1" value="d" /> js-msg</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--21">
-                    <span class="js-quiz-message--21 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--21 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--21 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--21 u-color-warning u-hide">✕ 不正解。textContent に代入した値がそのまま表示されます。</span>
+                    <span class="js-quiz-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />textContent に代入した値がそのまま表示されます。</span>
                   </div>
                   <button data-quiz-id="q2_1" data-step-question-id="21" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: ブラウザに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div id="box"&gt;旧テキスト&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const box = document.getElementById("box");<br />box.innerHTML = "&lt;strong&gt;新しいテキスト&lt;/strong&gt;";</div>
+                  <div class="c-code -ref">&lt;div id="box"&gt;旧テキスト&lt;/div&gt;</div>
+                  <div class="c-code">const box = document.getElementById("box");<br />box.innerHTML = "&lt;strong&gt;新しいテキスト&lt;/strong&gt;";</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="a" /> 旧テキスト</label>
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="b" /> 新しいテキスト</label>
@@ -234,24 +237,24 @@
                     <label class="p-choice__item"><input type="radio" name="q2_2" value="d" /> strong</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--22">
-                    <span class="js-quiz-message--22 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--22 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--22 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。innerHTMLはHTMLタグを解釈し、タグが適用された状態で表示されます。</span>
+                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />innerHTMLはHTMLタグを解釈し、タグが適用された状態で表示されます。</span>
                   </div>
                   <button data-quiz-id="q2_2" data-step-question-id="22" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-2" data-tab-content="blank2">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q1: #container要素を取得し、テキストを挿入するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q1: '#container'要素を取得し、テキストを挿入するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
                   const title = document.<label for="blank-21" class="c-label-input">Method name</label
                   ><input type="text" class="c-input js-blank--7" id="blank-21" placeholder="①" />("#container").<label for="blank-22" class="c-label-input">Property name</label
                   ><input type="text" class="c-input js-blank--8" id="blank-22" placeholder="②" />;<br />
@@ -259,57 +262,57 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--21">
                   <span class="js-blank-correct--21 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--21 u-color-warning u-hide">✕ 不正解。正解は ①querySelector ②innerHTML または textContent です。</span>
+                  <span class="js-blank-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />正解は ①querySelector ②innerHTML または textContent です。</span>
                 </div>
                 <button data-blank-id="21" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q2: 最初の.log要素を取得し、既存のテキストに"完了"を追加するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q2: 最初の'.log'要素を取得し、既存のテキストに"完了"を追加するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
                   const log = document.<label for="blank-23" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--9" id="blank-23" placeholder="①" />(".js-log");<br />
                   log.<label for="blank-24" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--10" id="blank-24" placeholder="②" /> += " 完了";
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--22">
                   <span class="js-blank-correct--22 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--22 u-color-warning u-hide">✕ 不正解。正解は ①querySelector ②textContent または innerHTML です。</span>
+                  <span class="js-blank-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は ①querySelector ②textContent または innerHTML です。</span>
                 </div>
                 <button data-blank-id="22" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task2">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
             <div class="p-practice">
               <h2 class="c-title-lesson js-header-stepSecond">今日の予定</h2>
-              <p class="c-text-lesson js-status-stepSecond">状態:</p>
+              <div class="p-practice__inner">
+                <p class="c-text-lesson js-status-stepSecond">ステータス：</p>
+              </div>
             </div>
 
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S2-1</span>
-                <span class="u-flex-1">.js-header-stepSecond要素を取得して変数へ保存し、取得した要素のテキストを"明日の予定"という文字列に変更。</span>
+                <span class="u-flex-1">'.js-header-stepSecond'要素を取得し、要素のテキストを"明日の予定"という文字列に変更。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S2-2</span>
-                <span class="u-flex-1">.js-status-stepSecond要素を取得して変数へ保存し、既存のテキストの末尾に"準備完了"という文字列を追加。</span>
+                <span class="u-flex-1">'.js-status-stepSecond'要素を取得し、既存のテキストの末尾に"準備完了"という文字列を追加。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step3 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step3: 属性の操作</p>
+                <p>Step3: 属性操作</p>
               </div>
               <span class="c-useCase">実際の使用場面: リンクのhref動的変更、id属性の再割り当て、フォームのdisabled状態切り替え</span>
             </div>
@@ -324,16 +327,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task3"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz3">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div id="user" title="admin"&gt;ユーザー&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const userElem = document.getElementById("user");<br />console.log(userElem.getAttribute("title")</div>
+                  <div class="c-code -ref">&lt;div id="user" title="admin"&gt;ユーザー&lt;/div&gt;</div>
+                  <div class="c-code">const userElem = document.getElementById("user");<br />console.log(userElem.getAttribute("title")</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="a" /> admin</label>
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="b" /> ユーザー</label>
@@ -341,17 +345,17 @@
                     <label class="p-choice__item"><input type="radio" name="q3_1" value="d" /> user</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--31">
-                    <span class="js-quiz-message--31 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--31 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--31 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--31 u-color-warning u-hide">✕ 不正解。正解は「admin」です。title属性の値が取得されます。</span>
+                    <span class="js-quiz-incorrect--31 u-color-warning u-hide">✕ 不正解。<br />正解は「admin」です。title属性の値が取得されます。</span>
                   </div>
                   <button data-quiz-id="q3_1" data-step-question-id="31" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div class="js-status" title="未完了"&gt;タスク&lt;/div&gt;</div>
-                  <div class="p-quiz__code">
+                  <div class="c-code -ref">&lt;div class="js-status" title="未完了"&gt;タスク&lt;/div&gt;</div>
+                  <div class="c-code">
                     const statusElem = document.querySelector(".js-status");<br />statusElem.setAttribute("title", "完了");<br />statusElem.removeAttribute("title");<br />console.log(statusElem.getAttribute("title"));
                   </div>
                   <div class="p-choice js-choices">
@@ -361,24 +365,24 @@
                     <label class="p-choice__item"><input type="radio" name="q3_2" value="d" /> null</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--32">
-                    <span class="js-quiz-message--32 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--32 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--32 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--32 u-color-warning u-hide">✕ 不正解。正解は「null」です。removeAttribute()で属性が削除されたため、getAttribute()はnullを返します。</span>
+                    <span class="js-quiz-incorrect--32 u-color-warning u-hide">✕ 不正解。<br />正解は「null」です。removeAttribute()で属性が削除されたため、getAttribute()はnullを返します。</span>
                   </div>
                   <button data-quiz-id="q3_2" data-step-question-id="32" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-3" data-tab-content="blank3">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q1: .js-logo要素を取得し、src属性を変更するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q1: '.js-logo'要素を取得し、src属性を変更するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
                   const logo = document.<label for="blank-31" class="c-label-input">Method name</label
                   ><input type="text" class="c-input js-blank--11" id="blank-31" placeholder="①" />("js-logo");<br />
                   logo.<label for="blank-32" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--12" id="blank-32" placeholder="②" />("src", "新タイトル");
@@ -386,8 +390,8 @@
                 <div class="p-result u-mb-10 js-blank-result--31">
                   <span class="js-blank-correct--31 u-color-normal u-hide">〇 正解！</span>
                   <span class="js-blank-incorrect--31 u-color-warning u-hide"
-                    >✕ 不正解。正解は ①getElementsByClassName ②setAttribute です。<br />
-                    ()の中で.でセレクタ指定はしていないためquerySelectorは使えません。
+                    >✕ 不正解。<br />正解は ①getElementsByClassName ②setAttribute です。<br />
+                    ()の中で'.'でセレクタ指定はしていないためquerySelectorは使えません。
                   </span>
                 </div>
                 <button data-blank-id="31" class="c-btn">答えを確認</button>
@@ -395,8 +399,8 @@
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: target属性の要素を取得し、そのhref属性を空文字に変更。変更後の値を確認するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">&lt;a href="https://example.com" target="_blank"&gt;公式サイト&lt;/a&gt;</div>
-                <div class="p-blank__code">
+                <div class="c-code -ref">&lt;a href="https://example.com" target="_blank"&gt;公式サイト&lt;/a&gt;</div>
+                <div class="c-code -blank">
                   const link = document.querySelector('[<label for="blank-33" class="c-label-input">Attribute name</label
                   ><input type="text" class="c-input js-blank--13" id="blank-33" placeholder="①" />="<label for="blank-34" class="c-label-input">Attribute value</label
                   ><input type="text" class="c-input js-blank--14" id="blank-34" placeholder="②" />"]');<br />
@@ -406,7 +410,7 @@
                 <div class="p-result u-mb-10 js-blank-result--32">
                   <span class="js-blank-correct--32 u-color-normal u-hide">〇 正解！</span>
                   <span class="js-blank-incorrect--32 u-color-warning u-hide"
-                    >✕ 不正解。正解は ①target ②_blank ③setAttribute ④getAttribute です。<br />
+                    >✕ 不正解。<br />正解は ①target ②_blank ③setAttribute ④getAttribute です。<br />
                     ちなみに、"" の中に ""など同じ種類の引用符の中に同じ引用符は使用できません。</span
                   >
                 </div>
@@ -414,42 +418,39 @@
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task3">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
             <div class="p-practice">
+              <h2 class="c-title-lesson js-header-stepSecond">送信フォーム</h2>
               <div class="p-practice__inner">
-                <div class="u-flex-1">
-                  <button type="button" class="p-practice__container--button js-cancelBtn-stepThird">キャンセル</button>
-                  <button type="button" class="p-practice__container--button js-submitBtn-old-stepThird">送信</button>
-                </div>
+                <button type="button" class="c-button-practice js-cancelBtn-stepThird">キャンセル</button>
+                <button type="button" class="c-button-practice js-submitBtn-old-stepThird">送信</button>
               </div>
             </div>
 
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S3-1</span>
-                <span class="u-flex-1">.js-submitBtn-old-stepThird"の要素を取得して変数へ保存し、class属性の値を"js-submitBtn-stepThird"に変更してください。</span>
+                <span class="u-flex-1">'.js-submitBtn-old-stepThird'の要素を取得し、class属性の値を'js-submitBtn-stepThird'に変更してください。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S3-2</span>
-                <span class="u-flex-1">.js-cancelBtn-stepThird要素を取得して変数へ保存し、disabled属性を追加して無効化してください。 <br />（disabled属性には事前にスタイルを実装済み。） </span>
+                <span class="u-flex-1">'.js-cancelBtn-stepThird'要素を取得し、disabled属性を追加して無効化してください。 <br />（disabled属性には事前にスタイルを実装済み。） </span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step4 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step4: CSSクラスの操作</p>
+                <p>Step4: CSSクラス操作</p>
               </div>
               <span class="c-useCase">実際の使用場面: ボタンのホバー効果、アクティブ状態の表示、ダークモード切り替え、通知バッジの表示・非表示</span>
             </div>
@@ -464,16 +465,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task4"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz4">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div class="js-box is-active"&gt;コンテンツ&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const box = document.querySelector(".js-box");<br />console.log(box.classList.contains("is-active"));</div>
+                  <div class="c-code -ref">&lt;div class="js-box is-active"&gt;コンテンツ&lt;/div&gt;</div>
+                  <div class="c-code">const box = document.querySelector(".js-box");<br />console.log(box.classList.contains("is-active"));</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="a" /> false</label>
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="b" /> is-active="true"</label>
@@ -481,17 +483,17 @@
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="d" /> true</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--41">
-                    <span class="js-quiz-message--41 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--41 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--41 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--41 u-color-warning u-hide">✕ 不正解。正解は「true」です。要素に.is-activeが存在するため、trueを返します。</span>
+                    <span class="js-quiz-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は「true」です。要素に'.is-active'が存在するため、trueを返します。</span>
                   </div>
                   <button data-quiz-id="q4_1" data-step-question-id="41" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;p class="js-notice is-urgent"&gt;お知らせ&lt;/p&gt;</div>
-                  <div class="p-quiz__code">const notice = document.querySelector(".js-notice");<br />notice.classList.remove("is-urgent");<br />console.log(notice.className);</div>
+                  <div class="c-code -ref">&lt;p class="js-notice is-urgent"&gt;お知らせ&lt;/p&gt;</div>
+                  <div class="c-code">const notice = document.querySelector(".js-notice");<br />notice.classList.remove("is-urgent");<br />console.log(notice.className);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="a" /> js-notice</label>
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="b" /> is-urgent</label>
@@ -499,40 +501,40 @@
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="d" /> is-urgent js-notice</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--42">
-                    <span class="js-quiz-message--42 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--42 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--42 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。正解は「js-notice」です。remove()で.is-urgentが削除され、.js-noticeのみが残ります。</span>
+                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は「js-notice」です。remove()で'.is-urgent'が削除され、'.js-notice'のみが残ります。</span>
                   </div>
                   <button data-quiz-id="q4_2" data-step-question-id="42" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content" data-tab-content="blank4">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q1: .tab要素を取得し、.is-activeを追加してクラスを確認するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">&lt;div class="js-tab"&gt;タブ1&lt;/div&gt;</div>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q1: '.tab'要素を取得し、'.is-active'を追加してクラスを確認するコードの空欄を埋めてください。</h4>
+                <div class="c-code -ref">&lt;div class="js-tab"&gt;タブ1&lt;/div&gt;</div>
+                <div class="c-code -blank">
                   const tab = document.querySelector(".js-tab");<br />
                   tab.classList.<label for="blank-41" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--19" id="blank-41" placeholder="①" />("is-active");<br />
                   console.log(tab.<label for="blank-42" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--20" id="blank-42" placeholder="②" />);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--41">
                   <span class="js-blank-correct--41 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--41 u-color-warning u-hide">✕ 不正解。正解は ①add ②classNameまたはclassList です。</span>
+                  <span class="js-blank-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は ①add ②classNameまたはclassList です。</span>
                 </div>
                 <button data-blank-id="41" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q2: input[value="メッセージ"]要素を取得し、.is-hiddenが含まれているかどうかを確認するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">&lt;input type="text" class="is-hidden" value="メッセージ"&gt;</div>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q2: input[value="メッセージ"]要素を取得し、'.is-hidden'が含まれているかどうかを確認するコードの空欄を埋めてください。</h4>
+                <div class="c-code -ref">&lt;input type="text" class="is-hidden" value="メッセージ"&gt;</div>
+                <div class="c-code -blank">
                   const msg = document.querySelector("input[<label for="blank-43" class="c-label-input">Attribute name</label
                   ><input type="text" class="c-input js-blank--21" id="blank-43" placeholder="①" />='メッセージ']");<br />
                   console.log(msg.<label for="blank-44" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--22" id="blank-44" placeholder="②" />.<label
@@ -543,26 +545,24 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--42">
                   <span class="js-blank-correct--42 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--42 u-color-warning u-hide">✕ 不正解。正解は ①value ②classList ③contains です。</span>
+                  <span class="js-blank-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は ①value ②classList ③contains です。</span>
                 </div>
                 <button data-blank-id="42" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task4">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
             <div class="p-practice">
               <div class="p-practice__inner">
                 <div class="is-hidden js-loginForm-stepFour">
                   <h2 class="c-title-lesson">ログインフォーム</h2>
-                  <button type="button" class="p-practice__container--button js-loginBtn-stepFour">ログイン</button>
-                  <button type="button" class="p-practice__container--button">新規登録</button>
+                  <button type="button" class="c-button-practice js-loginBtn-stepFour">ログイン</button>
+                  <button type="button" class="c-button-practice">新規登録</button>
                 </div>
               </div>
             </div>
@@ -570,22 +570,22 @@
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S4-1</span>
-                <span class="u-flex-1">.js-loginForm-stepFour要素を取得して.is-hiddenを削除しフォームを表示。</span>
+                <span class="u-flex-1">'.js-loginForm-stepFour'要素を取得して'.is-hidden'を削除しフォームを表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S4-2</span>
-                <span class="u-flex-1">.js-loginForm-stepFour要素の中の.js-loginBtn-stepFour要素を取得して、.is-activeを追加し色を変更。</span>
+                <span class="u-flex-1">'.js-loginForm-stepFour'要素の中の'.js-loginBtn-stepFour'要素を取得して、'.is-active'を追加し色を変更。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step5 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step5: 要素の作成・追加・削除</p>
+                <p>Step5: 要素作成・追加・削除</p>
               </div>
               <span class="c-useCase">実際の使用場面: ショッピングカートへの商品追加・削除、ToDoリストの項目管理、チャットメッセージの追加</span>
             </div>
@@ -600,16 +600,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task5"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz5">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: ブラウザに表示されるリストの順番として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;ul class="js-list"&gt;<br />&nbsp;&nbsp;&lt;li&gt;りんご&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li&gt;みかん&lt;/li&gt;<br />&lt;/ul&gt;</div>
-                  <div class="p-quiz__code">const list = document.querySelector(".js-list");<br />list.append(document.createElement("li")).textContent = "ぶどう");</div>
+                  <div class="c-code -ref">&lt;ul class="js-list"&gt;<br />&nbsp;&nbsp;&lt;li&gt;りんご&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li&gt;みかん&lt;/li&gt;<br />&lt;/ul&gt;</div>
+                  <div class="c-code">const list = document.querySelector(".js-list");<br />list.append(document.createElement("li")).textContent = "ぶどう");</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="a" /> りんご みかん</label>
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="b" /> りんご みかん ぶどう</label>
@@ -617,19 +618,17 @@
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="d" /> ぶどう みかん</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--51">
-                    <span class="js-quiz-message--51 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--51 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--51 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--51 u-color-warning u-hide">✕ 不正解。正解は「りんご みかん ぶどう」です。appendで"ぶどう"が最後に追加されます。</span>
+                    <span class="js-quiz-incorrect--51 u-color-warning u-hide">✕ 不正解。<br />正解は「りんご みかん ぶどう」です。appendで"ぶどう"が最後に追加されます。</span>
                   </div>
                   <button data-quiz-id="q5_1" data-step-question-id="51" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: ブラウザに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div class="js-box"&gt;<br />&nbsp;&nbsp;&lt;p&gt;赤&lt;/p&gt;<br />&nbsp;&nbsp;&lt;p&gt;青&lt;/p&gt;<br />&lt;/div&gt;</div>
-                  <div class="p-quiz__code">
-                    const box = document.querySelector(".js-box");<br />box.prepend(document.createElement("p")).textContent = "黄";<br />box.querySelectorAll("p")[1].remove();
-                  </div>
+                  <div class="c-code -ref">&lt;div class="js-box"&gt;<br />&nbsp;&nbsp;&lt;p&gt;赤&lt;/p&gt;<br />&nbsp;&nbsp;&lt;p&gt;青&lt;/p&gt;<br />&lt;/div&gt;</div>
+                  <div class="c-code">const box = document.querySelector(".js-box");<br />box.prepend(document.createElement("p")).textContent = "黄";<br />box.querySelectorAll("p")[1].remove();</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="a" /> 黄 赤 青</label>
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="b" /> 黄 青</label>
@@ -637,24 +636,26 @@
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="d" /> 青 黄</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--52">
-                    <span class="js-quiz-message--52 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--52 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--52 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--52 u-color-warning u-hide">✕ 不正解。正解は「黄 青」です。prependで先頭に"黄」"が追加され、2番目の"赤"が消えるので"黄 青"の順となります。</span>
+                    <span class="js-quiz-incorrect--52 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「黄 青」です。prependで先頭に"黄」"が追加され、2番目の"赤"が消えるので"黄 青"の順となります。</span
+                    >
                   </div>
                   <button data-quiz-id="q5_2" data-step-question-id="52" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-5" data-tab-content="blank5">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q1: .js-menu要素を取得し、.js-menu自身を含めた祖先で一番近い.js-section要素を削除するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <h4 class="c-title-question">Q1: '.js-menu'要素を取得し、'.js-menu'自身を含めた祖先で一番近い'.js-section'要素を削除するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
                   const child = document.querySelector(".js-menu");<br />
                   const parent = child.<label for="blank-51" class="c-label-input">Method name</label
                   ><input type="text" class="c-input js-blank--26" id="blank-51" placeholder="①" />(".js-section");<br />
@@ -662,14 +663,14 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--51">
                   <span class="js-blank-correct--51 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--51 u-color-warning u-hide">✕ 不正解。正解は ①closest ②remove です。</span>
+                  <span class="js-blank-incorrect--51 u-color-warning u-hide">✕ 不正解。<br />正解は ①closest ②remove です。</span>
                 </div>
                 <button data-blank-id="51" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 新しいli要素を作成してul要素に追加するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const newItem = document.<label for="blank-28" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--30" id="blank-28" placeholder="①" />("<label
                     for="blank-29"
                     class="c-label-input"
@@ -680,23 +681,21 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--52">
                   <span class="js-blank-correct--52 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--52 u-color-warning u-hide">✕ 不正解。正解は ①createElement ②li ③appendまたはappendChild です。</span>
+                  <span class="js-blank-incorrect--52 u-color-warning u-hide">✕ 不正解。<br />正解は ①createElement ②li ③appendまたはappendChild です。</span>
                 </div>
                 <button data-blank-id="52" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task5">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-practice">
-              <ul class="p-practice__inner -cardContent js-taskForm-stepFive">
-                <li class="p-practice__container">資料作成</li>
-                <li class="p-practice__container js-taskForm-stepFive">打ち合わせ</li>
+              <ul class="p-practice__inner -gap-12 js-taskForm-stepFive">
+                <li class="p-practice__card">資料作成</li>
+                <li class="p-practice__card js-taskForm-stepFive">打ち合わせ</li>
               </ul>
             </div>
 
@@ -707,18 +706,18 @@
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S5-2</span>
-                <span class="u-flex-1">.js-taskForm-stepFive内のすべてのli要素を取得し、インデックスを使って削除。</span>
+                <span class="u-flex-1">'.js-taskForm-stepFive'内のすべてのli要素を取得し、インデックスを使って削除。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step6 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step6: フォーム・入力値の取得と状態操作</p>
+                <p>Step6: フォーム・入力値取得と状態操作</p>
               </div>
               <span class="c-useCase">実際の使用場面: ログインフォームでのユーザー名・パスワード取得、アンケートフォームの回答収集、チェックボックス状態管理</span>
             </div>
@@ -733,16 +732,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task6"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz6">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;input type="text" class="js-userName" value="Taro"&gt;</div>
-                  <div class="p-quiz__code">const name = document.querySelector(".js-userName").value;<br />console.log(name);</div>
+                  <div class="c-code -ref">&lt;input type="text" class="js-userName" value="Taro"&gt;</div>
+                  <div class="c-code">const name = document.querySelector(".js-userName").value;<br />console.log(name);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="a" /> .js-userName</label>
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="b" /> Taro</label>
@@ -750,22 +750,22 @@
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="d" /> undefined</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--61">
-                    <span class="js-quiz-message--61 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--61 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--61 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--61 u-color-warning u-hide">✕ 不正解。正解は「Taro」です。input要素のvalue属性の値が取得されます。</span>
+                    <span class="js-quiz-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は「Taro」です。input要素のvalue属性の値が取得されます。</span>
                   </div>
                   <button data-quiz-id="q6_1" data-step-question-id="61" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">
+                  <div class="c-code -ref">
                     &lt;form&gt;<br />
                     &nbsp;&nbsp;&lt;label&gt;&lt;input type="radio" name="js-userName" value="red"&gt;赤&lt;/label&gt;<br />
                     &nbsp;&nbsp;&lt;label&gt;&lt;input type="radio" name="js-userName" value="blue" checked&gt;青&lt;/label&gt;<br />
                     &lt;/form&gt;
                   </div>
-                  <div class="p-quiz__code">const checkValue = document.querySelector("input[name='js-userName']:checked").value;<br />console.log(checkValue);</div>
+                  <div class="c-code">const checkValue = document.querySelector("input[name='js-userName']:checked").value;<br />console.log(checkValue);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="a" /> 赤</label>
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="b" /> blue</label>
@@ -773,72 +773,70 @@
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="d" /> 青</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--62">
-                    <span class="js-quiz-message--62 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--62 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--62 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--62 u-color-warning u-hide">✕ 不正解。正解は「blue」です。checked属性が付いているinput要素のvalue属性の値が取得されます。</span>
+                    <span class="js-quiz-incorrect--62 u-color-warning u-hide">✕ 不正解。<br />正解は「blue」です。checked属性が付いているinput要素のvalue属性の値が取得されます。</span>
                   </div>
                   <button data-quiz-id="q6_2" data-step-question-id="62" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-6" data-tab-content="blank6">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: チェックボックスの選択値を変更するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">
+                <div class="c-code -ref">
                   &lt;form&gt;<br />
                   &nbsp;&nbsp;&lt;label&gt;&lt;input type="checkbox" class="js-lang" value="JS" checked&gt;JavaScript&lt;/label&gt;<br />
                   &nbsp;&nbsp;&lt;label&gt;&lt;input type="checkbox" class="js-lang" value="Python"&gt;Python&lt;/label&gt;<br />
                   &lt;/form&gt;
                 </div>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const langPython = document.querySelectorAll(".js-lang")[<label for="blank-61" class="c-label-input">Index</label
                   ><input type="text" class="c-input js-blank--28" id="blank-61" placeholder="①" />];<br />
                   langPython.<label for="blank-61-2" class="c-label-input">Property</label><input type="text" class="c-input js-blank--29" id="blank-61-2" placeholder="②" /> = true;
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--61">
                   <span class="js-blank-correct--61 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--61 u-color-warning u-hide">✕ 不正解。正解は ①1 ②checked です。</span>
+                  <span class="js-blank-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は ①1 ②checked です。</span>
                 </div>
                 <button data-blank-id="61" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: テキストエリアの入力値を変更するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">&lt;textarea id="comment"&gt;こんにちは&lt;/textarea&gt;</div>
-                <div class="p-blank__code">
+                <div class="c-code -ref">&lt;textarea id="comment"&gt;こんにちは&lt;/textarea&gt;</div>
+                <div class="c-code -blank">
                   const textArea = document.<label for="blank-62" class="c-label-input">Method</label
                   ><input type="text" class="c-input js-blank--62-1" id="blank-62" placeholder="①" />("comment");<br />
                   textArea.<label for="blank-62-2" class="c-label-input">Property</label><input type="text" class="c-input js-blank--62-2" id="blank-62-2" placeholder="②" /> = "おはよう";
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--62">
                   <span class="js-blank-correct--62 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--62 u-color-warning u-hide">✕ 不正解。正解は ①getElementById ②value です。</span>
+                  <span class="js-blank-incorrect--62 u-color-warning u-hide">✕ 不正解。<br />正解は ①getElementById ②value です。</span>
                 </div>
                 <button data-blank-id="62" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task6">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-practice">
-              <div class="p-practice__inner -itemContent js-navlist-stepSix">
-                <div class="p-practice__item -flex">
+              <div class="p-practice__inner js-navlist-stepSix">
+                <div class="p-practice__item">
                   <label for="mail-input">メールアドレス</label>
-                  <input type="email" id="mail-input" class="mail c-input" value="test@example.com" placeholder="メールアドレスを入力" />
+                  <input type="email" id="mail-input" class="c-input" value="test@example.com" placeholder="メールアドレスを入力" />
                 </div>
                 <div class="p-practice__item">
-                  <label> <input type="checkbox" class="agree" name="" value="ok" />同意する </label>
+                  <label> <input type="checkbox" class="c-agree" name="" value="ok" />同意する </label>
                 </div>
               </div>
             </div>
@@ -854,13 +852,13 @@
             </div>
           </div>
         </div>
-
+        <!-- Step7 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
               <div class="p-section__title--top">
                 <span class="material-icons">auto_awesome</span>
-                <p>Step7: DOMツリーのナビゲーション</p>
+                <p>Step7: DOMツリーナビゲーション</p>
               </div>
               <span class="c-useCase">実際の使用場面: アコーディオンメニューの開閉、テーブルの行削除時の関連データ更新、フォームエラーメッセージの近接要素への表示</span>
             </div>
@@ -875,18 +873,19 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task7"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz7">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">
+                  <div class="c-code -ref">
                     &lt;ul class="js-navList"&gt;<br />&nbsp;&nbsp;&lt;li&gt;ホーム&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li class="js-targetItem"&gt;サービス&lt;/li&gt;<br />&lt;/ul&gt;
                   </div>
-                  <div class="p-quiz__code">const element = document.querySelector('.js-targetItem');<br />console.log(element.parentElement.tagName);</div>
+                  <div class="c-code">const element = document.querySelector('.js-targetItem');<br />console.log(element.parentElement.tagName);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> js-navList</label>
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> UL</label>
@@ -894,17 +893,17 @@
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> サービス</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--71">
-                    <span class="js-quiz-message--71 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--71 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--71 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。正解は「UL」です。.js-targetItemの親要素&lt;ul&gt;タグが出力されます。</span>
+                    <span class="js-quiz-incorrect--71 u-color-warning u-hide">✕ 不正解。<br />正解は「UL」です。'.js-targetItem'の親要素&lt;ul&gt;タグが出力されます。</span>
                   </div>
                   <button data-quiz-id="q7_1" data-step-question-id="71" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div id="container"&gt;<br />&nbsp;&nbsp;&lt;p&gt;お名前&lt;/p&gt;<br />&nbsp;&nbsp;&lt;span&gt;必須&lt;/span&gt;<br />&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const parent = document.querySelector('#container');<br />console.log(parent.children.length);</div>
+                  <div class="c-code -ref">&lt;div id="container"&gt;<br />&nbsp;&nbsp;&lt;p&gt;お名前&lt;/p&gt;<br />&nbsp;&nbsp;&lt;span&gt;必須&lt;/span&gt;<br />&lt;/div&gt;</div>
+                  <div class="c-code">const parent = document.querySelector('#container');<br />console.log(parent.children.length);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 1</label>
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> 2</label>
@@ -912,37 +911,37 @@
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> 0</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--72">
-                    <span class="js-quiz-message--72 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--72 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--72 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。正解は「2」です。#containerの子要素は&lt;p&gt;、&lt;span&gt;の2つです。</span>
+                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は「2」です。#containerの子要素は&lt;p&gt;、&lt;span&gt;の2つです。</span>
                   </div>
                   <button data-quiz-id="q7_2" data-step-question-id="72" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-7" data-tab-content="blank7">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: 要素の親要素を取得するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const headerContent = document.querySelector('.js-headerContents');<br />
                   const header = headerContent.<label for="blank-71" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--32" id="blank-71" placeholder="①" />;
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--71">
                   <span class="js-blank-correct--71 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--71 u-color-warning u-hide">✕ 不正解。正解は ①parentElement です。</span>
+                  <span class="js-blank-incorrect--71 u-color-warning u-hide">✕ 不正解。<br />正解は ①parentElement です。</span>
                 </div>
                 <button data-blank-id="71" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: 要素の子要素数を取得するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const container = document.querySelector('#parentContainer');<br />
                   const childCount = container.<label for="blank-73" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--33" id="blank-73" placeholder="①" />.<label
                     for="blank-72"
@@ -952,42 +951,40 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--72">
                   <span class="js-blank-correct--72 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--72 u-color-warning u-hide">✕ 不正解。正解は ①children ②length です。</span>
+                  <span class="js-blank-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は ①children ②length です。</span>
                 </div>
                 <button data-blank-id="72" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task7">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
             <div class="p-practice">
               <h2 class="c-title-lesson">メニュー</h2>
-              <ul class="p-practice__inner -cardContent">
-                <li class="p-practice__container">ホーム</li>
-                <li class="p-practice__container js-target-stepSeven">サービス</li>
-                <li class="p-practice__container">お問い合わせ</li>
+              <ul class="p-practice__inner -gap-12">
+                <li class="p-practice__card">ホーム</li>
+                <li class="p-practice__card js-target-stepSeven">サービス</li>
+                <li class="p-practice__card">お問い合わせ</li>
               </ul>
             </div>
 
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S7-1</span>
-                <span class="u-flex-1">.js-target-stepSeven要素の親要素を変数に保存、最初の子要素のテキストをコンソールに表示。</span>
+                <span class="u-flex-1">'.js-target-stepSeven'要素の親要素の、最初の子要素のテキストをコンソールに表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S7-2</span>
-                <span class="u-flex-1">.js-target-stepSeven要素の次の兄弟要素を変数に保存、そのテキストを「ニュース」へ変更。</span>
+                <span class="u-flex-1">'.js-target-stepSeven'要素の、次の兄弟要素のテキストを「ニュース」へ変更。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step8 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -1008,16 +1005,17 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task8"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz8">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div class="js-user" data-name="Taro" data-age="20"&gt;&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const user = document.querySelector(".js-user");<br />const name = user.dataset.name;<br />console.log(name);</div>
+                  <div class="c-code -ref">&lt;div class="js-user" data-name="Taro" data-age="20"&gt;&lt;/div&gt;</div>
+                  <div class="c-code">const user = document.querySelector(".js-user");<br />const name = user.dataset.name;<br />console.log(name);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="a" /> user</label>
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="b" /> Taro</label>
@@ -1025,17 +1023,17 @@
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="d" /> undefined</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--81">
-                    <span class="js-quiz-message--81 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--81 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--81 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--81 u-color-warning u-hide">✕ 不正解。正解は「Taro」です。dataset.nameでdata-name属性の値を取得できます。</span>
+                    <span class="js-quiz-incorrect--81 u-color-warning u-hide">✕ 不正解。<br />正解は「Taro」です。dataset.nameでdata-name属性の値を取得できます。</span>
                   </div>
                   <button data-quiz-id="q8_1" data-step-question-id="81" class="c-btn">答えを確認</button>
                 </div>
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
-                  <div class="p-quiz__html">&lt;div id="item" data-price="1000"&gt;&lt;/div&gt;</div>
-                  <div class="p-quiz__code">const item = document.querySelector("#item");<br />item.dataset.price = "1200";<br />console.log(item.dataset.price);</div>
+                  <div class="c-code -ref">&lt;div id="item" data-price="1000"&gt;&lt;/div&gt;</div>
+                  <div class="c-code">const item = document.querySelector("#item");<br />item.dataset.price = "1200";<br />console.log(item.dataset.price);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="a" /> 1000</label>
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="b" /> 1200</label>
@@ -1043,24 +1041,24 @@
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="d" /> item.dataset.price</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--82">
-                    <span class="js-quiz-message--82 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--82 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--82 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--82 u-color-warning u-hide">✕ 不正解。正解は「"1200"」です。dataset.priceで値を設定した後、その設定した値が出力されます。</span>
+                    <span class="js-quiz-incorrect--82 u-color-warning u-hide">✕ 不正解。<br />正解は「"1200"」です。dataset.priceで値を設定した後、その設定した値が出力されます。</span>
                   </div>
                   <button data-quiz-id="q8_2" data-step-question-id="82" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-8" data-tab-content="blank8">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: data-product-id属性を取得するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const card = document.querySelector('.js-productCard');<br />
                   const productId = card.<label for="blank-81" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--39" id="blank-81" placeholder="①" />.<label
                     for="blank-82"
@@ -1070,14 +1068,14 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--81">
                   <span class="js-blank-correct--81 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--81 u-color-warning u-hide">✕ 不正解。正解は ①dataset ②productId です。</span>
+                  <span class="js-blank-incorrect--81 u-color-warning u-hide">✕ 不正解。<br />正解は ①dataset ②productId です。</span>
                 </div>
                 <button data-blank-id="81" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q2: data-status属性を設定するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const profile = document.querySelector('.js-userProfile');<br />
                   profile.<label for="blank-83" class="c-label-input">Property name</label><input type="text" class="c-input js-blank--41" id="blank-83" placeholder="①" />.<label
                     for="blank-84"
@@ -1087,25 +1085,23 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--82">
                   <span class="js-blank-correct--82 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--82 u-color-warning u-hide">✕ 不正解。正解は ①dataset ②status です。</span>
+                  <span class="js-blank-incorrect--82 u-color-warning u-hide">✕ 不正解。<br />正解は ①dataset ②status です。</span>
                 </div>
                 <button data-blank-id="82" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task8">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
             <div class="p-practice">
-              <div class="p-practice__inner -cardContent">
-                <div class="p-practice__container js-navlist-stepNine">
+              <div class="p-practice__inner -gap-12">
+                <div class="p-practice__card js-navlist-stepEight">
                   <div class="js-user" data-user-id="A0025">A0025</div>
                 </div>
-                <div class="p-practice__container js-navlist-stepNine">
+                <div class="p-practice__card js-navlist-stepEight">
                   <div id="A0025" data-name="田中真理" data-age="25">田中 25歳</div>
                 </div>
               </div>
@@ -1113,16 +1109,16 @@
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S8-1</span>
-                <span class="u-flex-1">.js-userのdata-user-idの値を取得し変数に保存しコンソールに表示。</span>
+                <span class="u-flex-1">.js-userのdata-user-idの値を取得し、コンソールに表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S8-2</span>
-                <span class="u-flex-1">L2-S8-1で保存した変数data-user-idの値をid属性の値で持つ要素を取得し、data-nameを"田中茉莉"へ変更。</span>
+                <span class="u-flex-1">L2-S8-1で取得したdata-user-idの値をid属性の値で持つ要素を取得し、data-nameを"田中茉莉"へ変更。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step9 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -1143,15 +1139,16 @@
             <button class="c-tab js-tab-btn u-ml-8" data-tab="task9"><span class="material-icons">edit</span> 提出課題</button>
           </div>
 
+          <!-- 出力予想 -->
           <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz9">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-quiz">
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">
+                  <div class="c-code">
                     const frag = document.createDocumentFragment();<br />const text = document.createElement('p');<br />text.textContent = "Hello";<br />frag.append(text);<br />document.body.append(frag);<br />console.log(document.body.innerHTML);
                   </div>
                   <div class="p-choice js-choices">
@@ -1161,10 +1158,10 @@
                     <label class="p-choice__item"><input type="radio" name="q9_1" value="d" /> Hello</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--91">
-                    <span class="js-quiz-message--91 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--91 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--91 u-color-normal u-hide">〇 正解！</span>
                     <span class="js-quiz-incorrect--91 u-color-warning u-hide"
-                      >✕ 不正解。正解は「&lt;p&gt;Hello&lt;/p&gt;」です。DocumentFragmentの内容がbodyに移され、タグが適用された状態の要素が表示されます。</span
+                      >✕ 不正解。<br />正解は「&lt;p&gt;Hello&lt;/p&gt;」です。DocumentFragmentの内容がbodyに移され、タグが適用された状態の要素が表示されます。</span
                     >
                   </div>
                   <button data-quiz-id="q9_1" data-step-question-id="91" class="c-btn">答えを確認</button>
@@ -1172,7 +1169,7 @@
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="p-quiz__code">
+                  <div class="c-code">
                     const container = document.createDocumentFragment();<br />container.append(document.createElement('div'));<br />const clone = container.cloneNode(true);<br />console.log(clone);
                   </div>
                   <div class="p-choice js-choices">
@@ -1182,40 +1179,40 @@
                     <label class="p-choice__item"><input type="radio" name="q9_2" value="d" /> HTMLDivElement</label>
                   </div>
                   <div class="p-result u-mb-10 js-quiz-result--92">
-                    <span class="js-quiz-message--92 u-color-text u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-message--92 u-color-message u-hide">選択肢を選んでください</span>
                     <span class="js-quiz-correct--92 u-color-normal u-hide">〇 正解！</span>
-                    <span class="js-quiz-incorrect--92 u-color-warning u-hide">✕ 不正解。正解は「DocumentFragment {}」です。cloneNode(true)はDocumentFragmentオブジェクトを返します。</span>
+                    <span class="js-quiz-incorrect--92 u-color-warning u-hide">✕ 不正解。<br />正解は「DocumentFragment {}」です。cloneNode(true)はDocumentFragmentオブジェクトを返します。</span>
                   </div>
                   <button data-quiz-id="q9_2" data-step-question-id="92" class="c-btn">答えを確認</button>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- コード補完 -->
           <div class="p-section__tab js-tab-content js-blank-9" data-tab-content="blank9">
-            <ul class="p-inst">
-              <li class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
             <div class="p-blank">
               <div class="p-blank__item js-blankItem">
                 <h4 class="c-title-question">Q1: DocumentFragmentを作成するコードの空欄を埋めてください。</h4>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const fragment = document.<label for="blank-91" class="c-label-input">Method name</label><input type="text" class="c-input js-blank--43" id="blank-91" placeholder="①" />();<br />
                   console.log('Fragment created:', fragment);
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--91">
                   <span class="js-blank-correct--91 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--91 u-color-warning u-hide">✕ 不正解。正解は ①createDocumentFragment です。</span>
+                  <span class="js-blank-incorrect--91 u-color-warning u-hide">✕ 不正解。<br />正解は ①createDocumentFragment です。</span>
                 </div>
                 <button data-blank-id="91" class="c-btn">答えを確認</button>
               </div>
 
               <div class="p-blank__item js-blankItem">
-                <h4 class="c-title-question">Q2: .tempの中身を複製するコードの空欄を埋めてください。</h4>
-                <div class="p-quiz__html">
+                <h4 class="c-title-question">Q2: '.temp'の中身を複製するコードの空欄を埋めてください。</h4>
+                <div class="c-code -ref">
                   &lt;template class="temp"&gt;<br />&nbsp;&nbsp;&lt;div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;愛知県&lt;/p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;福岡県&lt;/p&gt;<br />&nbsp;&nbsp;&lt;/div&gt;<br />&lt;/template&gt;
                 </div>
-                <div class="p-blank__code">
+                <div class="c-code -blank">
                   const dom = document.createDocumentFragment();<br />
                   const item = document.querySelector(".temp").<label for="blank-92" class="c-label-input">Property name</label
                   ><input type="text" class="c-input js-blank--44" id="blank-92" placeholder="①" />.<label for="blank-93" class="c-label-input">Method name</label
@@ -1224,40 +1221,38 @@
                 </div>
                 <div class="p-result u-mb-10 js-blank-result--92">
                   <span class="js-blank-correct--92 u-color-normal u-hide">〇 正解！</span>
-                  <span class="js-blank-incorrect--92 u-color-warning u-hide">✕ 不正解。正解は ①content ②cloneNode です。</span>
+                  <span class="js-blank-incorrect--92 u-color-warning u-hide">✕ 不正解。<br />正解は ①content ②cloneNode です。</span>
                 </div>
                 <button data-blank-id="92" class="c-btn">答えを確認</button>
               </div>
             </div>
           </div>
-
+          <!-- 提出課題 -->
           <div class="p-section__tab js-tab-content" data-tab-content="task9">
-            <ul class="p-inst">
-              <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-              <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-              <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-            </ul>
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
 
-            <template class="js-template--stepNine"> </template>
+            <template class="js-template-stepNine"> </template>
             <div class="p-practice">
-              <ul class="p-practice__container js-navlist-stepNine"></ul>
+              <ul class="p-practice__inner -gap-12 js-navlist-stepNine"></ul>
             </div>
 
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S9-1</span>
                 <span class="u-flex-1"
-                  >.p-practice__cardをもつli要素を2つ作成し、それぞれDocumentFragmentに追加してから.js-template--stepNineにまとめて追加。<br />追加するli要素のテキストは"HOME"と"ABOUT"。</span
+                  >'.p-practice__card'をもつli要素を2つ作成し、それぞれDocumentFragmentに追加してから'.js-template-stepNine'にまとめて追加。<br />追加するli要素のテキストは"HOME"と"ABOUT"。</span
                 >
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S9-2</span>
-                <span class="u-flex-1">.js-template--stepNineの中身を複製して、DocumentFragment経由で.js-navlist-stepNine配下にまとめて挿入。</span>
+                <span class="u-flex-1">'.js-template-stepNine'の中身を複製して、DocumentFragment経由で'.js-navlist-stepNine'要素配下にまとめて追加。</span>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Step10 -->
         <div class="p-section js-section">
           <div class="p-section__title">
             <div class="p-section__title--content">
@@ -1270,104 +1265,142 @@
               <span class="material-icons">menu_book</span>
             </a>
           </div>
-
-          <ul class="p-inst">
-            <li class="c-text">・ 提出課題です。curriculum.jsファイルに実装し、HTMLやCSSは変更しないでください。</li>
-            <p class="c-text">・ これまでに学んだDOM操作（要素取得、テキスト変更、スタイル変更、クラス操作、フォーム操作、DOM navigation、dataset操作）を組み合わせて実装してください。</p>
-            <li class="c-text">・ ブラウザの開発者ツールのコンソールで結果を確認できます。エラーなどは解消して提出してください。</li>
-            <li class="c-text">・ 各課題について質問する際には、必ず問題番号もコピーして添付してください。</li>
-          </ul>
+          <div class="p-desc">
+            <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+          </div>
 
           <div class="p-task">
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-1</span>
-              <div class="u-flex-1">
-                <strong>動的カウンター</strong>
-
-                <div class="p-practice">
+              <div class="p-task__contents u-flex-1">
+                <strong>申請情報を更新する処理</strong>
+                <div class="p-practice u-mt-8">
                   <div class="p-practice__inner">
-                    <div class="p-practice__container js-counter" data-count="0" style="font-size: 2rem; font-weight: bold; text-align: center; min-width: 120px">0</div>
-                    <div>
-                      <button class="p-practice__container--button js-increment">+</button>
-                      <button class="p-practice__container--button js-decrement">-</button>
+                    <div class="p-practice__card" data-role="guest">
+                      <span class="js-name-stepTen">福田和也</span>
+                      <span>：</span>
+                      <span class="js-status-stepTen">未承認</span>
                     </div>
                   </div>
                 </div>
-
                 <p>
-                  .js-counter要素を取得し、data-count属性の値を取得。data-countの値を数値に変換して+5 加算。<br />加算結果をdata-count属性に保存し直す。.js-counter要素のテキスト内容を更新した値に変更する。
+                  '.js-name-stepTen'要素のテキストを"田中祐美"、'.js-status-stepTen'要素をstrongタグに、ステータスを承認済みへ変更。<br />
+                  親要素のdata-role属性値を"member"へ変更し、'.is-active'を追加する。
                 </p>
               </div>
             </div>
 
             <div class="p-task__item">
-              <span class="c-tag js-tooltip" data -tooltip="問題番号をコピー" data-copy>L2-S10-2</span>
-              <div class="u-flex-1">
-                <strong>タスク管理リスト</strong>
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-2</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>ラジオボタンの選択を反映し選択内容とアイコンを表示する処理</strong>
+                <div class="p-practice u-mt-8">
+                  <h2 class="c-title-lesson">好きな言語は？</h2>
+                  <div class="p-practice__inner js-container-stepTen">
+                    <label><input type="radio" name="language" value="JavaScript" data-icon="javascript" /> JavaScript</label>
+                    <label><input type="radio" name="language" value="HTML" data-icon="html" /> HTML</label>
+                    <label><input type="radio" name="language" value="CSS" data-icon="css" checked /> CSS</label>
+                  </div>
+                  <p class="u-mt-4">
+                    <span>あなたが好きな言語は</span>
+                    <span class="js-result-stepTen">CSS</span>
+                    <span>ですね！</span>
+                    <i class="material-icons js-icon-stepTen">css</i>
+                  </p>
+                </div>
                 <p>
-                  .js-taskList要素の &lt;ul&gt; にタスクを追加。<br />
-                  新規タスク「会議準備」にdata-priority="medium"と 一意のdata-task-idを付与（例: let id = 1;でタスクごとに id++）。<br />
-                  既存タスクでdata-priority="high"のものにはclassList.toggle("highlight")を追加。<br />
-                  既存タスクの取得はquerySelectorAllを使用。
+                  初期表示時に、data-icon="javascript" を持つラジオボタンを選択状態にする。<br />
+                  '.js-container-stepTen'内の直接の子要素から、現在チェックされている入力要素を取得する。<br />
+                  その選択された要素のテキストを'.js-result-stepTen'要素に反映する。<br />
+                  '.js-icon-stepTen'要素のテキストに、選択された要素のdata-iconの値を設定する。
                 </p>
               </div>
             </div>
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-3</span>
-              <div class="u-flex-1">
-                <strong>プロフィールカード生成</strong>
+              <div class="p-task__contents u-flex-1">
+                <strong>カードを入れ替えて新しいカードを追加し、表示内容を更新する処理</strong>
+                <div class="p-practice u-mt-8">
+                  <div class="p-practice__inner -gap-12 js-cardContainer-stepTen">
+                    <div class="p-practice__card">プランC</div>
+                    <div class="p-practice__card">プランC</div>
+                  </div>
+                </div>
                 <p>
-                  .js-profileCardクラスの&lt;div&gt;を作る。<br />
-                  名前と年齢を変数で宣言して表示。<br />
-                  年齢から月齢を計算し表示。<br />
-                  &lt;div&gt;にdata-user-idを設定する。<br />
-                  プロフィールカードの要素取得はgetElementsByClassNameを使用する。
+                  '.js-cardContainer-stepTen'の最初の子要素を削除する。<br />
+                  新しいdiv要素を作成し、最初の子要素として追加する。<br />
+                  その新しい要素に'.p-practice__card'を付与、テキストに「プランA」を設定。<br />
+                  '.js-cardContainer-stepTen'の最後の子要素に'.js-change'を追加する。<br />
+                  その'.js-change'要素のテキストを「プランB」へ変更する。
                 </p>
               </div>
             </div>
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-4</span>
-              <div class="u-flex-1">
-                <strong>メニュー自動作成</strong>
+              <div class="p-task__contents u-flex-1">
+                <strong>リンクを有効化し、関連する表示要素を更新する処理</strong>
+                <div class="p-practice u-mt-8">
+                  <div class="p-practice__inner -gap-12">
+                    <div class="p-practice__card">
+                      <a href="#" class="c-link js-link-stepTen -disabled">詳細を見る</a>
+                      <span class="c-link-status">（無効）</span>
+                    </div>
+                  </div>
+                </div>
                 <p>
-                  .js-menu要素に &lt;li&gt; を3つ作成し、HOME / ABOUT / CONTACTを追加。<br />
-                  各&lt;li&gt;にdata-indexを設定。<br />
-                  DocumentFragmentを使ってまとめて追加。<br />
-                  最初の&lt;li&gt;のテキストを書き換える。
+                  '.js-link-stepTen'要素のhref属性の値を"https://example.com"に変更する。<br />
+                  target="_blank"を追加して、'.-disabled'を削除。<br />
+                  '.js-link-stepTen'要素から最も近い親要素'.p-practice__card'要素を取得し、その親要素内の最後の子要素を削除する。
                 </p>
               </div>
             </div>
 
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-5</span>
-              <div class="u-flex-1">
-                <strong>計算結果表示</strong>
+              <div class="p-task__contents u-flex-1">
+                <strong>テンプレートを複製して内容を書き換えて追加する処理</strong>
+                <div class="p-practice u-mt-8">
+                  <div class="p-practice__card">
+                    <div class="p-practice__inner -gap-12 js-notifyContainer-ten">
+                      <p>通知一覧：</p>
+                    </div>
+                  </div>
+                </div>
+                <template id="notification-template">
+                  <div class="p-practice__item">
+                    <span class="js-notifyTitle-ten">新着情報</span>
+                    <span class="js-notifyMsg-ten">メッセージ内容</span>
+                    <span class="js-notifyTime-ten">2024-01-01</span>
+                  </div>
+                </template>
                 <p>
-                  .js-calcResult要素を取得し、計算結果を表示。<br />
-                  計算結果をdata-total属性として保存。<br />
-                  自分自身を含めた一番近い親要素に.js-result-wrapperを追加する。
+                  templateタグ要素を取得し、子要素も含めて中身を完全に複製する。<br />
+                  複製した要素内の'.js-notifyTitle-ten'要素のテキストを「システム更新」に変更。<br />
+                  '.js-notifyMsg-ten'要素のテキストを「メンテナンス完了しました」に変更。<br />
+                  '.js-notifyTime-ten'要素のテキストを本日の日付に変更（取得メソッドを使用）。<br />
+                  '.js-notifyContainer-ten'要素を取得し、複製した要素を最後の子要素として追加する。
                 </p>
               </div>
             </div>
           </div>
         </div>
       </main>
+
       <footer class="l-footer">
         <span class="material-icons">school</span>
         <p>JavaScriptCurriculum Lesson2 | DOM操作でWebページを動的に変更しよう！</p>
       </footer>
     </div>
 
-    <button class="c-floatingBtn js-scrollBtn">
+    <div class="c-copy js-toast"></div>
+    <button class="c-floatingBtn js-floating">
       <span class="material-icons">keyboard_arrow_up</span>
     </button>
 
-    <div class="c-copy js-toastContainer"></div>
-
-    <script src="../setting.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/curriculum.js"></script>
+    <script src="../common/assets/js/config.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/curriculum.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,48 @@
+/* ===================================
+JavaScript Common baseCSS
+=================================== */
+:root {
+  /*カラーパレット*/
+  --color-gray-1: #000000;
+  --color-gray-2: #333333;
+  --color-gray-3: #5a5a5a;
+  --color-gray-4: #666666;
+  --color-gray-5: #6b7280;
+  --color-gray-6: #8d8d8d;
+  --color-gray-7: #999999;
+  --color-gray-8: #aaaaaa;
+  --color-gray-10: #d1d5db;
+  --color-gray-12: #dddddd;
+  --color-gray-15: #e0e0e0;
+  --color-gray-16: #e2e8f0;
+  --color-gray-18: #eeeeee;
+  --color-gray-20: #f8f9fa;
+  --color-gray-28: #fdfdff;
+  --color-gray-30: #ffffff;
+  --color-shadow-1: #0000001a;
+  --color-shadow-3: #00000026;
+  --color-shadow-4: #00000033;
+  --color-error: #ff7b54;
+  --color-warning: #ffd6a5;
+  --color-message: #ff7e00;
+  --font-family: "M PLUS Rounded 1c", sans-serif;
+  --font-family-mono: "Courier New", monospace;
+
+  /*テキストサイズ*/
+  --size-2xs: 0.625rem;
+  --size-2xs-2: 0.6rem;
+  --size-xs-2: 0.6875rem;
+  --size-xs: 0.75rem;
+  --size-sm-2: 0.8125rem;
+  --size-sm-alt: 0.8rem;
+  --size-sm-3: 0.85rem;
+  --size-sm: 0.875rem;
+  --size-base: 1rem;
+  --size-lg: 1.125rem;
+  --size-xl: 1.5rem;
+  --size-2xl: 1.875rem;
+  --size-3xl: 2.25rem;
+
+  /* アニメーション */
+  --base-trans: all 0.3s ease;
+}

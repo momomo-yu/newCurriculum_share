@@ -1,0 +1,103 @@
+/* ===================================
+JavaScript lesson3 StyleCSS
+=================================== */
+.p-box {
+  border: 2px solid var(--color-gray-15);
+  border-radius: 8px;
+  background-color: var(--color-gray-30);
+  transition: all 0.3s ease;
+}
+
+.p-error {
+  color: var(--color-error);
+  font-size: var(--size-sm);
+  font-weight: 500;
+  min-height: 0;
+}
+
+.p-error:not(:empty) {
+  background-color: #fff5f5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #fed7d7;
+}
+
+.p-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-list li {
+  padding: 12px;
+  margin: 8px 0;
+  background-color: var(--color-primary-light);
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.js-delete-btn {
+  background-color: var(--color-error);
+  color: var(--color-gray-30);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--size-xs);
+  transition: background-color 0.2s ease;
+}
+
+.js-delete-btn:hover {
+  background-color: #e53e3e;
+}
+
+.p-demo {
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-gray-15);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.p-task__output {
+  background-color: var(--color-gray-28);
+  border: 1px solid var(--color-gray-15);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0;
+  font-family: var(--font-family-mono);
+  font-size: var(--size-sm);
+  line-height: 1.6;
+  color: var(--color-gray-3);
+}
+
+.p-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: var(--size-sm);
+  color: var(--color-gray-3);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.p-checkbox-label input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.p-checkbox-label:has(input[type="checkbox"]:checked) {
+  background-color: transparent;
+}
+
+.c-input[rows] {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+  padding: 8px 12px;
+}

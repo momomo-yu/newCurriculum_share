@@ -1,16 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap");
-
+/* ===================================
+JavaScript lesson1 baseCSS
+=================================== */
 :root {
-  --font-primary: "M PLUS Rounded 1c", sans-serif;
-  --primary-color: #64e2b7;
-  --primary-color-light: #d1fae5;
-  --secondary-color: #b2f2bb;
-  --text-color: #5a5a5a;
-  --text-color-light: #8d8d8d;
-  --bg-color: #fdfdff;
-  --card-bg-color: #ffffff;
-  --border-color: #e0e0e0;
-  --success-color: #b2f2bb;
-  --error-color: #ff7b54;
-  --warning-color: #ffd6a5;
+  /* カラーパレット */
+  --color-primary: #64e2b7;
+  --color-primary-light: #d1fae5;
+  --color-secondary: #7ad9a7;
+
+  --color-base-5: #52d4a3;
+  --color-base-10: #10b981;
+
+  --color-shadow: #64e2b74d;
 }

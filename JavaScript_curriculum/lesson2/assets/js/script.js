@@ -1,6 +1,6 @@
 /**
  * ===================================
- * JavaScript Setting lesson2
+ * JavaScript Script lesson2
  * ===================================
  */
 

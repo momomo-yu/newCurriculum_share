@@ -1,0 +1,16 @@
+/* ===================================
+JavaScript lesson3 baseCSS
+=================================== */
+:root {
+  /* カラーパレット */
+  --color-primary: #7dd3fc;
+  --color-primary-light: #f0f9ff;
+  --color-secondary: #93d8fc;
+
+  --color-base-0: #7dd3fc0d;
+  --color-base-5: #5ec3f7;
+  --color-base-10: #0ea5e9;
+
+  --color-shadow: #5cc8f620;
+  --color-border: #5cc8f640;
+}
