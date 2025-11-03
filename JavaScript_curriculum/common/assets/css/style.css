@@ -201,6 +201,20 @@ JavaScript Curriculum Common StyleCSS
   transform: scale(1.1);
 }
 
+.c-tab:disabled,
+.c-tab[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  user-select: none;
+  pointer-events: none;
+}
+
+.c-tab:disabled:hover,
+.c-tab[disabled]:hover {
+  background: transparent;
+  transform: none;
+}
+
 .c-tooltip {
   position: absolute;
   background: var(--color-gray-2);
@@ -261,7 +275,7 @@ JavaScript Curriculum Common StyleCSS
 
 .c-title-question + .c-code,
 .c-code.-ref + .c-code.-blank {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .c-code.-ref {
@@ -352,12 +366,12 @@ JavaScript Curriculum Common StyleCSS
   opacity: 0.8;
 }
 
-.c-button-practice + .c-button-practice {
-  margin-left: 12px;
-}
-
 .c-button-practice:hover {
   opacity: 1;
+}
+
+.c-button-practice.is-active {
+  background: var(--color-base-10);
 }
 
 .c-input {
@@ -565,6 +579,9 @@ JavaScript Curriculum Common StyleCSS
   background: var(--color-gray-28);
   border-radius: 6px;
   border: 1px solid var(--color-gray-15);
+  font-weight: 700;
+  color: var(--color-gray-4);
+  font-size: var(--size-base);
 }
 
 .p-task__item:last-child {
@@ -599,6 +616,10 @@ JavaScript Curriculum Common StyleCSS
   }
 }
 
+.p-task__contents {
+  font-weight: 400;
+}
+
 .p-practice {
   background: var(--color-base-0);
   border: 1px solid var(--color-border);
@@ -631,18 +652,32 @@ JavaScript Curriculum Common StyleCSS
   gap: 32px;
 }
 
-.p-practice__inner.-gap-12 {
-  gap: 12px;
-}
-
 .p-practice__card {
   background: var(--color-gray-30);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  padding: 8px;
+  padding: 8px 12px;
   min-width: 100px;
   text-align: center;
   position: relative;
+  user-select: none;
+  min-height: 40px;
+}
+
+.p-practice__card.-flex {
+  display: flex;
+  align-items: center;
+}
+
+.p-practice__display {
+  font-size: var(--size-xs);
+  background: var(--color-gray-18);
+  border-radius: 6px;
+  min-height: 32px;
+  padding: 6px 10px;
+  font-weight: 500;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .p-practice__item {
@@ -746,6 +781,10 @@ JavaScript Curriculum Common StyleCSS
   margin-left: 16px;
 }
 
+.u-mb-8 {
+  margin-bottom: 8px;
+}
+
 .u-mb-10 {
   margin-bottom: 10px;
 }
@@ -754,12 +793,24 @@ JavaScript Curriculum Common StyleCSS
   margin-top: 15px;
 }
 
+.u-mb-16 {
+  margin-bottom: 16px;
+}
+
 .u-ml-16 {
   margin-left: 16px;
 }
 
 .u-flex-1 {
   flex: 1;
+}
+
+.u-gap-12 {
+  gap: 12px;
+}
+
+.u-gap-16 {
+  gap: 16px;
 }
 
 .u-color-message {

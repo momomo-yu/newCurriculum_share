@@ -39,32 +39,16 @@ window.QUIZ_ANSWERS = {
 window.BLANK_ANSWERS = {
   11: { inputs: [".js-blank--1", ".js-blank--2"], answers: ["addEventListener", "click"], validation: "default" },
   12: { inputs: [".js-blank--3", ".js-blank--4"], answers: ["mouseenter", "mouseover", "()"], validation: "multiple_valid_first" },
-  21: { inputs: [".js-blank--5", ".js-blank--6"], answers: ["onclick", "function"], validation: "default" },
-  31: { inputs: [".js-blank--7"], answers: ["focus"], validation: "default" },
-  41: { inputs: [".js-blank--8", ".js-blank--9", ".js-blank--10"], answers: ["event", "event.clientX", "event.clientY"], validation: "default" },
-  51: { inputs: [".js-blank--11"], answers: ["stopPropagation"], validation: "default" },
+  31: { inputs: [".js-blank--7", ".js-blank--7-2"], answers: ["inputFocus", "focus"], validation: "default" },
+  32: { inputs: [".js-blank--21", ".js-blank--21-2"], answers: ["addEventListener", "blur"], validation: "default" },
+  41: { inputs: [".js-blank--8", ".js-blank--9"], answers: ["event.clientX", "event.clientY"], validation: "default" },
+  42: { inputs: [".js-blank--22", ".js-blank--23"], answers: ["e", "target"], validation: "default" },
+  51: { inputs: [".js-blank--11"], answers: ["stopPropagation"], validation: "single" },
+  52: { inputs: [".js-blank--24"], answers: ["currentTarget"], validation: "single" },
   61: { inputs: [".js-blank--12", ".js-blank--13"], answers: ["submit", "preventDefault"], validation: "default" },
+  62: { inputs: [".js-blank--25", ".js-blank--26"], answers: ["event", "event"], validation: "default" },
   71: { inputs: [".js-blank--14", ".js-blank--15", ".js-blank--16"], answers: ["removeEventListener", "click", "handleClick"], validation: "default" },
+  72: { inputs: [".js-blank--27"], answers: ["once"], validation: "single" },
   81: { inputs: [".js-blank--17", ".js-blank--18"], answers: ["target", "tagName"], validation: "default" },
-};
-
-/**
- * 設定データ - ステップ毎のコード補完の検証
- * @type {Object.<string, Function>}
- */
-window.VALIDATION_FUNCTIONS = {
-  flexible_quote: (userAnswer, correctAnswer) => {
-    const normalizedUser = userAnswer.replace(/['"]/g, "");
-    const normalizedCorrect = correctAnswer.replace(/['"]/g, "");
-    return normalizedUser === normalizedCorrect;
-  },
-  multiple_valid_first: (userAnswer, correctAnswers) => {
-    return correctAnswers.includes(userAnswer);
-  },
-  multiple_valid_second: (userAnswer, correctAnswers) => {
-    return correctAnswers.includes(userAnswer);
-  },
-  default: (userAnswer, correctAnswer) => {
-    return userAnswer === correctAnswer;
-  },
+  82: { inputs: [".js-blank--28", ".js-blank--29"], answers: ["target", "closest"], validation: "default" },
 };

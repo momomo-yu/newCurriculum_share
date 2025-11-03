@@ -153,7 +153,7 @@
 
               <div class="p-practice__inner">
                 <div class="p-practice__card js-item-stepFirst">商品</div>
-                <div class="js-container-stepFirst">
+                <div class="p-practice__item u-gap-16 container-stepFirst">
                   <button type="button" class="c-button-practice js-button-stepFirst">買い物リストに入れる</button>
                   <button type="button" class="c-button-practice js-button-stepFirst">購入</button>
                 </div>
@@ -426,7 +426,7 @@
 
             <div class="p-practice">
               <h2 class="c-title-lesson js-header-stepSecond">送信フォーム</h2>
-              <div class="p-practice__inner">
+              <div class="p-practice__inner u-gap-12">
                 <button type="button" class="c-button-practice js-cancelBtn-stepThird">キャンセル</button>
                 <button type="button" class="c-button-practice js-submitBtn-old-stepThird">送信</button>
               </div>
@@ -475,7 +475,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;div class="js-box is-active"&gt;コンテンツ&lt;/div&gt;</div>
-                  <div class="c-code">const box = document.querySelector(".js-box");<br />console.log(box.classList.contains("is-active"));</div>
+                  <div class="c-code u-mb-16">const box = document.querySelector(".js-box");<br />console.log(box.classList.contains("is-active"));</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="a" /> false</label>
                     <label class="p-choice__item"><input type="radio" name="q4_1" value="b" /> is-active="true"</label>
@@ -493,7 +493,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;p class="js-notice is-urgent"&gt;お知らせ&lt;/p&gt;</div>
-                  <div class="c-code">const notice = document.querySelector(".js-notice");<br />notice.classList.remove("is-urgent");<br />console.log(notice.className);</div>
+                  <div class="c-code u-mb-16">const notice = document.querySelector(".js-notice");<br />notice.classList.remove("is-urgent");<br />console.log(notice.className);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="a" /> js-notice</label>
                     <label class="p-choice__item"><input type="radio" name="q4_2" value="b" /> is-urgent</label>
@@ -558,9 +558,9 @@
             </div>
 
             <div class="p-practice">
-              <div class="p-practice__inner">
-                <div class="is-hidden js-loginForm-stepFour">
-                  <h2 class="c-title-lesson">ログインフォーム</h2>
+              <h2 class="c-title-lesson">ログインフォーム</h2>
+              <div class="p-practice__inner is-hidden js-loginForm-stepFour">
+                <div class="p-practice__item u-gap-16">
                   <button type="button" class="c-button-practice js-loginBtn-stepFour">ログイン</button>
                   <button type="button" class="c-button-practice">新規登録</button>
                 </div>
@@ -610,7 +610,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: ブラウザに表示されるリストの順番として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;ul class="js-list"&gt;<br />&nbsp;&nbsp;&lt;li&gt;りんご&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li&gt;みかん&lt;/li&gt;<br />&lt;/ul&gt;</div>
-                  <div class="c-code">const list = document.querySelector(".js-list");<br />list.append(document.createElement("li")).textContent = "ぶどう");</div>
+                  <div class="c-code u-mb-16">const list = document.querySelector(".js-list");<br />list.append(document.createElement("li")).textContent = "ぶどう");</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="a" /> りんご みかん</label>
                     <label class="p-choice__item"><input type="radio" name="q5_1" value="b" /> りんご みかん ぶどう</label>
@@ -628,7 +628,9 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: ブラウザに表示される内容として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;div class="js-box"&gt;<br />&nbsp;&nbsp;&lt;p&gt;赤&lt;/p&gt;<br />&nbsp;&nbsp;&lt;p&gt;青&lt;/p&gt;<br />&lt;/div&gt;</div>
-                  <div class="c-code">const box = document.querySelector(".js-box");<br />box.prepend(document.createElement("p")).textContent = "黄";<br />box.querySelectorAll("p")[1].remove();</div>
+                  <div class="c-code u-mb-16">
+                    const box = document.querySelector(".js-box");<br />box.prepend(document.createElement("p")).textContent = "黄";<br />box.querySelectorAll("p")[1].remove();
+                  </div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="a" /> 黄 赤 青</label>
                     <label class="p-choice__item"><input type="radio" name="q5_2" value="b" /> 黄 青</label>
@@ -693,7 +695,8 @@
               <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
             </div>
             <div class="p-practice">
-              <ul class="p-practice__inner -gap-12 js-taskForm-stepFive">
+              <h2 class="c-title-lesson">本日のタスク</h2>
+              <ul class="p-practice__inner u-gap-12 js-taskForm-stepFive">
                 <li class="p-practice__card">資料作成</li>
                 <li class="p-practice__card js-taskForm-stepFive">打ち合わせ</li>
               </ul>
@@ -706,7 +709,7 @@
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S5-2</span>
-                <span class="u-flex-1">'.js-taskForm-stepFive'内のすべてのli要素を取得し、インデックスを使って削除。</span>
+                <span class="u-flex-1">'.js-taskForm-stepFive'要素内のすべてのli要素をインデックスを使って削除。</span>
               </div>
             </div>
           </div>
@@ -742,7 +745,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;input type="text" class="js-userName" value="Taro"&gt;</div>
-                  <div class="c-code">const name = document.querySelector(".js-userName").value;<br />console.log(name);</div>
+                  <div class="c-code u-mb-16">const name = document.querySelector(".js-userName").value;<br />console.log(name);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="a" /> .js-userName</label>
                     <label class="p-choice__item"><input type="radio" name="q6_1" value="b" /> Taro</label>
@@ -765,7 +768,7 @@
                     &nbsp;&nbsp;&lt;label&gt;&lt;input type="radio" name="js-userName" value="blue" checked&gt;青&lt;/label&gt;<br />
                     &lt;/form&gt;
                   </div>
-                  <div class="c-code">const checkValue = document.querySelector("input[name='js-userName']:checked").value;<br />console.log(checkValue);</div>
+                  <div class="c-code u-mb-16">const checkValue = document.querySelector("input[name='js-userName']:checked").value;<br />console.log(checkValue);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="a" /> 赤</label>
                     <label class="p-choice__item"><input type="radio" name="q6_2" value="b" /> blue</label>
@@ -830,6 +833,7 @@
               <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
             </div>
             <div class="p-practice">
+              <h2 class="c-title-lesson">同意フォーム</h2>
               <div class="p-practice__inner js-navlist-stepSix">
                 <div class="p-practice__item">
                   <label for="mail-input">メールアドレス</label>
@@ -885,7 +889,7 @@
                   <div class="c-code -ref">
                     &lt;ul class="js-navList"&gt;<br />&nbsp;&nbsp;&lt;li&gt;ホーム&lt;/li&gt;<br />&nbsp;&nbsp;&lt;li class="js-targetItem"&gt;サービス&lt;/li&gt;<br />&lt;/ul&gt;
                   </div>
-                  <div class="c-code">const element = document.querySelector('.js-targetItem');<br />console.log(element.parentElement.tagName);</div>
+                  <div class="c-code u-mb-16">const element = document.querySelector('.js-targetItem');<br />console.log(element.parentElement.tagName);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> js-navList</label>
                     <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> UL</label>
@@ -903,7 +907,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;div id="container"&gt;<br />&nbsp;&nbsp;&lt;p&gt;お名前&lt;/p&gt;<br />&nbsp;&nbsp;&lt;span&gt;必須&lt;/span&gt;<br />&lt;/div&gt;</div>
-                  <div class="c-code">const parent = document.querySelector('#container');<br />console.log(parent.children.length);</div>
+                  <div class="c-code u-mb-16">const parent = document.querySelector('#container');<br />console.log(parent.children.length);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 1</label>
                     <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> 2</label>
@@ -965,7 +969,7 @@
 
             <div class="p-practice">
               <h2 class="c-title-lesson">メニュー</h2>
-              <ul class="p-practice__inner -gap-12">
+              <ul class="p-practice__inner u-gap-12">
                 <li class="p-practice__card">ホーム</li>
                 <li class="p-practice__card js-target-stepSeven">サービス</li>
                 <li class="p-practice__card">お問い合わせ</li>
@@ -1015,7 +1019,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: 実行結果として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;div class="js-user" data-name="Taro" data-age="20"&gt;&lt;/div&gt;</div>
-                  <div class="c-code">const user = document.querySelector(".js-user");<br />const name = user.dataset.name;<br />console.log(name);</div>
+                  <div class="c-code u-mb-16">const user = document.querySelector(".js-user");<br />const name = user.dataset.name;<br />console.log(name);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="a" /> user</label>
                     <label class="p-choice__item"><input type="radio" name="q8_1" value="b" /> Taro</label>
@@ -1033,7 +1037,7 @@
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: 実行結果として正しいものを選んでください。</h4>
                   <div class="c-code -ref">&lt;div id="item" data-price="1000"&gt;&lt;/div&gt;</div>
-                  <div class="c-code">const item = document.querySelector("#item");<br />item.dataset.price = "1200";<br />console.log(item.dataset.price);</div>
+                  <div class="c-code u-mb-16">const item = document.querySelector("#item");<br />item.dataset.price = "1200";<br />console.log(item.dataset.price);</div>
                   <div class="p-choice js-choices">
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="a" /> 1000</label>
                     <label class="p-choice__item"><input type="radio" name="q8_2" value="b" /> 1200</label>
@@ -1097,7 +1101,8 @@
               <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
             </div>
             <div class="p-practice">
-              <div class="p-practice__inner -gap-12">
+              <h2 class="c-title-lesson">ユーザー情報</h2>
+              <div class="p-practice__inner u-gap-12">
                 <div class="p-practice__card js-navlist-stepEight">
                   <div class="js-user" data-user-id="A0025">A0025</div>
                 </div>
@@ -1109,11 +1114,11 @@
             <div class="p-task">
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S8-1</span>
-                <span class="u-flex-1">.js-userのdata-user-idの値を取得し、コンソールに表示。</span>
+                <span class="u-flex-1">.js-userの'data-user-id'の値を取得し、コンソールに表示。</span>
               </div>
               <div class="p-task__item">
                 <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S8-2</span>
-                <span class="u-flex-1">L2-S8-1で取得したdata-user-idの値をid属性の値で持つ要素を取得し、data-nameを"田中茉莉"へ変更。</span>
+                <span class="u-flex-1">L2-S8-1で取得した'data-user-id'の値をid属性の値で持つ要素を取得し、'data-name'を"田中茉莉"へ変更。</span>
               </div>
             </div>
           </div>
@@ -1148,7 +1153,7 @@
               <div class="p-quiz__container">
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="c-code">
+                  <div class="c-code u-mb-16">
                     const frag = document.createDocumentFragment();<br />const text = document.createElement('p');<br />text.textContent = "Hello";<br />frag.append(text);<br />document.body.append(frag);<br />console.log(document.body.innerHTML);
                   </div>
                   <div class="p-choice js-choices">
@@ -1169,7 +1174,7 @@
 
                 <div class="p-quiz__item js-quizItem">
                   <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
-                  <div class="c-code">
+                  <div class="c-code u-mb-16">
                     const container = document.createDocumentFragment();<br />container.append(document.createElement('div'));<br />const clone = container.cloneNode(true);<br />console.log(clone);
                   </div>
                   <div class="p-choice js-choices">
@@ -1235,7 +1240,8 @@
 
             <template class="js-template-stepNine"> </template>
             <div class="p-practice">
-              <ul class="p-practice__inner -gap-12 js-navlist-stepNine"></ul>
+              <h2 class="c-title-lesson">グローバルナビゲーション</h2>
+              <ul class="p-practice__inner u-gap-12 js-navlist-stepNine"></ul>
             </div>
 
             <div class="p-task">
@@ -1293,7 +1299,7 @@
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-2</span>
               <div class="p-task__contents u-flex-1">
-                <strong>ラジオボタンの選択を反映し選択内容とアイコンを表示する処理</strong>
+                <strong>ラジオボタンの選択内容を表示する処理</strong>
                 <div class="p-practice u-mt-8">
                   <h2 class="c-title-lesson">好きな言語は？</h2>
                   <div class="p-practice__inner js-container-stepTen">
@@ -1312,7 +1318,7 @@
                   初期表示時に、data-icon="javascript" を持つラジオボタンを選択状態にする。<br />
                   '.js-container-stepTen'内の直接の子要素から、現在チェックされている入力要素を取得する。<br />
                   その選択された要素のテキストを'.js-result-stepTen'要素に反映する。<br />
-                  '.js-icon-stepTen'要素のテキストに、選択された要素のdata-iconの値を設定する。
+                  '.js-icon-stepTen'要素のテキストに、選択された要素の'data-icon'の値を設定する。
                 </p>
               </div>
             </div>
@@ -1320,9 +1326,9 @@
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-3</span>
               <div class="p-task__contents u-flex-1">
-                <strong>カードを入れ替えて新しいカードを追加し、表示内容を更新する処理</strong>
+                <strong>カードの表示内容を更新する処理</strong>
                 <div class="p-practice u-mt-8">
-                  <div class="p-practice__inner -gap-12 js-cardContainer-stepTen">
+                  <div class="p-practice__inner u-gap-12 js-cardContainer-stepTen">
                     <div class="p-practice__card">プランC</div>
                     <div class="p-practice__card">プランC</div>
                   </div>
@@ -1340,9 +1346,9 @@
             <div class="p-task__item">
               <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L2-S10-4</span>
               <div class="p-task__contents u-flex-1">
-                <strong>リンクを有効化し、関連する表示要素を更新する処理</strong>
+                <strong>リンクを有効化と関連する表示要素を更新する処理</strong>
                 <div class="p-practice u-mt-8">
-                  <div class="p-practice__inner -gap-12">
+                  <div class="p-practice__inner u-gap-12">
                     <div class="p-practice__card">
                       <a href="#" class="c-link js-link-stepTen -disabled">詳細を見る</a>
                       <span class="c-link-status">（無効）</span>
@@ -1363,7 +1369,7 @@
                 <strong>テンプレートを複製して内容を書き換えて追加する処理</strong>
                 <div class="p-practice u-mt-8">
                   <div class="p-practice__card">
-                    <div class="p-practice__inner -gap-12 js-notifyContainer-ten">
+                    <div class="p-practice__inner u-gap-12 js-notifyContainer-ten">
                       <p>通知一覧：</p>
                     </div>
                   </div>

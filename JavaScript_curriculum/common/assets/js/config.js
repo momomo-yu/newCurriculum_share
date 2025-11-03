@@ -123,12 +123,31 @@ function validateBlankAnswers(userAnswers, expectedAnswers, validationType) {
       // 複数の正解が許可される場合
       return expectedAnswers.includes(userAnswers[0]);
 
+    case "multiple_valid_first":
+      // 1番目の要素に複数の正解が許可される場合
+      if (userAnswers.length >= 2) {
+        const firstCorrect = expectedAnswers.slice(0, -1).includes(userAnswers[0]);
+        const secondCorrect = userAnswers[1] === expectedAnswers[expectedAnswers.length - 1];
+        return firstCorrect && secondCorrect;
+      }
+      return false;
+
     case "multiple_valid_second":
       // 2番目の要素に複数の正解が許可される場合
       if (userAnswers.length >= 2) {
         const firstCorrect = userAnswers[0] === expectedAnswers[0];
         const secondCorrect = expectedAnswers.slice(1).includes(userAnswers[1]);
         return firstCorrect && secondCorrect;
+      }
+      return false;
+
+    case "multiple_valid_third":
+      // 3番目の要素に複数の正解が許可される場合
+      if (userAnswers.length >= 3) {
+        const firstCorrect = userAnswers[0] === expectedAnswers[0];
+        const secondCorrect = userAnswers[1] === expectedAnswers[1];
+        const thirdCorrect = expectedAnswers.slice(2).includes(userAnswers[2]);
+        return firstCorrect && secondCorrect && thirdCorrect;
       }
       return false;
 
@@ -198,6 +217,14 @@ function validateBlankAnswers(userAnswers, expectedAnswers, validationType) {
         }
       }
       return true;
+
+    case "flexible_event":
+      // eventをeに置き換えても正解とする（event, event.clientX, event.targetなど）
+      return userAnswers.every((answer, i) => {
+        const expected = expectedAnswers[i];
+        const alternativeExpected = expected.replace(/^event/, "e");
+        return answer === expected || answer === alternativeExpected;
+      });
 
     case "default":
     default:
