@@ -1,0 +1,13 @@
+:root {
+  /* カラーパレット（オレンジ） */
+  --color-primary: #ffb366;        /* メイン：柔らかめのビタミンオレンジ */
+  --color-primary-light: #fff4e6; /* 極薄クリームオレンジ */
+  --color-secondary: #ffc680;     /* サブ：primaryより少し明るく軽い */
+
+  --color-base-0: #ffb3660d;     /* 超淡い背景 */
+  --color-base-5: #ff9f4d;       /* ミドル：primaryより彩度高い */
+  --color-base-10: #f97316;      /* 強調：飽和強めのオレンジ */
+
+  --color-shadow: #ffb36620;     /* 影（薄くて柔らかい） */
+  --color-border: #ffb36640;     /* ボーダー（淡オレンジ） */
+}

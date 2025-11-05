@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript練習 - Lesson4</title>
+    <link rel="stylesheet" href="../common/assets/css/reset.css" />
+    <link rel="stylesheet" href="../common/assets/css/base.css" />
+    <link rel="stylesheet" href="../common/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="l-wrapper">
+      <header class="l-header">
+        <div class="p-headerTitle">
+          <span class="material-icons">school</span>
+          <h1 class="c-title-top">JavaScript Lesson4</h1>
+        </div>
+        <p class="c-title-sub">条件分岐で処理を変えてみよう！</p>
+      </header>
+
+      <main class="l-main">
+        <!-- Step1 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step1: if文</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: フォームの入力チェック、エラーメッセージの表示、特定条件下でのボタンの有効化</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz1"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank1"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task1"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz1">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const age = 20;<br />
+                    if (age >= 18) {<br />
+                    &nbsp;&nbsp;console.log("成人です");<br />
+                    }<br />
+                    console.log("処理終了");
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="a" /> 成人です</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="b" /> 処理終了</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="c" /> 成人です 処理終了</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_1" value="d" /> エラー</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--11">
+                    <span class="js-quiz-message--11 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--11 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--11 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「成人です 処理終了」です。if文の条件が真（true）の場合にブロック内が実行され、その後に続くコードも実行されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q1_1" data-step-question-id="11" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const score = 50;<br />
+                    if (score >= 80) {<br />
+                    &nbsp;&nbsp;console.log("合格");<br />
+                    }<br />
+                    console.log("終了");
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="a" /> 合格 終了</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="b" /> 終了</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="c" /> 合格</label>
+                    <label class="p-choice__item"><input type="radio" name="q1_2" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--12">
+                    <span class="js-quiz-message--12 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--12 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--12 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「終了」です。scoreは50なので、80以上という条件が偽（false）となり、if文のブロック内は実行されません。その後の処理は実行されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q1_2" data-step-question-id="12" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-1" data-tab-content="blank1">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 年齢が18以上の場合に"成人です"とコンソールに表示するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const age = 25;<br />
+                  <label for="blank-11" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--1" id="blank-11" placeholder="①" /> (age
+                  <label for="blank-12" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--2" id="blank-12" placeholder="②" /> 18) {<br />
+                  &nbsp;&nbsp;console.log("成人です");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--11">
+                  <span class="js-blank-correct--11 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--11 u-color-warning u-hide">✕ 不正解。<br />正解は ①if ②>= です。</span>
+                </div>
+                <button data-blank-id="11" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 点数が60以上の場合に"合格"とコンソールに表示するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const score = 75;<br />
+                  <label for="blank-13" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--3" id="blank-13" placeholder="①" /> (score >=
+                  <label for="blank-14" class="c-label-input">Number</label><input type="text" class="c-input js-blank--4" id="blank-14" placeholder="②" />) {<br />
+                  &nbsp;&nbsp;console.log("合格");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--12">
+                  <span class="js-blank-correct--12 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--12 u-color-warning u-hide">✕ 不正解。<br />正解は ①if ②60 です。</span>
+                </div>
+                <button data-blank-id="12" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task1">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepOne">
+              <h2 class="c-title-lesson">通知バナーの表示制御</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-show-banner-step1">通知を表示</button>
+                <div class="p-practice__card js-banner-step1" style="display: none; margin-top: 10px; padding: 15px; background-color: #fff4e6; border-left: 4px solid var(--color-primary)">
+                  重要なお知らせがあります
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S1-1</span>
+                <span class="u-flex-1">
+                  '.js-show-banner-step1'ボタンにクリックイベントを追加。<br />
+                  クリック時に'.js-banner-step1'要素を取得し、要素が存在する（nullでない）場合のみ、その要素を表示（display: block）する。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step2 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step2: if-else文</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: ログイン成功/失敗の処理、偶数/奇数の判定、年齢制限チェック</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz2"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank2"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task2"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz2">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const num = 7;<br />
+                    if (num % 2 === 0) {<br />
+                    &nbsp;&nbsp;console.log("偶数");<br />
+                    } else {<br />
+                    &nbsp;&nbsp;console.log("奇数");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="a" /> 偶数</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="b" /> 奇数</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="c" /> 偶数 奇数</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_1" value="d" /> エラー</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--21">
+                    <span class="js-quiz-message--21 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--21 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />正解は「奇数」です。7を2で割った余りは1なので、条件は偽（false）となりelse節が実行されます。</span>
+                  </div>
+                  <button data-quiz-id="q2_1" data-step-question-id="21" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const isLogin = false;<br />
+                    if (isLogin) {<br />
+                    &nbsp;&nbsp;console.log("ログイン済み");<br />
+                    } else {<br />
+                    &nbsp;&nbsp;console.log("未ログイン");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="a" /> ログイン済み</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="b" /> 未ログイン</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="c" /> 両方表示</label>
+                    <label class="p-choice__item"><input type="radio" name="q2_2" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--22">
+                    <span class="js-quiz-message--22 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--22 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は「未ログイン」です。isLoginはfalseなので、else節が実行されます。</span>
+                  </div>
+                  <button data-quiz-id="q2_2" data-step-question-id="22" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-2" data-tab-content="blank2">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 数値が偶数か奇数かを判定するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const num = 10;<br />
+                  if (num % 2
+                  <label for="blank-21" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--5" id="blank-21" placeholder="①" /> 0) {<br />
+                  &nbsp;&nbsp;console.log("偶数");<br />
+                  }
+                  <label for="blank-22" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--6" id="blank-22" placeholder="②" /> {<br />
+                  &nbsp;&nbsp;console.log("奇数");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--21">
+                  <span class="js-blank-correct--21 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--21 u-color-warning u-hide">✕ 不正解。<br />正解は ①=== ②else です。</span>
+                </div>
+                <button data-blank-id="21" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 年齢で成人判定をするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const age = 16;<br />
+                  if (age >= 18) {<br />
+                  &nbsp;&nbsp;console.log(<label for="blank-23" class="c-label-input">String</label><input type="text" class="c-input js-blank--7" id="blank-23" placeholder="①" />);<br />
+                  } else {<br />
+                  &nbsp;&nbsp;console.log(<label for="blank-24" class="c-label-input">String</label><input type="text" class="c-input js-blank--8" id="blank-24" placeholder="②" />);<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--22">
+                  <span class="js-blank-correct--22 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--22 u-color-warning u-hide">✕ 不正解。<br />正解は ①"成人" ②"未成年" です。</span>
+                </div>
+                <button data-blank-id="22" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task2">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepTwo">
+              <h2 class="c-title-lesson">商品カードの表示切り替え</h2>
+              <div class="p-practice__inner">
+                <button type="button" class="c-button-practice js-toggle-visibility-step2">表示を切り替え</button>
+                <div class="p-practice__card js-product-step2 is-visible" data-status="active" style="margin-top: 10px">
+                  <p style="font-weight: bold">商品名: JavaScriptテキスト</p>
+                  <p class="js-status-step2"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S2-1</span>
+                <span class="u-flex-1">
+                  '.js-toggle-visibility-step2'ボタンにクリックイベントを追加。<br />
+                  クリック時に'.js-product-step2'要素を取得し、その要素が'is-visible'クラスを持っている場合はクラスを削除して透明度を0.3に設定、持っていない場合はクラスを追加して透明度を1に設定。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S2-2</span>
+                <span class="u-flex-1"> ページ読み込み時に'.js-product-step2'要素を取得し、そのdata-status属性の値が"active"なら'.js-status-step2'に"販売中"、そうでなければ"販売終了"と表示。 </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step3 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step3: else if</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: 成績判定、料金の段階的計算、時間帯による挨拶文の変更</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz3"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank3"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task3"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz3">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const score = 75;<br />
+                    if (score >= 80) {<br />
+                    &nbsp;&nbsp;console.log("優");<br />
+                    } else if (score >= 60) {<br />
+                    &nbsp;&nbsp;console.log("良");<br />
+                    } else {<br />
+                    &nbsp;&nbsp;console.log("不可");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="a" /> 優</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="b" /> 良</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="c" /> 不可</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_1" value="d" /> 優 良</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--31">
+                    <span class="js-quiz-message--31 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--31 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--31 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「良」です。75は80以上ではないので最初の条件は偽ですが、60以上の条件は真なのでelse ifが実行されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q3_1" data-step-question-id="31" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const time = 10;<br />
+                    if (time < 12) {<br />
+                    &nbsp;&nbsp;console.log("午前");<br />
+                    } else if (time < 18) {<br />
+                    &nbsp;&nbsp;console.log("午後");<br />
+                    } else {<br />
+                    &nbsp;&nbsp;console.log("夜");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="a" /> 午前</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="b" /> 午後</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="c" /> 夜</label>
+                    <label class="p-choice__item"><input type="radio" name="q3_2" value="d" /> 午前 午後</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--32">
+                    <span class="js-quiz-message--32 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--32 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--32 u-color-warning u-hide">✕ 不正解。<br />正解は「午前」です。10は12未満なので最初のif文の条件が真となり、その後の条件はチェックされません。</span>
+                  </div>
+                  <button data-quiz-id="q3_2" data-step-question-id="32" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-3" data-tab-content="blank3">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 成績判定をするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const score = 85;<br />
+                  if (score >= 80) {<br />
+                  &nbsp;&nbsp;console.log("優");<br />
+                  }
+                  <label for="blank-31" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--9" id="blank-31" placeholder="①" />
+                  <label for="blank-32" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--10" id="blank-32" placeholder="②" /> (score >= 60) {<br />
+                  &nbsp;&nbsp;console.log("良");<br />
+                  } else {<br />
+                  &nbsp;&nbsp;console.log("不可");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--31">
+                  <span class="js-blank-correct--31 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--31 u-color-warning u-hide">✕ 不正解。<br />正解は ①else ②if です。</span>
+                </div>
+                <button data-blank-id="31" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 時間帯による挨拶をするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const hour = 14;<br />
+                  if (hour < 12) {<br />
+                  &nbsp;&nbsp;console.log(<label for="blank-33" class="c-label-input">String</label><input type="text" class="c-input js-blank--11" id="blank-33" placeholder="①" />);<br />
+                  } else if (hour < 18) {<br />
+                  &nbsp;&nbsp;console.log(<label for="blank-34" class="c-label-input">String</label><input type="text" class="c-input js-blank--12" id="blank-34" placeholder="②" />);<br />
+                  } else {<br />
+                  &nbsp;&nbsp;console.log("こんばんは");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--32">
+                  <span class="js-blank-correct--32 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--32 u-color-warning u-hide">✕ 不正解。<br />正解は ①"おはよう" ②"こんにちは" です。</span>
+                </div>
+                <button data-blank-id="32" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task3">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepThree">
+              <h2 class="c-title-lesson">タスク管理システム</h2>
+              <div class="p-practice__inner">
+                <div class="p-practice__card js-task-step3" data-priority="high" style="padding: 15px; border-left: 4px solid #ccc">
+                  <p style="font-weight: bold">タスク: プロジェクトの最終確認</p>
+                  <p class="js-priority-label-step3"></p>
+                </div>
+                <ul class="js-task-list-step3 p-practice__item" style="margin-top: 15px">
+                  <li>タスク1</li>
+                  <li>タスク2</li>
+                  <li>タスク3</li>
+                  <li>タスク4</li>
+                </ul>
+                <p class="js-task-count-step3" style="margin-top: 10px; font-weight: bold"></p>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S3-1</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-task-step3'要素を取得し、data-priority属性の値によって処理を分岐。<br />
+                  "high"の場合: '.js-priority-label-step3'に"【緊急】"と表示し、カードの左ボーダー色を赤(#ef4444)に変更。<br />
+                  "medium"の場合: '.js-priority-label-step3'に"【通常】"と表示し、カードの左ボーダー色を黄(#eab308)に変更。<br />
+                  "low"の場合: '.js-priority-label-step3'に"【低】"と表示し、カードの左ボーダー色を緑(#22c55e)に変更。<br />
+                  それ以外: '.js-priority-label-step3'に"【未設定】"と表示。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S3-2</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-task-list-step3 li'要素を全て取得（NodeList）し、lengthによって処理を分岐。<br />
+                  5以上の場合: '.js-task-count-step3'に"タスク数: 多い（○件）"と表示し、文字色を赤に変更。<br />
+                  3以上の場合: '.js-task-count-step3'に"タスク数: 普通（○件）"と表示し、文字色を黄に変更。<br />
+                  1以上の場合: '.js-task-count-step3'に"タスク数: 少ない（○件）"と表示し、文字色を緑に変更。<br />
+                  それ以外: '.js-task-count-step3'に"タスクなし"と表示。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step4 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step4: 比較演算子</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: 数値の大小比較、パスワードの一致確認、入力値の範囲チェック</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz4"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank4"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task4"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz4">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const a = "10";<br />
+                    const b = 10;<br />
+                    console.log(a === b);<br />
+                    console.log(a == b);
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="a" /> true true</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="b" /> false false</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="c" /> true false</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_1" value="d" /> false true</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--41">
+                    <span class="js-quiz-message--41 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--41 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--41 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「false true」です。===は型も含めて厳密に比較するので文字列と数値でfalse、==は型変換後に比較するのでtrueになります。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q4_1" data-step-question-id="41" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const x = 5;<br />
+                    console.log(x > 3 && x < 10);
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="a" /> true</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="b" /> false</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="c" /> undefined</label>
+                    <label class="p-choice__item"><input type="radio" name="q4_2" value="d" /> エラー</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--42">
+                    <span class="js-quiz-message--42 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--42 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は「true」です。5は3より大きく10未満なので、両方の条件が真となりtrueが返されます。</span>
+                  </div>
+                  <button data-quiz-id="q4_2" data-step-question-id="42" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-4" data-tab-content="blank4">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 厳密等価演算子を使って比較するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const num1 = 100;<br />
+                  const num2 = "100";<br />
+                  if (num1
+                  <label for="blank-41" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--13" id="blank-41" placeholder="①" /> num2) {<br />
+                  &nbsp;&nbsp;console.log("同じ");<br />
+                  } else {<br />
+                  &nbsp;&nbsp;console.log("異なる");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--41">
+                  <span class="js-blank-correct--41 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--41 u-color-warning u-hide">✕ 不正解。<br />正解は ①=== です。</span>
+                </div>
+                <button data-blank-id="41" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 範囲チェックをするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const age = 25;<br />
+                  if (age
+                  <label for="blank-42" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--14" id="blank-42" placeholder="①" /> 20 && age
+                  <label for="blank-43" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--15" id="blank-43" placeholder="②" /> 30) {<br />
+                  &nbsp;&nbsp;console.log("20代");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--42">
+                  <span class="js-blank-correct--42 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--42 u-color-warning u-hide">✕ 不正解。<br />正解は ①>= ②<= です。</span>
+                </div>
+                <button data-blank-id="42" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task4">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepFour">
+              <h2 class="c-title-lesson">パスワード強度チェッカー</h2>
+              <div class="p-practice__inner">
+                <div style="margin-bottom: 10px">
+                  <label class="c-label">パスワード:</label>
+                  <input type="text" class="c-input js-password-input-step4" placeholder="パスワードを入力" />
+                </div>
+                <div class="js-strength-bar-step4" style="width: 100%; height: 10px; background-color: #e5e7eb; border-radius: 5px; margin-bottom: 10px"></div>
+                <p class="js-strength-text-step4" style="font-weight: bold"></p>
+                <div class="p-practice__card js-gallery-step4" style="margin-top: 20px">
+                  <p style="font-weight: bold; margin-bottom: 10px">ギャラリー</p>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                    <div style="width: 60px; height: 60px; background-color: #ddd"></div>
+                    <div style="width: 60px; height: 60px; background-color: #ddd"></div>
+                    <div style="width: 60px; height: 60px; background-color: #ddd"></div>
+                    <div style="width: 60px; height: 60px; background-color: #ddd"></div>
+                    <div style="width: 60px; height: 60px; background-color: #ddd"></div>
+                  </div>
+                  <p class="js-gallery-status-step4" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S4-1</span>
+                <span class="u-flex-1">
+                  '.js-password-input-step4'にinputイベントを追加。<br />
+                  入力時にvalue（入力値）のlengthが8以上の場合: '.js-strength-bar-step4'の背景色を緑(#22c55e)にし、'.js-strength-text-step4'に"強いパスワード"と表示。<br />
+                  8未満の場合: '.js-strength-bar-step4'の背景色を赤(#ef4444)にし、'.js-strength-text-step4'に"弱いパスワード"と表示。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S4-2</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-gallery-step4'要素内の子要素div（最初のdivのchildren）の数を取得。<br />
+                  子要素の数が3より大きく10以下の場合: '.js-gallery-status-step4'に"適切な画像数です"と表示し、文字色を緑に変更。<br />
+                  それ以外の場合: '.js-gallery-status-step4'に"画像数を調整してください"と表示し、文字色を赤に変更。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step5 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step5: 論理演算子</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: 複数項目のバリデーション、権限チェック、営業時間の判定</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz5"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank5"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task5"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz5">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const age = 25;<br />
+                    const hasLicense = true;<br />
+                    if (age >= 18 && hasLicense) {<br />
+                    &nbsp;&nbsp;console.log("運転できます");<br />
+                    } else {<br />
+                    &nbsp;&nbsp;console.log("運転できません");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="a" /> 運転できます</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="b" /> 運転できません</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="c" /> エラー</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_1" value="d" /> 何も表示されない</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--51">
+                    <span class="js-quiz-message--51 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--51 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--51 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「運転できます」です。年齢が18以上かつ免許を持っているので、&&演算子により両方の条件が真となります。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q5_1" data-step-question-id="51" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const isAdmin = false;<br />
+                    const isOwner = true;<br />
+                    if (isAdmin || isOwner) {<br />
+                    &nbsp;&nbsp;console.log("編集可能");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="a" /> 編集可能</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="b" /> 何も表示されない</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="c" /> エラー</label>
+                    <label class="p-choice__item"><input type="radio" name="q5_2" value="d" /> undefined</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--52">
+                    <span class="js-quiz-message--52 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--52 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--52 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「編集可能」です。||演算子はどちらか一方が真であればtrueを返します。isOwnerがtrueなので条件を満たします。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q5_2" data-step-question-id="52" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-5" data-tab-content="blank5">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: AND演算子を使って両方の条件をチェックするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const username = "user";<br />
+                  const password = "pass";<br />
+                  if (username === "user"
+                  <label for="blank-51" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--16" id="blank-51" placeholder="①" /> password === "pass") {<br />
+                  &nbsp;&nbsp;console.log("ログイン成功");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--51">
+                  <span class="js-blank-correct--51 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--51 u-color-warning u-hide">✕ 不正解。<br />正解は ①&& です。</span>
+                </div>
+                <button data-blank-id="51" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: OR演算子を使って週末判定をするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const day = "土曜日";<br />
+                  if (day === "土曜日"
+                  <label for="blank-52" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--17" id="blank-52" placeholder="①" /> day === "日曜日") {<br />
+                  &nbsp;&nbsp;console.log("週末");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--52">
+                  <span class="js-blank-correct--52 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--52 u-color-warning u-hide">✕ 不正解。<br />正解は ①|| です。</span>
+                </div>
+                <button data-blank-id="52" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task5">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepFive">
+              <h2 class="c-title-lesson">アクセス制御システム</h2>
+              <div class="p-practice__inner">
+                <div class="p-practice__card" style="margin-bottom: 15px">
+                  <p style="font-weight: bold; margin-bottom: 10px">管理画面へのアクセス</p>
+                  <button type="button" class="c-button-practice js-admin-btn-step5 is-authenticated is-admin">管理画面に入る</button>
+                  <p class="js-access-result-step5" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+                <div class="p-practice__card" style="margin-bottom: 15px">
+                  <p style="font-weight: bold; margin-bottom: 10px">ページレイアウト確認</p>
+                  <div class="js-main-content-step5" style="padding: 10px; background-color: #f0f0f0; margin-bottom: 5px">メインコンテンツ</div>
+                  <div class="js-sidebar-step5" style="padding: 10px; background-color: #f0f0f0">サイドバー</div>
+                  <p class="js-layout-status-step5" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+                <div class="p-practice__card">
+                  <p style="font-weight: bold; margin-bottom: 10px">モーダル表示状態</p>
+                  <div class="js-modal-step5" style="padding: 20px; background-color: #fff; border: 2px solid #ccc">モーダルウィンドウ</div>
+                  <p class="js-modal-status-step5" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S5-1</span>
+                <span class="u-flex-1">
+                  '.js-admin-btn-step5'にクリックイベントを追加。<br />
+                  クリック時にその要素が'is-authenticated'クラスを持っているかつ'is-admin'クラスも持っている場合: '.js-access-result-step5'に"アクセス許可"と表示し、文字色を緑に変更。<br />
+                  それ以外の場合: '.js-access-result-step5'に"アクセス拒否"と表示し、文字色を赤に変更。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S5-2</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-main-content-step5'要素と'.js-sidebar-step5'要素をそれぞれ取得。<br />
+                  両方とも存在する（nullでない）場合: '.js-layout-status-step5'に"レイアウト完成"と表示し、文字色を緑に変更。<br />
+                  それ以外の場合: '.js-layout-status-step5'に"レイアウト不完全"と表示し、文字色を赤に変更。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S5-3</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-modal-step5'要素を取得。<br />
+                  その要素が'is-hidden'クラスを持っていない場合（NOT演算子!を使用）: '.js-modal-status-step5'に"モーダル表示中"と表示し、文字色を青に変更。<br />
+                  それ以外の場合: '.js-modal-status-step5'に"モーダル非表示"と表示し、文字色をグレーに変更。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step6 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step6: switch文</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: 曜日による処理の切り替え、ステータスによる表示変更、選択されたオプションによる処理分岐</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz6"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank6"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task6"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz6">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const color = "blue";<br />
+                    switch (color) {<br />
+                    &nbsp;&nbsp;case "red":<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("赤");<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+                    &nbsp;&nbsp;case "blue":<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("青");<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+                    &nbsp;&nbsp;default:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("その他");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="a" /> 赤</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="b" /> 青</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="c" /> その他</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_1" value="d" /> 青 その他</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--61">
+                    <span class="js-quiz-message--61 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--61 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は「青」です。colorが"blue"に一致するので、該当するcaseが実行され、breakで処理が終了します。</span>
+                  </div>
+                  <button data-quiz-id="q6_1" data-step-question-id="61" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。（breakがない）</h4>
+                  <div class="c-code u-mb-16">
+                    const num = 2;<br />
+                    switch (num) {<br />
+                    &nbsp;&nbsp;case 1:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("1");<br />
+                    &nbsp;&nbsp;case 2:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("2");<br />
+                    &nbsp;&nbsp;case 3:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("3");<br />
+                    }
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="a" /> 2</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="b" /> 2 3</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="c" /> 1 2 3</label>
+                    <label class="p-choice__item"><input type="radio" name="q6_2" value="d" /> 3</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--62">
+                    <span class="js-quiz-message--62 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--62 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--62 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「2 3」です。breakがないため、一致したcase 2から以降のcase 3も実行されます（フォールスルー）。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q6_2" data-step-question-id="62" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-6" data-tab-content="blank6">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: switch文の基本構文の空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const fruit = "apple";<br />
+                  <label for="blank-61" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--18" id="blank-61" placeholder="①" />(fruit) {<br />
+                  &nbsp;&nbsp;<label for="blank-62" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--19" id="blank-62" placeholder="②" /> "apple":<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log("りんご");<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;<label for="blank-63" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--20" id="blank-63" placeholder="③" />;<br />
+                  &nbsp;&nbsp;case "banana":<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log("バナナ");<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+                  &nbsp;&nbsp;<label for="blank-64" class="c-label-input">Keyword</label><input type="text" class="c-input js-blank--21" id="blank-64" placeholder="④" />:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log("不明");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--61">
+                  <span class="js-blank-correct--61 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--61 u-color-warning u-hide">✕ 不正解。<br />正解は ①switch ②case ③break ④default です。</span>
+                </div>
+                <button data-blank-id="61" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 曜日判定をするコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const day = 3;<br />
+                  switch (day) {<br />
+                  &nbsp;&nbsp;case 1:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log(<label for="blank-65" class="c-label-input">String</label><input type="text" class="c-input js-blank--22" id="blank-65" placeholder="①" />);<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+                  &nbsp;&nbsp;case 2:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log(<label for="blank-66" class="c-label-input">String</label><input type="text" class="c-input js-blank--23" id="blank-66" placeholder="②" />);<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+                  &nbsp;&nbsp;default:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;console.log("その他");<br />
+                  }
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--62">
+                  <span class="js-blank-correct--62 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--62 u-color-warning u-hide">✕ 不正解。<br />正解は ①"月曜日" ②"火曜日" です。</span>
+                </div>
+                <button data-blank-id="62" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task6">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepSix">
+              <h2 class="c-title-lesson">通知システム</h2>
+              <div class="p-practice__inner">
+                <div class="p-practice__card" style="margin-bottom: 15px">
+                  <p style="font-weight: bold; margin-bottom: 10px">アラート表示</p>
+                  <div class="js-alert-step6" data-type="success" style="padding: 15px; background-color: #f0f0f0; border-left: 4px solid #ccc">
+                    <p class="js-alert-icon-step6" style="font-size: 24px; margin-bottom: 5px"></p>
+                    <p class="js-alert-message-step6" style="font-weight: bold"></p>
+                  </div>
+                </div>
+                <div class="p-practice__card">
+                  <p style="font-weight: bold; margin-bottom: 10px">要素タイプ判定</p>
+                  <div style="margin-bottom: 10px">
+                    <div class="js-element-step6" style="display: inline-block; padding: 10px; background-color: #f0f0f0; margin: 5px">DIV要素</div>
+                    <span class="js-element-step6" style="display: inline-block; padding: 10px; background-color: #f0f0f0; margin: 5px">SPAN要素</span>
+                    <button type="button" class="c-button-practice js-element-step6" style="margin: 5px">BUTTON要素</button>
+                  </div>
+                  <p class="js-element-type-result-step6" style="font-weight: bold"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S6-1</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-alert-step6'要素を取得し、そのdata-type属性の値をswitch文で判定。<br />
+                  "success"の場合: '.js-alert-icon-step6'に"✓"、'.js-alert-message-step6'に"処理が成功しました"と表示、背景色を緑(#d1fae5)、ボーダー色を緑(#22c55e)に変更。<br />
+                  "error"の場合: '.js-alert-icon-step6'に"✕"、'.js-alert-message-step6'に"エラーが発生しました"と表示、背景色を赤(#fee2e2)、ボーダー色を赤(#ef4444)に変更。<br />
+                  "warning"の場合: '.js-alert-icon-step6'に"!"、'.js-alert-message-step6'に"警告があります"と表示、背景色を黄(#fef3c7)、ボーダー色を黄(#eab308)に変更。<br />
+                  それ以外: '.js-alert-icon-step6'に"i"、'.js-alert-message-step6'に"情報"と表示。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S6-2</span>
+                <span class="u-flex-1">
+                  '.js-element-step6'の全要素にクリックイベントを追加。<br />
+                  クリック時にその要素のtagName（要素名）をswitch文で判定。<br />
+                  "DIV"の場合: '.js-element-type-result-step6'に"ブロック要素がクリックされました"と表示。<br />
+                  "SPAN"の場合: '.js-element-type-result-step6'に"インライン要素がクリックされました"と表示。<br />
+                  "BUTTON"の場合: '.js-element-type-result-step6'に"ボタン要素がクリックされました"と表示。<br />
+                  それ以外: '.js-element-type-result-step6'に"その他の要素がクリックされました"と表示。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step7 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step7: 三項演算子</p>
+              </div>
+              <span class="c-useCase">実際の使用場面: クラス名の動的な切り替え、表示テキストの切り替え、簡単な値の選択</span>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-section__step js-tab">
+            <button class="c-tab js-tab-btn is-active" data-tab="quiz7"><span class="material-icons">live_help</span> 出力予想</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="blank7"><span class="material-icons">build</span> コード補完</button>
+            <button class="c-tab js-tab-btn u-ml-8" data-tab="task7"><span class="material-icons">edit</span> 提出課題</button>
+          </div>
+
+          <!-- 出力予想 -->
+          <div class="p-section__tab js-tab-content is-active" data-tab-content="quiz7">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-quiz">
+              <div class="p-quiz__container">
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q1: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const age = 20;<br />
+                    const result = age >= 18 ? "成人" : "未成年";<br />
+                    console.log(result);
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="a" /> 成人</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="b" /> 未成年</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="c" /> true</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_1" value="d" /> false</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--71">
+                    <span class="js-quiz-message--71 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--71 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--71 u-color-warning u-hide"
+                      >✕ 不正解。<br />正解は「成人」です。三項演算子は、条件が真なら?の後の値、偽なら:の後の値を返します。20は18以上なので"成人"が返されます。</span
+                    >
+                  </div>
+                  <button data-quiz-id="q7_1" data-step-question-id="71" class="c-btn">答えを確認</button>
+                </div>
+
+                <div class="p-quiz__item js-quizItem">
+                  <h4 class="c-title-question">Q2: コンソールに表示される内容として正しいものを選んでください。</h4>
+                  <div class="c-code u-mb-16">
+                    const score = 55;<br />
+                    console.log(score >= 60 ? "合格" : "不合格");
+                  </div>
+                  <div class="p-choice js-choices">
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="a" /> 合格</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="b" /> 不合格</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="c" /> true</label>
+                    <label class="p-choice__item"><input type="radio" name="q7_2" value="d" /> 55</label>
+                  </div>
+                  <div class="p-result u-mb-10 js-quiz-result--72">
+                    <span class="js-quiz-message--72 u-color-message u-hide">選択肢を選んでください</span>
+                    <span class="js-quiz-correct--72 u-color-normal u-hide">〇 正解！</span>
+                    <span class="js-quiz-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は「不合格」です。55は60以上ではないので条件が偽となり、:の後の"不合格"が返されます。</span>
+                  </div>
+                  <button data-quiz-id="q7_2" data-step-question-id="72" class="c-btn">答えを確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- コード補完 -->
+          <div class="p-section__tab js-tab-content js-blank-7" data-tab-content="blank7">
+            <div class="p-desc">
+              <p class="c-text">提出は必要ありません。コードに触れて慣れてみましょう。</p>
+            </div>
+            <div class="p-blank">
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q1: 三項演算子を使って偶数奇数を判定するコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const num = 10;<br />
+                  const result = num % 2 === 0
+                  <label for="blank-71" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--24" id="blank-71" placeholder="①" /> "偶数"
+                  <label for="blank-72" class="c-label-input">Operator</label><input type="text" class="c-input js-blank--25" id="blank-72" placeholder="②" /> "奇数";<br />
+                  console.log(result);
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--71">
+                  <span class="js-blank-correct--71 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--71 u-color-warning u-hide">✕ 不正解。<br />正解は ①? ②: です。</span>
+                </div>
+                <button data-blank-id="71" class="c-btn">答えを確認</button>
+              </div>
+
+              <div class="p-blank__item js-blankItem">
+                <h4 class="c-title-question">Q2: 三項演算子を使ってクラス名を切り替えるコードの空欄を埋めてください。</h4>
+                <div class="c-code -blank">
+                  const isActive = true;<br />
+                  const className = isActive ?
+                  <label for="blank-73" class="c-label-input">String</label><input type="text" class="c-input js-blank--26" id="blank-73" placeholder="①" /> :
+                  <label for="blank-74" class="c-label-input">String</label><input type="text" class="c-input js-blank--27" id="blank-74" placeholder="②" />;
+                </div>
+                <div class="p-result u-mb-10 js-blank-result--72">
+                  <span class="js-blank-correct--72 u-color-normal u-hide">〇 正解！</span>
+                  <span class="js-blank-incorrect--72 u-color-warning u-hide">✕ 不正解。<br />正解は ①"active" ②"inactive" です。</span>
+                </div>
+                <button data-blank-id="72" class="c-btn">答えを確認</button>
+              </div>
+            </div>
+          </div>
+          <!-- 提出課題 -->
+          <div class="p-section__tab js-tab-content" data-tab-content="task7">
+            <div class="p-desc">
+              <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+            </div>
+
+            <div class="p-practice js-stepSeven">
+              <h2 class="c-title-lesson">UI状態の動的切り替え</h2>
+              <div class="p-practice__inner">
+                <div class="p-practice__card" style="margin-bottom: 15px">
+                  <p style="font-weight: bold; margin-bottom: 10px">ナビゲーションメニュー</p>
+                  <button type="button" class="c-button-practice js-toggle-menu-step7">メニューを切り替え</button>
+                  <div class="js-nav-menu-step7 is-open" style="margin-top: 10px; padding: 15px; background-color: #f0f0f0; transition: opacity 0.3s">
+                    <p>メニュー項目1</p>
+                    <p>メニュー項目2</p>
+                    <p>メニュー項目3</p>
+                  </div>
+                  <p class="js-menu-status-step7" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+                <div class="p-practice__card">
+                  <p style="font-weight: bold; margin-bottom: 10px">送信ボタン</p>
+                  <button type="button" class="c-button-practice js-submit-btn-step7" disabled>送信する</button>
+                  <p class="js-button-status-step7" style="margin-top: 10px; font-weight: bold"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task">
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S7-1</span>
+                <span class="u-flex-1">
+                  '.js-toggle-menu-step7'にクリックイベントを追加。<br />
+                  クリック時に'.js-nav-menu-step7'要素を取得し、その要素が'is-open'クラスを持っているかを三項演算子で判定。<br />
+                  持っている場合: クラスを削除し、透明度を0に設定、'.js-menu-status-step7'に"メニューを閉じました"と表示。<br />
+                  持っていない場合: クラスを追加し、透明度を1に設定、'.js-menu-status-step7'に"メニューを開きました"と表示。
+                </span>
+              </div>
+              <div class="p-task__item">
+                <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S7-2</span>
+                <span class="u-flex-1">
+                  ページ読み込み時に'.js-submit-btn-step7'要素を取得し、そのdisabled属性の値（true/false）を三項演算子で判定。<br />
+                  disabled=trueの場合: '.js-button-status-step7'に"ボタンは無効です"と表示し、文字色を赤に変更。<br />
+                  falseの場合: '.js-button-status-step7'に"ボタンは有効です"と表示し、文字色を緑に変更。
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step8 -->
+        <div class="p-section js-section">
+          <div class="p-section__title">
+            <div class="p-section__title--content">
+              <div class="p-section__title--top">
+                <span class="material-icons">auto_awesome</span>
+                <p>Step8: 総合演習</p>
+              </div>
+            </div>
+            <a href="#" target="_blank" class="c-link js-tooltip" data-tooltip="解説を読む">
+              <span class="material-icons">menu_book</span>
+            </a>
+          </div>
+
+          <div class="p-desc">
+            <p class="c-text">提出課題です。curriculum.jsファイルに実装してください。</p>
+          </div>
+
+          <div class="p-task">
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S8-1</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>プロセス実行ボタン</strong>
+                <p class="u-mt-8">
+                  '.js-process-btn-step8'ボタンにクリックイベントを追加。<br />
+                  クリック時にそのボタンのdata-status属性の値をswitch文で判定。<br />
+                  "ready"の場合: '.js-process-result-step8'に"処理を開始しました"と表示、背景色を青(#dbeafe)、ボーダー色を青(#3b82f6)に変更。<br />
+                  "processing"の場合: '.js-process-result-step8'に"処理中です..."と表示、背景色を黄(#fef3c7)、ボーダー色を黄(#eab308)に変更。<br />
+                  "complete"の場合: '.js-process-result-step8'に"処理が完了しました"と表示、背景色を緑(#d1fae5)、ボーダー色を緑(#22c55e)に変更。<br />
+                  それ以外: '.js-process-result-step8'に"不明な状態です"と表示、背景色をグレー(#f3f4f6)に変更。
+                </p>
+                <div class="p-demo u-mt-16">
+                  <button class="c-btn js-process-btn-step8" data-status="ready">処理を実行</button>
+                  <div class="p-result js-process-result-step8 u-mt-16" style="padding: 15px; border-left: 4px solid #ccc; display: none"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S8-2</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>お問い合わせフォーム</strong>
+                <p class="u-mt-8">
+                  '.js-contact-form-step8'ボタンにクリックイベントを追加。<br />
+                  クリック時に'.js-form-name-step8'と'.js-form-email-step8'の値を取得。<br />
+                  両方の入力欄が空でない（length > 0）かつメールアドレスに@が含まれている場合:
+                  '.js-form-result-step8'に"送信しました！"と表示、背景色を緑(#d1fae5)、文字色を緑(#22c55e)に変更し、display: blockで表示。<br />
+                  それ以外の場合: '.js-form-result-step8'に"入力内容を確認してください"と表示、背景色を赤(#fee2e2)、文字色を赤(#ef4444)に変更し、display: blockで表示。
+                </p>
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <label class="c-label">お名前:</label>
+                    <input type="text" class="c-input js-form-name-step8" placeholder="名前を入力" />
+                  </div>
+                  <div class="u-mb-16">
+                    <label class="c-label">メールアドレス:</label>
+                    <input type="email" class="c-input js-form-email-step8" placeholder="email@example.com" />
+                  </div>
+                  <button class="c-btn js-contact-form-step8">送信する</button>
+                  <div class="p-result js-form-result-step8 u-mt-16" style="display: none"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S8-3</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>ツールバーの要素判定</strong>
+                <p class="u-mt-8">
+                  '.js-toolbar-step8'要素にクリックイベントを追加（イベント委譲）。<br />
+                  クリック時にevent.targetのtagNameを取得してswitch文で判定。<br />
+                  "BUTTON"の場合: '.js-toolbar-result-step8'に"ボタン機能を実行しました"と表示、背景色を青(#dbeafe)に変更。<br />
+                  "A"の場合: '.js-toolbar-result-step8'に"リンクを開きました"と表示、背景色を紫(#e9d5ff)に変更。<br />
+                  "SPAN"の場合: '.js-toolbar-result-step8'に"テキストを選択しました"と表示、背景色を緑(#d1fae5)に変更。<br />
+                  それ以外: '.js-toolbar-result-step8'に"その他の操作"と表示、背景色をグレー(#f3f4f6)に変更。<br />
+                  すべてのケースでdisplay: blockで表示。
+                </p>
+                <div class="p-demo u-mt-16">
+                  <div class="js-toolbar-step8" style="padding: 15px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9fafb">
+                    <button class="c-btn" style="margin-right: 8px">保存</button>
+                    <a href="#" class="c-link" style="margin-right: 8px">ヘルプ</a>
+                    <span style="padding: 8px 12px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer">設定</span>
+                  </div>
+                  <div class="p-result js-toolbar-result-step8 u-mt-16" style="display: none"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S8-4</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>通知の表示/非表示切り替え</strong>
+                <p class="u-mt-8">
+                  '.js-notification-toggle-step8'ボタンにクリックイベントを追加。<br />
+                  クリック時に'.js-notification-step8'要素が'is-visible'クラスを持っているかをif-else文で判定。<br />
+                  持っている場合: 'is-visible'を削除し、display: noneに設定、ボタンのテキストを"通知を表示"に変更。<br />
+                  持っていない場合: 'is-visible'を追加し、display: blockに設定、ボタンのテキストを"通知を非表示"に変更。
+                </p>
+                <div class="p-demo u-mt-16">
+                  <button class="c-btn js-notification-toggle-step8">通知を非表示</button>
+                  <div class="js-notification-step8 is-visible" style="margin-top: 10px; padding: 15px; background-color: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 4px">
+                    <p style="font-weight: bold">新しいメッセージがあります</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-task__item">
+              <span class="c-tag js-tooltip" data-tooltip="問題番号をコピー" data-copy>L4-S8-5</span>
+              <div class="p-task__contents u-flex-1">
+                <strong>商品選択システム</strong>
+                <p class="u-mt-8">
+                  '.js-product-card-step8'要素を全て取得（NodeList）。<br />
+                  要素が存在するか（length > 0）をif文でチェック。<br />
+                  存在する場合: 各要素にクリックイベントを追加し、クリックされたらそのdata-product-id属性の値を取得、'.js-selected-product-step8'に"選択中:
+                  商品ID（値）"と表示、背景色を青(#dbeafe)に変更し、display: blockで表示。<br />
+                  存在しない場合: '.js-selected-product-step8'に"商品が見つかりません"と表示、背景色を赤(#fee2e2)に変更し、display: blockで表示。
+                </p>
+                <div class="p-demo u-mt-16">
+                  <div class="u-mb-16">
+                    <div
+                      class="js-product-card-step8"
+                      data-product-id="p001"
+                      style="display: inline-block; padding: 15px 20px; border: 2px solid #ddd; border-radius: 8px; margin: 5px; cursor: pointer; background-color: #fff; transition: all 0.2s"
+                    >
+                      <p style="font-weight: bold">商品A</p>
+                      <p style="font-size: 0.9em; color: #666">¥1,000</p>
+                    </div>
+                    <div
+                      class="js-product-card-step8"
+                      data-product-id="p002"
+                      style="display: inline-block; padding: 15px 20px; border: 2px solid #ddd; border-radius: 8px; margin: 5px; cursor: pointer; background-color: #fff; transition: all 0.2s"
+                    >
+                      <p style="font-weight: bold">商品B</p>
+                      <p style="font-size: 0.9em; color: #666">¥2,000</p>
+                    </div>
+                    <div
+                      class="js-product-card-step8"
+                      data-product-id="p003"
+                      style="display: inline-block; padding: 15px 20px; border: 2px solid #ddd; border-radius: 8px; margin: 5px; cursor: pointer; background-color: #fff; transition: all 0.2s"
+                    >
+                      <p style="font-weight: bold">商品C</p>
+                      <p style="font-size: 0.9em; color: #666">¥3,000</p>
+                    </div>
+                  </div>
+                  <div class="p-result js-selected-product-step8" style="display: none"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="l-footer">
+        <span class="material-icons">school</span>
+        <p>JavaScriptCurriculum Lesson4 | 条件分岐をマスターしよう！</p>
+      </footer>
+    </div>
+
+    <button class="c-floatingBtn js-floating">
+      <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+    <div class="c-copy js-toast"></div>
+
+    <script src="../common/assets/js/config.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/curriculum.js" defer></script>
+  </body>
+</html>
