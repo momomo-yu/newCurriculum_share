@@ -45,10 +45,7 @@ window.BLANK_ANSWERS = {
   42: { inputs: [".js-blank--22", ".js-blank--23"], answers: ["e", "target"], validation: "default" },
   51: { inputs: [".js-blank--11"], answers: ["stopPropagation"], validation: "single" },
   52: { inputs: [".js-blank--24"], answers: ["currentTarget"], validation: "single" },
-  61: { inputs: [".js-blank--12", ".js-blank--13"], answers: ["submit", "preventDefault"], validation: "default" },
-  62: { inputs: [".js-blank--25", ".js-blank--26"], answers: ["event", "event"], validation: "default" },
-  71: { inputs: [".js-blank--14", ".js-blank--15", ".js-blank--16"], answers: ["removeEventListener", "click", "handleClick"], validation: "default" },
-  72: { inputs: [".js-blank--27"], answers: ["once"], validation: "single" },
-  81: { inputs: [".js-blank--17", ".js-blank--18"], answers: ["target", "tagName"], validation: "default" },
-  82: { inputs: [".js-blank--28", ".js-blank--29"], answers: ["target", "closest"], validation: "default" },
+  61: { inputs: [".js-blank--12", ".js-blank--13"], answers: ["contextmenu", "preventDefault"], validation: "default" },
+  81: { inputs: [".js-blank--17", ".js-blank--18"], answers: [".js-taskList", "addEventListener"], validation: "default" },
+  82: { inputs: [".js-blank--28", ".js-blank--29"], answers: [".js-productList", "addEventListener"], validation: "default" },
 };

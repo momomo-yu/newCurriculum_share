@@ -669,6 +669,11 @@ JavaScript Curriculum Common StyleCSS
   align-items: center;
 }
 
+.p-practice__card.is-active {
+  border: 3px solid var(--color-border);
+  font-weight: 700;
+}
+
 .p-practice__display {
   font-size: var(--size-xs);
   background: var(--color-gray-18);
