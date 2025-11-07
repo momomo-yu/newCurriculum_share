@@ -1,120 +1,300 @@
-🚀 Vite + SCSS (FROCSS 構成) 環境構築手順
-🎯 目的
-Vite でプロジェクトを立ち上げ、FROCSS の考え方に沿ったディレクトリ構成で .scss ファイルを使えるようにし、保守性の高い CSS 設計を目指します。
+# 🚀 Vite + SCSS (FROCSS 構成) 環境構築ガイド
 
-🛠️ 環境構築手順
+## 📋 目次
 
-1. プロジェクト作成
+- [概要](#概要)
+- [環境構築手順](#環境構築手順)
+- [FROCSS 構成](#frocss構成)
+- [ディレクトリ構造](#ディレクトリ構造)
+- [サンプルコード](#サンプルコード)
+- [オプション設定](#オプション設定)
 
-# 任意のフォルダで
+## 概要
 
+Vite でプロジェクトをセットアップし FROCSS（Foundation, Reset, Object, Component, Scope, State）の考え方に沿ったディレクトリ構成で、保守性の高い CSS 設計を実現します。
+
+## 環境構築手順
+
+### 1️⃣ プロジェクト作成
+
+```bash
+# Viteプロジェクトを新規作成
 npm create vite@latest vite_scss_curriculum
 
-# 対話での選択例: Framework: Vanilla, Variant: JavaScript
+# 対話での選択
+# → Framework: Vanilla
+# → Variant: JavaScript
 
+# プロジェクトディレクトリへ移動
 cd vite_scss_curriculum
+
+# 依存関係をインストール
 npm install
+```
 
-2. Sass のインストール
-   Vite は標準で PostCSS に対応しているため、Sass を追加するだけで .scss が使えます。
+### 2️⃣ Sass のインストール
 
+```bash
+# Sassを開発依存としてインストール
 npm install -D sass
+```
 
-3. FROCSS 構成でディレクトリ作成
-   src/styles/ に以下のディレクトリを作成します。
+### 3️⃣ SCSS ファイルの読み込み設定
 
-src/
-┣ main.js
-┗ styles/
-    ┣ foundation/     ← リセット CSS・基本設定（normalize など）
-    ┣ layout/         ← ヘッダー、フッター、グリッドなど
-    ┣ object/
-    ┃  ┣ component/   ← ボタン・カードなどの UI 部品
-    ┃  ┣ project/     ← ページ固有のセクションスタイル
-    ┃  ┗ utility/     ← 汎用的なヘルパークラス
-    ┣ setting/        ← 変数・関数・mixin など
-    ┗ style.scss      ← 全体の読み込み用メイン SCSS
+`src/main.js`でメインの SCSS ファイルを読み込みます：
 
-4. SCSS ファイルのサンプル
-   必要な SCSS ファイルを作成し、@use で依存関係を定義します。
+```javascript
+// src/main.js
+import "./styles/style.scss";
+```
 
-src/styles/setting/\_variables.scss
+### 4️⃣ 開発サーバー起動
 
+```bash
+npm run dev
+```
+
+ブラウザで `http://localhost:5173` を開いて動作確認します。
+
+## FROCSS 構成
+
+FROCSS の考え方に基づいた各ディレクトリの役割：
+
+| 階層             | ディレクトリ  | 役割                                     | ファイル例                          |
+| ---------------- | ------------- | ---------------------------------------- | ----------------------------------- |
+| **設定**         | `setting/`    | 変数、関数、Mixin など全体で利用する設定 | `_variables.scss`<br>`_mixins.scss` |
+| **基盤**         | `foundation/` | リセット CSS、基本スタイル定義           | `_base.scss`<br>`_reset.scss`       |
+| **レイアウト**   | `layout/`     | ページ全体の構造に関わるスタイル         | `_header.scss`<br>`_footer.scss`    |
+| **オブジェクト** | `object/`     | 具体的な UI 部品の集合                   | -                                   |
+| ├ コンポーネント | `component/`  | 汎用的な UI 部品                         | `_button.scss`<br>`_card.scss`      |
+| ├ プロジェクト   | `project/`    | ページ固有のセクション                   | `_hero.scss`<br>`_contact.scss`     |
+| └ ユーティリティ | `utility/`    | 汎用的なヘルパークラス                   | `_spacing.scss`<br>`_text.scss`     |
+
+## ディレクトリ構造
+
+```
+vite_scss_curriculum/
+├── 📄 index.html
+├── 📄 package.json
+├── 📄 vite.config.js
+└── 📁 src/
+    ├── 📄 main.js
+    ├── 📁 styles/
+    │   ├── 📁 setting/
+    │   │   └── _variables.scss
+    │   ├── 📁 foundation/
+    │   │   └── _base.scss
+    │   ├── 📁 layout/
+    │   │   ├── _header.scss
+    │   │   └── _footer.scss
+    │   ├── 📁 object/
+    │   │   ├── 📁 component/
+    │   │   │   ├── _button.scss
+    │   │   │   └── _card.scss
+    │   │   ├── 📁 project/
+    │   │   │   └── _hero.scss
+    │   │   └── 📁 utility/
+    │   │       └── _spacing.scss
+    │   └── 📄 style.scss
+    └── 📁 components/
+```
+
+## サンプルコード
+
+### 📝 `src/styles/setting/_variables.scss`
+
+```scss
+// カラーパレット
 $color-main: #ff6600;
-$font-base: 'Noto Sans JP', sans-serif;
+$color-sub: #0066ff;
+$color-text: #333333;
+$color-bg: #fdfdfd;
 
-src/styles/foundation/\_base.scss
+// フォント設定
+$font-base: "Noto Sans JP", sans-serif;
+$font-heading: "Montserrat", sans-serif;
 
-@use '../setting/variables' as \*;
+// ブレークポイント
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// スペーシング
+$spacing-unit: 8px;
+```
+
+### 📝 `src/styles/foundation/_base.scss`
+
+```scss
+@use "../setting/variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
 
 body {
-font-family: $font-base;
-color: $color-main;
-background: #fdfdfd;
+  font-family: $font-base;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-bg;
 }
 
-src/styles/style.scss (メインファイル)
+a {
+  text-decoration: none;
+  color: inherit;
 
-// 1. 設定ファイルの読み込み（全体で利用）
-@use 'setting/variables' as \*;
+  &:hover {
+    opacity: 0.7;
+  }
+}
 
-// 2. 基盤・リセット CSS の読み込み
-@use 'foundation/base';
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+```
 
-// 3. レイアウト、オブジェクトの読み込みを続ける
+### 📝 `src/styles/style.scss` (メインファイル)
+
+```scss
+// ========================================
+// 1. 設定ファイルの読み込み
+// ========================================
+@use "setting/variables" as *;
+
+// ========================================
+// 2. 基盤スタイルの読み込み
+// ========================================
+@use "foundation/base";
+
+// ========================================
+// 3. レイアウトの読み込み
+// ========================================
 // @use 'layout/header';
+// @use 'layout/footer';
+// @use 'layout/sidebar';
+
+// ========================================
+// 4. オブジェクトの読み込み
+// ========================================
+// Component
 // @use 'object/component/button';
-// ...
+// @use 'object/component/card';
+// @use 'object/component/modal';
 
-5. JS で SCSS を読み込む
+// Project
+// @use 'object/project/hero';
+// @use 'object/project/contact';
 
-// src/main.js
-import './styles/style.scss';
+// Utility
+// @use 'object/utility/spacing';
+// @use 'object/utility/text';
+```
 
-// 他の JS 処理...
+## オプション設定
 
-6. 開発サーバー起動と確認
+### 🔧 自動インポート設定 (`vite.config.js`)
 
-npm run dev
+全 SCSS ファイルで変数を自動的に利用可能にする設定：
 
-ブラウザで http://localhost:5173 を開き、スタイルが反映されていれば完了です。
-
-⚙️ オプション設定 (自動インポート)
-全ての SCSS ファイルで特定のファイル（例：変数ファイル）を自動的にインポートしたい場合は、vite.config.js に以下を追加します。
-
-vite.config.js
-
-import { defineConfig } from 'vite';
+```javascript
+import { defineConfig } from "vite";
 
 export default defineConfig({
-css: {
-preprocessorOptions: {
-scss: {
-// 全 SCSS ファイルで変数が使えるようになる
-additionalData: `@use "src/styles/setting/_variables.scss" as *;`
-}
-}
-}
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 全SCSSファイルで変数が自動的に利用可能に
+        additionalData: `@use "src/styles/setting/_variables.scss" as *;`,
+      },
+    },
+  },
 });
+```
 
-📁 全体構成サンプル
-プロジェクトのルートフォルダ名が vite_scss_curriculum になります。
+### 🔧 パスエイリアス設定（オプション）
 
-vite_scss_curriculum/
-├─ index.html
-├─ package.json
-├─ vite.config.js
-└─ src/
-   ├─ main.js
-   ├─ styles/
-   │  ├─ setting/
-   │  │  └─ \_variables.scss
-   │  ├─ foundation/
-   │  │  └─ \_base.scss
-   │  ├─ layout/
-   │  ├─ object/
-   │  │  ├─ component/
-   │  │  ├─ project/
-   │  │  └─ utility/
-   │  └─ style.scss
-   └─ components/  // (例: フレームワーク依存のコンポーネントフォルダ)
+インポートパスを簡潔にする設定：
+
+```javascript
+import { defineConfig } from "vite";
+import { resolve } from "path";
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+      "@styles": resolve(__dirname, "src/styles"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@styles/setting/_variables.scss" as *;`,
+      },
+    },
+  },
+});
+```
+
+## 🎯 ベストプラクティス
+
+### 命名規則
+
+- **BEM 記法**を推奨
+
+  ```scss
+  .block {
+  }
+  .block__element {
+  }
+  .block--modifier {
+  }
+  ```
+
+- **プレフィックス**の活用
+  ```scss
+  .l-header {
+  } // Layout
+  .c-button {
+  } // Component
+  .p-hero {
+  } // Project
+  .u-mt-20 {
+  } // Utility
+  ```
+
+### ファイル分割の目安
+
+- 1 ファイル = 1 コンポーネント/1 セクション
+- 200 行を超えたら分割を検討
+- 関連性の高いスタイルは同じファイルに
+
+### パフォーマンス最適化
+
+- 不要なネストを避ける（3 階層まで）
+- `@extend`より`@mixin`を推奨
+- 使用しないスタイルはコメントアウトではなく削除
+
+## 📚 参考資料
+
+- [Vite 公式ドキュメント](https://vitejs.dev/)
+- [Sass 公式ドキュメント](https://sass-lang.com/)
+- [FROCSS 設計について](https://github.com/hiloki/flocss)
+
+## 📄 ライセンス
+
+MIT
+
+---
+
+**Created with ❤️ using Vite + SCSS**
